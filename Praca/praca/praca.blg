@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: praca.aux
+The style file: plainurl.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: literatura.bib
+Warning--entry type for "Lidar" isn't style-file defined
+--line 40 of file literatura.bib
+Warning--entry type for "SAE" isn't style-file defined
+--line 45 of file literatura.bib
+Warning--to sort, need author or key in Lidar
+Warning--to sort, need author or key in SAE
+Warning--to sort, need author or key in PerlinNoise
+Warning--to sort, need author or key in UnityMlAgentsRepository
+Warning--empty journal in UnityMlAgents
+You've used 7 entries,
+            2882 wiz_defined-function locations,
+            660 strings with 6137 characters,
+and the built_in function-call counts, 2462 in all, are:
+= -- 247
+> -- 53
+< -- 1
++ -- 19
+- -- 12
+* -- 107
+:= -- 305
+add.period$ -- 20
+call.type$ -- 7
+change.case$ -- 24
+chr.to.int$ -- 0
+cite$ -- 12
+duplicate$ -- 82
+empty$ -- 291
+format.name$ -- 12
+if$ -- 701
+int.to.chr$ -- 0
+int.to.str$ -- 7
+missing$ -- 3
+newline$ -- 37
+num.names$ -- 6
+pop$ -- 81
+preamble$ -- 1
+purify$ -- 17
+quote$ -- 0
+skip$ -- 217
+stack$ -- 0
+substring$ -- 63
+swap$ -- 19
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 28
+warning$ -- 5
+while$ -- 8
+width$ -- 8
+write$ -- 68
+(There were 7 warnings)

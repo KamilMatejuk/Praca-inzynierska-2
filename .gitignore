@@ -1,0 +1,14 @@
+.vscode/
+Logs/
+Packages/
+UserSettings/
+Assembly-CSharp*
+TestProject.sln
+**/*.pt
+results/envs/training-*_Data/resources.assets.resS
+results/
+Assets/ML-Agents/
+Temp/
+obj/
+ProjectSettings/
+Library/

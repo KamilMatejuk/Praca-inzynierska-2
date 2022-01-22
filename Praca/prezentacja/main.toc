@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Wprowadzenie}{2}{0}{1}
+\beamer@sectionintoc {2}{Stworzenie gry}{4}{0}{2}
+\beamer@sectionintoc {3}{Stworzenie bota}{9}{0}{3}
+\beamer@sectionintoc {4}{Podsumowanie}{15}{0}{4}

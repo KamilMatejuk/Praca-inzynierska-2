@@ -1,0 +1,101 @@
+\documentclass{beamer}
+\mode<presentation>
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{items}[default]
+\setbeamercovered{dynamic}
+\setlength{\unitlength}{1cm}
+\setbeamertemplate{footline}[frame number]
+
+\usepackage{setspace}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{pgf,pgfarrows}
+\usepackage[utf8]{inputenc}
+% \usepackage[polish]{babel}
+\usepackage{polski}
+\usepackage{graphics}
+\usepackage{tikz}
+\usepackage[ruled]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{scalefnt}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{float}
+\usepackage{wrapfig}
+
+\usetikzlibrary{arrows,automata,snakes}
+\usetheme{Frankfurt}
+\usecolortheme{seahorse} %crane
+\useinnertheme{circles}
+
+
+\newtheorem*{lemat}{Lemat}
+\newtheorem{twierdzenie}{Twierdzenie}
+\newcommand{\myitem}{\item[$\vartriangleright$]}
+\newcommand{\nota}[1]{{\color{gray} \emph{#1}}}
+\newcommand{\HarmonicN}[1]{H_{#1}}
+\newcommand{\BALL}[2]{\mathbf{B}(#1,#2)}
+\newcommand{\DISC}[2]{\mathbf{D}(#1,#2)}
+\newcommand{\SPHERE}[2]{\mathbf{S}(#1,#2)}
+\newcommand{\BigO}[1]{\mathcal{O}\left(#1\right)}
+\newcommand{\BigTh}[1]{\Theta\left(#1\right)}
+\newcommand{\slfrac}[2]{\left.#1\middle/#2\right.}
+\newcommand{\PR}[1]{\mathrm{Pr}\left[#1\right]}
+\newcommand{\E}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\var}[1]{\mathbb{V}\mathrm{ar}\left[#1\right]}
+\newcolumntype{C}{>{\centering\arraybackslash}p{0.5cm}}
+\newcolumntype{Y}{>{\columncolor{blue!5}}C}
+
+%\pgfpagesuselayout{4 on 1 with notes}[a4paper,border shrink=3mm]
+
+
+\title{Bot do komputerowej gry wyścigowej}
+
+\author{
+	\textbf{Kamil Matejuk}
+	\newline \newline
+	Praca napisana pod kierunkiem \newline \textbf{dra Marcina Michalskiego}
+}
+
+\date{Styczeń 2022, Wrocław}
+
+
+\begin{document}
+
+\begin{frame}[plain]{}
+	\titlepage
+\end{frame}
+
+
+\section{Wprowadzenie}
+\input{slajdy/1.tex}
+\input{slajdy/2.tex}
+
+\section{Stworzenie gry}
+\input{slajdy/3.tex}
+\input{slajdy/4.tex}
+\input{slajdy/5.tex}
+\input{slajdy/6.tex}
+\input{slajdy/7.tex}
+
+\section{Stworzenie bota}
+\input{slajdy/8.tex}
+\input{slajdy/9.tex}
+\input{slajdy/10.tex}
+\input{slajdy/11.tex}
+\input{slajdy/12.tex}
+\input{slajdy/13.tex}
+
+\section{Podsumowanie}
+\input{slajdy/14.tex}
+\input{slajdy/15.tex}
+
+\begin{frame}{}
+	\begin{center}
+		\large{Dziękuję za uwagę.}
+	\end{center}
+\end{frame}
+
+\end{document} 

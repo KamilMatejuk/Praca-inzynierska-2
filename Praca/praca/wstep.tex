@@ -1,0 +1,11 @@
+%Korekta ALD - nienumerowany wstęp
+%\chapter{Wstęp}
+\addcontentsline{toc}{chapter}{Wstęp}
+\chapter*{Wstęp}
+W obecnych czasach obserwujemy coraz bardziej dynamiczny rozwój branży pojazdów wyposażonych w sterowanie autonomiczne. Autonomia pojazdu określana jest w skali pięciostopniowej, gdzie stopień 0 oznacza brak autonomii, a stopień 5 - pełną automatyzację kierowania pojazdem \cite{SAE}. Aktualnie, jako ludzkość, jesteśmy w stanie osiągnąć autonomię poziomu 2, co oznacza, że kierowca musi nieustannie czuwać nad decyzjami samochodu, a software ma prawo nie rozumieć skrzyżowań bez sygnalizacji świetlnej czy pojazdów uprzywilejowanych.
+
+Oprogramowanie takich pojazdów często testowane jest w symulowanym i bezpiecznym środowisku, które jednak twórcy samochodów starają się jak najbardziej upodabniać do świata realnego. Pojazdy te wykorzystują m.in. sensory lidar\cite{Lidar} oraz kamery jako główne źródło informacji. Następnie na podstawie tych danych i z wykorzystaniem algorytmów uczenia maszynowego poddawane są treningowi.
+
+W poniższej pracy zostało zasymulowane środowisko naturalne oraz pojazd, wraz z zachowanymi w znacznym stopniu prawami fizyki oraz sposobem sterowania. Metody obserwacji otoczenia inspirowane były metodami wykorzystywanymi w rzeczywistości. Pojazd został wytrenowany do poruszania się po torze w różnych środowiskach.
+
+W pierwszym rozdziale przedstawiony został proces tworzenia gry jako proceduralnego środowiska do testów. Kolejny rozdział zawiera informacje o wyborze optymalnych parametrów ze względu na rozmiar sieci, czas uczenia oraz inferencji. Finalnie przedstawiony został proces trenowania bota.

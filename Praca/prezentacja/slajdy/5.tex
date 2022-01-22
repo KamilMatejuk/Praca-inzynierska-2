@@ -1,0 +1,18 @@
+\begin{frame}{Teren}
+
+	\algrenewcommand\algorithmicrequire{\underline{\textsc{height(x, y)}}}
+	\texttt{
+	\begin{algorithmic}[1]
+		\Require
+		\Statex x $\gets$ (x + offset) * scale
+		\Statex y $\gets$ (y + offset) * scale
+		\Statex r1 $\gets$ detailsMain * Mathf.PerlinNoise(x/2, y/2)
+		\Statex r2 $\gets$ detailsMinor * Mathf.PerlinNoise(x, z)
+		\Statex r3 $\gets$ detailsTiny * Mathf.PerlinNoise(x*2, z*2)
+		\Statex \Return r1 + r2 + r3
+	\end{algorithmic}}
+
+	\vspace{1cm}
+	\includegraphics[width=\linewidth]{figures/terrain_creation_2_2.png}
+
+\end{frame}

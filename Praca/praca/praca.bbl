@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{Lidar}
+Lidar.
+\newblock URL: \url{https://pl.wikipedia.org/wiki/Lidar}.
+
+\bibitem{PerlinNoise}
+Perlin noise.
+\newblock URL:
+  \url{https://docs.unity3d.com/ScriptReference/Mathf.PerlinNoise.html}.
+
+\bibitem{SAE}
+Poziomy autonomii pojazdów sae.
+\newblock URL: \url{https://www.sae.org/blog/sae-j3016-update}.
+
+\bibitem{UnityMlAgentsRepository}
+Unity ml-agents repository.
+\newblock URL: \url{https://github.com/Unity-Technologies/ml-agents/}.
+
+\bibitem{ImprovedPointProjectionBezier}
+Xiao-Diao Chen et~al.
+\newblock Improved algebraic algorithm on point projection for bézier curves.
+\newblock {\em Proceedings of the Second International Multi-Symposiums on
+  Computer and Computational Sciences}, pages 158--163, 2007.
+\newblock URL:
+  \url{https://hal.inria.fr/file/index/docid/518379/filename/Xiao-DiaoChen2007c.pdf},
+  \href {https://doi.org/10.1109/IMSCCS.2007.17}
+  {\path{doi:10.1109/IMSCCS.2007.17}}.
+
+\bibitem{UnityMlAgents}
+Arthur Juliani et~al.
+\newblock Unity: A general platform for intelligent agents.
+\newblock 2020.
+\newblock URL: \url{https://arxiv.org/pdf/1809.02627v2.pdf}.
+
+\bibitem{CompareDrlAlgorithms}
+Thomas~Nakken Larsen et~al.
+\newblock Comparing deep reinforcement learning algorithms’ ability to safely
+  navigate challenging waters.
+\newblock {\em FrontRobotAI}, 2021.
+\newblock URL: \url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8473616/},
+  \href {https://doi.org/10.3389/frobt.2021.738113}
+  {\path{doi:10.3389/frobt.2021.738113}}.
+
+\end{thebibliography}
