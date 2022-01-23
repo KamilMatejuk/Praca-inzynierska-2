@@ -15,7 +15,7 @@ public class TerrainGenData : UpdatableData {
     [Range(0, 40)]          public int numberOfCheckpoints = 40;
     [Range(0f, 1f)]         public float terrainDetailsMain = 0.3f;
     [Range(0f, 0.15f)]      public float terrainDetailsMinor = 0.05f;
-    [Range(0f, 0.1f)]       public float terrainDetailsTiny = 0.05f;
+    [Range(0f, 0.1f)]       public float terrainDetailsTiny = 0f;
     [Range(0.5f, 5f)]       public float terrainScaleMain = 1.5f;
     [Range(0.1f, 10f)]      public float terrainScaleMinor = 5f;
     [Range(0.1f, 10f)]      public float terrainScaleTiny = 5f;

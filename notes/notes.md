@@ -17,7 +17,6 @@
 * wytrenować bota
 
 
-* sprawdzić dlaczego zapisywanie terenu tyle trwa?
 * załądowanie modelu w prefabie
 * dodać krawędzie widoczne / trawę / głazy i zrobić żeby pojazd się od nich odbijał
 * podopisywać dokumentacje do metod, poprawić instniejącą

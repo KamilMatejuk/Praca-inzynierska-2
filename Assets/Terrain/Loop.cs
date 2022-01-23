@@ -225,10 +225,10 @@ public class Loop {
         for (int i = 0; i < NumberOfSegments; i++) {
             List<OrientedPoint> bezierPoints = GetSegmentBezierPoints(i);
             OrientedPoint closestPointAndDistancePerSegment = Bezier.GetNearestBezierPoint(bezierPoints[0].position,
-                                                                              bezierPoints[1].position,
-                                                                              bezierPoints[2].position,
-                                                                              bezierPoints[3].position,
-                                                                              target);
+                                                                                           bezierPoints[1].position,
+                                                                                           bezierPoints[2].position,
+                                                                                           bezierPoints[3].position,
+                                                                                           target);
             if (closestPointAndDistancePerSegment.other < closestPointAndDistance.other) {
                 closestPointAndDistance = closestPointAndDistancePerSegment;
             }

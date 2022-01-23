@@ -73,16 +73,20 @@ public class CreateLevelMenu : MonoBehaviour {
 
     public void Save() {
         panelGO.SetActive(true);
-        loadingGO.SetActive(true);
         if (filename == null || filename.Length == 0) {
             int seconds = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
             filename = "terrain-" + seconds;
         }
+        terrainGO.GetComponent<TerrainGenerator>().filename = filename;
+        StartCoroutine(terrainGO.GetComponent<TerrainGenerator>().GenerateTerrainTextures(SaveCallbackUpdateTime, SaveCallbackEnd));
     }
 
-    public void ConfirmSave() {
-        terrainGO.GetComponent<TerrainGenerator>().filename = filename;
-        StartCoroutine(terrainGO.GetComponent<TerrainGenerator>().GenerateTerrainTextures(terrainGO.GetComponent<TerrainGenerator>().Save));
+    public void SaveCallbackUpdateTime(int percentage) {
+        loadingGO.GetComponent<TMPro.TMP_Text>().text = $"Saving ...\n({percentage}%)";
+    }
+
+    public void SaveCallbackEnd() {
+        terrainGO.GetComponent<TerrainGenerator>().Save();
         Back();
     }
 

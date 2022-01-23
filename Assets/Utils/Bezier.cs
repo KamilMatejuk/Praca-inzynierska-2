@@ -142,7 +142,7 @@ public static class Bezier {
                 }
             }
         }
-        float foundT = bisection(0, 1, 10e-5f, 10e-5f, 15);
+        float foundT = bisection(0, 1, 10e-5f, 10e-5f, 10);
         OrientedPoint closestPoint = Bezier.GetBezierOrientedPoint(bezierA, bezierB, bezierC, bezierD, foundT);
         Vector2 p = new Vector2(closestPoint.position.x, closestPoint.position.z);
         return new OrientedPoint(closestPoint.position, closestPoint.rotation, Vector2.Distance(tar, p));

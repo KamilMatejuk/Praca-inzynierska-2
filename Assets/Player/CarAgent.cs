@@ -9,6 +9,9 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class CarAgent : Agent {
 
+    [SerializeField] public bool showGizmos = false;
+    [SerializeField] public bool playMode = false;
+    
     private TerrainLoader terrainLoader;
     private GameObject terrainGO;
     private int numberOfAllCheckpoints = 0;
@@ -22,12 +25,6 @@ public class CarAgent : Agent {
     private float prevSidewaysValue;
     private StatsRecorder statsRecorder;
     private Vector3 lastPosition;
-
-    [SerializeField]
-    public bool showGizmos = false;
-
-    [SerializeField]
-    public bool playMode = false;
 
     void Start() {
         string timeString = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");

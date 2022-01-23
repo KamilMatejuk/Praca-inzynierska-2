@@ -107,6 +107,7 @@ public class TerrainLoader : MonoBehaviour {
         if (filename.Length == 0) {
             Debug.Log("Couldn't load terrain, no filename given");
         } else {
+            Debug.Log($"Loading {filename} in playmode: {_playMode}");
             LoadData(filename);
             LoadObjects(filename);
         }
@@ -188,6 +189,7 @@ public class TerrainLoader : MonoBehaviour {
                 }
             }
         }
+        terrainData.alphamapResolution = Variables.TERRAIN_SIZE * 4;
         terrainData.SetAlphamaps(0, 0, splatmapData);
 
         // terrain trees

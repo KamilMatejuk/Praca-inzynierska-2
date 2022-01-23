@@ -20,11 +20,11 @@ public class TerrainGenerator : MonoBehaviour {
     [SerializeField] public string filename;
 
     void OnValidate() {
-		if (terrainGenData != null && generateOnChanges) {
-			TerrainGenData.OnValuesUpdated -= GenerateTerrain;
-			TerrainGenData.OnValuesUpdated += GenerateTerrain;
-		}
-	}
+        if (terrainGenData != null && generateOnChanges) {
+            TerrainGenData.OnValuesUpdated -= GenerateTerrain;
+            TerrainGenData.OnValuesUpdated += GenerateTerrain;
+        }
+    }
 
     public void ShowRoadBezier() {
         if (showRoadBezier) {
@@ -48,7 +48,7 @@ public class TerrainGenerator : MonoBehaviour {
             }
         }
     }
-    
+
     public void GenerateTerrain() {
         UnityEngine.Random.InitState(seed);
         GenerateLoop();
@@ -102,54 +102,58 @@ public class TerrainGenerator : MonoBehaviour {
     /// <summary>
     /// Add textures and objects to terrain based on terrain type
     /// </summary>
-    public IEnumerator GenerateTerrainTextures(System.Action callback = null) {
+    public IEnumerator GenerateTerrainTextures(System.Action<int> callbackUpdateTime = null, System.Action callbackEnd = null) {
         UnityEngine.Random.InitState(seed);
         GetComponent<Terrain>().terrainData.terrainLayers = LoadTerrainLayers(terrainGenData.terrainType);
 
+        GetComponent<Terrain>().terrainData.alphamapResolution = Variables.TERRAIN_SIZE * 4;
         int alphaMapWidth = GetComponent<Terrain>().terrainData.alphamapWidth;
         int alphaMapHeight = GetComponent<Terrain>().terrainData.alphamapHeight;
         int alphaMapLayers = GetComponent<Terrain>().terrainData.alphamapLayers;
         float[,,] splatmapData = new float[alphaMapWidth, alphaMapHeight, GetComponent<Terrain>().terrainData.alphamapLayers];
-        for (int xi = 0; xi < alphaMapWidth; xi++) {
-            for (int zi = 0; zi < alphaMapHeight; zi++) {
-                float x = (float)Variables.TERRAIN_SIZE * xi / alphaMapWidth;
-                float z = (float)Variables.TERRAIN_SIZE * zi / alphaMapHeight;
 
-                Vector3 p = new Vector3(x, 0, z);
+        void SubdividedData(int startX, int startZ, int size) {
+            float x = (float)Variables.TERRAIN_SIZE * (startX + 0.5f * size) / alphaMapWidth;
+            float z = (float)Variables.TERRAIN_SIZE * (startZ + 0.5f * size) / alphaMapHeight;
+            Vector3 p = new Vector3(x, 0, z);
+            float distance = controlPoints.GetNearestBezierPoint(p).other;
+            if (size == 1 || distance > 6f * (float)Variables.TERRAIN_SIZE * size / alphaMapWidth) {
                 float normalizedX = (float)x / (float)Variables.TERRAIN_SIZE;
                 float normalizedZ = (float)z / (float)Variables.TERRAIN_SIZE;
                 float height = controlPoints.GetHeight(x, z);
                 Vector3 normal = GetComponent<Terrain>().terrainData.GetInterpolatedNormal(normalizedZ, normalizedX);
                 float steepness = GetComponent<Terrain>().terrainData.GetSteepness(normalizedZ, normalizedX);
-                float distanceToRoad = controlPoints.GetNearestBezierPoint(p).other;
-
-                float[] weights = SelectLayersAlpha(terrainGenData.terrainType, height, normal, steepness, distanceToRoad);
+                float[] weights = SelectLayersAlpha(terrainGenData.terrainType, height, normal, steepness, distance);
                 for (int i = 0; i < Mathf.Min(alphaMapLayers, weights.Length); i++) {
-                    splatmapData[zi, xi, i] = weights[i];
+                    for (int xi = 0; xi < size; xi++) {
+                        for (int zi = 0; zi < size; zi++) {
+                            splatmapData[startZ + zi, startX + xi, i] = weights[i];
+                        }
+                    }
                 }
-
-                // float[] splatWeights = new float[terrain.terrainData.alphamapLayers];
-                // Texture[0] has constant influence
-                // splatWeights[0] = 0.5f;
-                // // Texture[1] is stronger at lower altitudes
-                // splatWeights[1] = Mathf.Clamp01((terrain.terrainData.size.y - height));
-                // // Texture[2] stronger on flatter terrain
-                // // Note "steepness" is unbounded, so we "normalise" it by dividing by the extent of heightmap height and scale factor
-                // // Subtract result from 1.0 to give greater weighting to flat surfaces
-                // splatWeights[2] = 1.0f - Mathf.Clamp01(steepness * steepness / (terrain.terrainData.size.y / 5.0f));
-                // // Texture[3] increases with height but only on surfaces facing positive Z axis 
-                // splatWeights[3] = height * Mathf.Clamp01(normal.z);
-                // // normalize weights
-                // float z = splatWeights.Sum();
-                // for (int i = 0; i < terrain.terrainData.alphamapLayers; i++) {
-                //     splatWeights[i] /= z;
-                //     splatmapData[xi, zi, i] = splatWeights[i];
-                // }
-                // yield return null;
+            } else {
+                for (int xi = 0; xi < 2; xi++) {
+                    for (int zi = 0; zi < 2; zi++) {
+                        SubdividedData(startX + (size * xi / 2), startZ + (size * zi / 2), size / 2);
+                    }
+                }
             }
         }
+
+        int scalar = 64;
+        int index = 0;
+        int maxIndex = (alphaMapWidth / scalar) * (alphaMapHeight / scalar);
+        for (int xi = 0; xi < alphaMapWidth; xi += scalar) {
+            for (int zi = 0; zi < alphaMapHeight; zi += scalar) {
+                SubdividedData(xi, zi, scalar);
+                int percentage = 100 * ++index / maxIndex;
+                callbackUpdateTime?.Invoke(percentage);
+                yield return null;
+            }
+        }
+
         GetComponent<Terrain>().terrainData.SetAlphamaps(0, 0, splatmapData);
-        callback?.Invoke();
+        callbackEnd?.Invoke();
         yield return null;
     }
 
@@ -210,19 +214,19 @@ public class TerrainGenerator : MonoBehaviour {
                 terrainLayers.Add(GetTerrainLayerTexture("Grass3", 30f));
                 terrainLayers.Add(GetTerrainLayerTexture("Grass1", 10f));
                 break;
-            
+
             case TerrainType.Desert:
                 terrainLayers.Add(GetTerrainLayerTexture("Rocks3", 1f));
                 terrainLayers.Add(GetTerrainLayerColor(new Color(0.7f, 0.4f, 0f)));
                 terrainLayers.Add(GetTerrainLayerTexture("Sand1", 1f));
                 break;
-            
+
             case TerrainType.Mountains:
                 terrainLayers.Add(GetTerrainLayerTexture("Road2", 5f));
                 terrainLayers.Add(GetTerrainLayerTexture("Snow1", 5f));
                 terrainLayers.Add(GetTerrainLayerTexture("Snow3", 5f));
                 break;
-            
+
             // all textures
             default:
                 terrainLayers.Add(GetTerrainLayerColor(new Color(0f, 0f, 0f)));
@@ -259,7 +263,7 @@ public class TerrainGenerator : MonoBehaviour {
     /// <returns></returns>
     float[] SelectLayersAlpha(TerrainType terrainType, float height, Vector3 normal, float steepness, float distanceToRoad) {
         List<float> splatmapWeights = new List<float>();
-        switch (terrainType) {            
+        switch (terrainType) {
             /* ********************************************** Basic ********************************************** */
             case TerrainType.Basic:
                 if (distanceToRoad < terrainGenData.roadWidth) {
@@ -285,14 +289,13 @@ public class TerrainGenerator : MonoBehaviour {
                     splatmapWeights.Add(0f);
                     splatmapWeights.Add(0.5f);
                     splatmapWeights.Add(0.5f);
-                }
-                else {
+                } else {
                     splatmapWeights.Add(0f);
                     splatmapWeights.Add(1f);
                     splatmapWeights.Add(0f);
                 }
                 break;
-            
+
             /* ********************************************** desert ********************************************** */
             case TerrainType.Desert:
                 if (distanceToRoad < terrainGenData.roadWidth) {
@@ -309,7 +312,7 @@ public class TerrainGenerator : MonoBehaviour {
                     splatmapWeights.Add(1f);
                 }
                 break;
-            
+
             /* ********************************************** forest ********************************************** */
             case TerrainType.Forest:
                 if (distanceToRoad < terrainGenData.roadWidth) {
@@ -367,7 +370,7 @@ public class TerrainGenerator : MonoBehaviour {
     }
 
     void PutCars(int n) {
-        GameObject carPrefab = (GameObject) Resources.Load("Prefabs/SportCar");
+        GameObject carPrefab = (GameObject)Resources.Load("Prefabs/SportCar");
         Objects.RemoveObjectsByTagInParent("car", gameObject);
         cars = new List<GameObject>();
         GameObject carsGroup = Objects.PutParentObject("car", "Cars");
@@ -386,7 +389,7 @@ public class TerrainGenerator : MonoBehaviour {
     }
 
     void PutCheckpoints() {
-        GameObject checkpointPrefab = (GameObject) Resources.Load("Prefabs/StartFinish");
+        GameObject checkpointPrefab = (GameObject)Resources.Load("Prefabs/StartFinish");
         Objects.RemoveObjectsByTagInParent("checkpoint", gameObject);
         checkpoints = new List<GameObject>();
         List<OrientedPoint> ops = controlPoints.GetEquallySpacedPoints(terrainGenData.numberOfCheckpoints);
@@ -415,8 +418,8 @@ public class TerrainGenerator : MonoBehaviour {
         bordersGroup.transform.parent = transform;
         Vector3 terrainSize = GetComponent<Terrain>().terrainData.size;
         Vector3 center = Vector3.zero;
-        foreach (int xi in new int[]{-1, 0, 1}) {
-            foreach (int zi in new int[]{-1, 0, 1}) {
+        foreach (int xi in new int[] { -1, 0, 1 }) {
+            foreach (int zi in new int[] { -1, 0, 1 }) {
                 if (xi != 0 || zi != 0) {
                     if (xi == 0 || zi == 0) {
                         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);

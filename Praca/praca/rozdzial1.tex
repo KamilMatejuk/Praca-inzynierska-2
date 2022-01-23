@@ -177,6 +177,15 @@ Metoda druga jest wykonywana szybciej, dodatkowo zapewniając większą szczegó
 \end{table}
 \clearpage
 
+\subsection{Optymalizacja czasu}
+Zastosowanie wybranej metody dla każdego z $1048576$ punktów (przy rozdzielczości terenu $1024 x 1024$) trwa ponad godzinę i produkuje dużą liczbę nieużywanych informacji. Aby skrócić czas generowania terenu do minimum teren został podzielony na sekcje. Następnie, jeżeli środkowy punkt sekcji znajdował się w odległości od drogi mniejszej niż połowa przekątnej sekcji, tj. jeżeli droga przebiegała przez daną sekcję, była ona rekurencyjnie dzielona na podsekcje. Powyższe kroki powtórzono aż do otrzymania zadowalającej jakości.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/terrain_subdivision_for_road}
+    \caption{Podział terenu w celu optymalizacji ilości obliczeń}
+    \label{fig}
+\end{figure}
+
 \section{Dodanie obiektów}
 Ostatnim etapem jest dodanie obiektów, takich jak meta oraz pojazdy. Domyślnie na każdym torze znajdą się cztery pojazdy, ustawione jeden za drugim, z czego trzy sterowane przez bota, a jeden przez gracza. Dodatkowo dodawane są krawędzie, których celem jest zapobieganie spadania pojazdu poza wygenerowany teren. W celu śledzenia przebiegu trasy, w równych odstępach dodawane są punkty kontrolne.\\
 Przykładowo otrzymano poniższy efekt:
@@ -192,3 +201,4 @@ Przykładowo otrzymano poniższy efekt:
     \caption{Wygenerowane tereny}
     \label{table}
 \end{figure}
+\clearpage
