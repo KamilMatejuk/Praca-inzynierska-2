@@ -65,7 +65,7 @@ public class TerrainGenerator : MonoBehaviour {
         UnityEngine.Random.InitState(seed);
         PutStartFinish();
         PutCheckpoints();
-        PutCars(4);
+        PutCars(1);
         PutBorders();
         TerrainLoader.SaveTerrain(GetComponent<Terrain>().terrainData,
                                   terrainGenData,

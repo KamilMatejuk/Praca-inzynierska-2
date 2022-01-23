@@ -17,7 +17,7 @@
 * wytrenować bota
 
 
-* załądowanie modelu w prefabie
+* załądowanie modelu w prefabie -> !!!
 * dodać krawędzie widoczne / trawę / głazy i zrobić żeby pojazd się od nich odbijał
 * podopisywać dokumentacje do metod, poprawić instniejącą
 

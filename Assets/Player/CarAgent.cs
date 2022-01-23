@@ -63,9 +63,9 @@ public class CarAgent : Agent {
 
     public override void CollectObservations(VectorSensor sensor) {
         float[] distanceAndTangent = GetDistanceToRoadCenterAndAngleToTangent();
-        sensor.AddObservation(distanceAndTangent[0]); // distance to center of road
-        sensor.AddObservation(CrossPlatformInputManager.GetAxis("Vertical")); // axes forward
-        sensor.AddObservation(CrossPlatformInputManager.GetAxis("Horizontal")); // axes sideways
+        // sensor.AddObservation(distanceAndTangent[0]); // distance to center of road
+        // sensor.AddObservation(CrossPlatformInputManager.GetAxis("Vertical")); // axes forward
+        // sensor.AddObservation(CrossPlatformInputManager.GetAxis("Horizontal")); // axes sideways
         // slope
         float slopeForwardRadians = Mathf.Atan2(transform.forward.y, Mathf.Sqrt(Mathf.Pow(transform.forward.x, 2) + Mathf.Pow(transform.forward.z, 2)));
         float slopeForward = slopeForwardRadians / Mathf.PI;
@@ -155,7 +155,6 @@ public class CarAgent : Agent {
     }
 
     public override void Heuristic(in ActionBuffers actionsOut) {
-        ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
         ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
         discreteActions[0] = 1 + Mathf.RoundToInt(Input.GetAxisRaw("Vertical"));
         discreteActions[1] = 1 + Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));
@@ -214,27 +213,32 @@ public class CarAgent : Agent {
     private void ReloadCar() {
         if (startingPositionRotationSet && terrainLoader != null && terrainGO != null) {
             OrientedPoint posrot = new OrientedPoint(startingPosition, startingRotation);
-            GameObject car = Objects.PutObject("SportCar", "car", gameObject.name, posrot);
+            // GameObject car = Objects.PutObject("SportCar", "car", gameObject.name, posrot);
+            // car.transform.parent = gameObject.transform.parent;
+            // car.transform.localScale = gameObject.transform.localScale;
+            // BehaviorParameters behaviorParameters = car.AddComponent<BehaviorParameters>();
+            // behaviorParameters.BehaviorName = "in5-out1-f";
+            // behaviorParameters.BrainParameters.VectorObservationSize = 5; // number of input values
+            // behaviorParameters.BrainParameters.NumStackedVectorObservations = 1;
+            // behaviorParameters.BrainParameters.ActionSpec = new ActionSpec(0, new int[] { 3, 3 }); // continuous outputs, descrete outputs
+            // // behaviorParameters.Model = Ai.LoadModel1("Assets/Resources/brain.onnx");
+            // RayPerceptionSensorComponent3D rs = car.AddComponent<RayPerceptionSensorComponent3D>();
+            // rs.DetectableTags = new List<string>() { "car", "border", "checkpoint" };
+            // rs.RaysPerDirection = 4;
+            // rs.MaxRayDegrees = 80;
+            // rs.RayLength = terrainLoader.terrainGenData.roadWidth * 5;
+            // rs.StartVerticalOffset = 0.5f;
+            // rs.EndVerticalOffset = 0.5f;
+            // car.AddComponent<CarAgent>();
+            // car.GetComponent<CarAgent>().showGizmos = showGizmos;
+            // car.AddComponent<DecisionRequester>();
+            // Destroy(gameObject);
+
+            GameObject car = Objects.PutObject("SportCarAI", "car", gameObject.name, posrot);
             car.transform.parent = gameObject.transform.parent;
             car.transform.localScale = gameObject.transform.localScale;
-
-            BehaviorParameters behaviorParameters = car.AddComponent<BehaviorParameters>();
-            behaviorParameters.BehaviorName = "in5-out1-f";
-            behaviorParameters.BrainParameters.VectorObservationSize = 5; // number of input values
-            behaviorParameters.BrainParameters.NumStackedVectorObservations = 1;
-            behaviorParameters.BrainParameters.ActionSpec = new ActionSpec(0, new int[] { 3, 3 }); // continuous outputs, descrete outputs
-            // behaviorParameters.Model = Ai.LoadModel1("Assets/Resources/brain.onnx");
-
-            RayPerceptionSensorComponent3D rs = car.AddComponent<RayPerceptionSensorComponent3D>();
-            rs.DetectableTags = new List<string>() { "car", "border", "checkpoint" };
-            rs.RaysPerDirection = 4;
-            rs.MaxRayDegrees = 80;
-            rs.RayLength = terrainLoader.terrainGenData.roadWidth * 5;
-            rs.StartVerticalOffset = 0.5f;
-            rs.EndVerticalOffset = 0.5f;
-            car.AddComponent<CarAgent>();
             car.GetComponent<CarAgent>().showGizmos = showGizmos;
-            car.AddComponent<DecisionRequester>();
+            car.GetComponent<CarAgent>().playMode = playMode;
             Destroy(gameObject);
         }
     }

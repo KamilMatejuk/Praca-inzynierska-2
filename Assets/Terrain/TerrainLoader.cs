@@ -365,42 +365,54 @@ public class TerrainLoader : MonoBehaviour {
         Objects.RemoveObjectsByTagInParent("car", terrainGO);
         GameObject carsParent = Objects.PutParentObject("car", "Cars");
         carsParent.transform.parent = terrainGO.transform;
+        // for (int i = 0; i < int.Parse(numberOfCars); i++) {
+        //     posrot = Parser.OrientedPointParse(carsString[tempIndex]);
+        //     GameObject car = Objects.PutObject("SportCar", "car", "Car " + (i + 1), posrot, carSize);
+        //     car.transform.parent = carsParent.transform;
+        //     car.transform.position += terrainGO.transform.position + new Vector3(Variables.TERRAIN_SIZE / 2, 5, Variables.TERRAIN_SIZE / 2);
+        //     car.transform.position -= posrot.rotation * Vector3.forward * 5;
+        //     // behaviour parameters
+        //     BehaviorParameters behaviorParameters = car.AddComponent<BehaviorParameters>();
+        //     string name = "in5-out1-f";
+        //     behaviorParameters.BehaviorName = name;
+        //     behaviorParameters.BrainParameters.VectorObservationSize = 5; // number of input values
+        //     behaviorParameters.BrainParameters.NumStackedVectorObservations = 1;
+        //     behaviorParameters.BrainParameters.ActionSpec = new ActionSpec(0, new int[] { 3, 3 }); // continuous outputs, descrete outputs
+        //     // behaviorParameters.Model = Ai.LoadModel1("Assets/Resources/brain.onnx");
+        //     // behaviorParameters.BehaviorType = BehaviorType.InferenceOnly;
+        //     if (playMode && i == int.Parse(numberOfCars) - 1) {
+        //         // first car is playable
+        //         GameObject cameraGO = Objects.GetChildWithName(car, "Play Camera");
+        //         Camera camera = cameraGO.GetComponent<Camera>();
+        //         camera.enabled = true;
+        //         behaviorParameters.BehaviorType = BehaviorType.HeuristicOnly;
+        //     } else {
+        //         RayPerceptionSensorComponent3D rs = car.AddComponent<RayPerceptionSensorComponent3D>();
+        //         rs.DetectableTags = new List<string>() { "car", "border", "checkpoint" };
+        //         rs.RaysPerDirection = 4;
+        //         rs.MaxRayDegrees = 80;
+        //         if (terrainGenData != null) {
+        //             rs.RayLength = terrainGenData.roadWidth * 5;
+        //         }
+        //         rs.StartVerticalOffset = 0.5f;
+        //         rs.EndVerticalOffset = 0.5f;
+        //     }
+
+        //     car.AddComponent<CarAgent>();
+        //     car.GetComponent<CarAgent>().showGizmos = showGizmos;
+        //     car.AddComponent<DecisionRequester>();
+        //     cars.Add(car);
+        //     tempIndex++;
+        // }
+
         for (int i = 0; i < int.Parse(numberOfCars); i++) {
             posrot = Parser.OrientedPointParse(carsString[tempIndex]);
-            GameObject car = Objects.PutObject("SportCar", "car", "Car " + (i + 1), posrot, carSize);
+            GameObject car = Objects.PutObject("SportCarAI", "car", "Car " + (i + 1), posrot, carSize);
             car.transform.parent = carsParent.transform;
             car.transform.position += terrainGO.transform.position + new Vector3(Variables.TERRAIN_SIZE / 2, 5, Variables.TERRAIN_SIZE / 2);
             car.transform.position -= posrot.rotation * Vector3.forward * 5;
-            // behaviour parameters
-            BehaviorParameters behaviorParameters = car.AddComponent<BehaviorParameters>();
-            string name = "in5-out1-f";
-            behaviorParameters.BehaviorName = name;
-            behaviorParameters.BrainParameters.VectorObservationSize = 5; // number of input values
-            behaviorParameters.BrainParameters.NumStackedVectorObservations = 1;
-            behaviorParameters.BrainParameters.ActionSpec = new ActionSpec(0, new int[] { 3, 3 }); // continuous outputs, descrete outputs
-            // behaviorParameters.Model = Ai.LoadModel1("Assets/Resources/brain.onnx");
-            // behaviorParameters.BehaviorType = BehaviorType.InferenceOnly;
-            if (playMode && i == int.Parse(numberOfCars) - 1) {
-                // first car is playable
-                GameObject cameraGO = Objects.GetChildWithName(car, "Play Camera");
-                Camera camera = cameraGO.GetComponent<Camera>();
-                camera.enabled = true;
-                behaviorParameters.BehaviorType = BehaviorType.HeuristicOnly;
-            } else {
-                RayPerceptionSensorComponent3D rs = car.AddComponent<RayPerceptionSensorComponent3D>();
-                rs.DetectableTags = new List<string>() { "car", "border", "checkpoint" };
-                rs.RaysPerDirection = 4;
-                rs.MaxRayDegrees = 80;
-                if (terrainGenData != null) {
-                    rs.RayLength = terrainGenData.roadWidth * 5;
-                }
-                rs.StartVerticalOffset = 0.5f;
-                rs.EndVerticalOffset = 0.5f;
-            }
-
-            car.AddComponent<CarAgent>();
             car.GetComponent<CarAgent>().showGizmos = showGizmos;
-            car.AddComponent<DecisionRequester>();
+            car.GetComponent<CarAgent>().playMode = playMode;
             cars.Add(car);
             tempIndex++;
         }
