@@ -1,10 +1,8 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
-using Unity.MLAgents.Policies;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class CarAgent : Agent {
@@ -15,7 +13,6 @@ public class CarAgent : Agent {
     private TerrainLoader terrainLoader;
     private GameObject terrainGO;
     private int numberOfAllCheckpoints = 0;
-    private int numberOfStartingCheckpoint = 0;
     private int numberOfCheckpointsAlreadyHitInThisEpisode;
     private bool startingPositionRotationSet = false;
     private Vector3 startingPosition;
@@ -25,6 +22,7 @@ public class CarAgent : Agent {
     private float prevSidewaysValue;
     private StatsRecorder statsRecorder;
     private Vector3 lastPosition;
+    private int startingNumberOfCars = 1;
 
     void Start() {
         string timeString = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
@@ -34,16 +32,7 @@ public class CarAgent : Agent {
         terrainLoader = terrain.GetComponent<TerrainLoader>();
         statsRecorder = Academy.Instance.StatsRecorder;
         numberOfAllCheckpoints = terrainLoader.checkpoints.Count;
-        float nearsetCheckpointDistance = float.PositiveInfinity;
-        foreach (GameObject c in terrainLoader.checkpoints) {
-            float d = Vector3.Distance(transform.position, c.transform.position);
-            if (d < nearsetCheckpointDistance) {
-                nearsetCheckpointDistance = d;
-                numberOfStartingCheckpoint = int.Parse(c.name.Split(' ')[1]) - numberOfAllCheckpoints;
-            }
-        }
-        // SetModel("in5-out1-f", Ai.LoadModel1("Assets/Resources/brain2.onnx"));
-        // SetModel("in5-out1-f", Ai.LoadModel2("Assets/Resources/brain2.onnx"));
+        // startingNumberOfCars = GameObject.FindGameObjectsWithTag("car").Length;
     }
 
     public override void OnEpisodeBegin() {
@@ -63,9 +52,9 @@ public class CarAgent : Agent {
 
     public override void CollectObservations(VectorSensor sensor) {
         float[] distanceAndTangent = GetDistanceToRoadCenterAndAngleToTangent();
-        // sensor.AddObservation(distanceAndTangent[0]); // distance to center of road
-        // sensor.AddObservation(CrossPlatformInputManager.GetAxis("Vertical")); // axes forward
-        // sensor.AddObservation(CrossPlatformInputManager.GetAxis("Horizontal")); // axes sideways
+        sensor.AddObservation(distanceAndTangent[0]); // distance to center of road
+        sensor.AddObservation(CrossPlatformInputManager.GetAxis("Vertical")); // axes forward
+        sensor.AddObservation(CrossPlatformInputManager.GetAxis("Horizontal")); // axes sideways
         // slope
         float slopeForwardRadians = Mathf.Atan2(transform.forward.y, Mathf.Sqrt(Mathf.Pow(transform.forward.x, 2) + Mathf.Pow(transform.forward.z, 2)));
         float slopeForward = slopeForwardRadians / Mathf.PI;
@@ -137,6 +126,7 @@ public class CarAgent : Agent {
         } else if (other.name.Contains("Border") || other.name.Contains("BorderRoad")) {
             Debug.Log("Hit border");
             AddReward(-0.1f);
+            Debug.Log("end episode border");
             goto endEpisode;
         } else if (other.name != "Loaded Terrain") {
             Debug.Log("Hit something other: " + other.name);
@@ -212,34 +202,19 @@ public class CarAgent : Agent {
 
     private void ReloadCar() {
         if (startingPositionRotationSet && terrainLoader != null && terrainGO != null) {
-            OrientedPoint posrot = new OrientedPoint(startingPosition, startingRotation);
-            // GameObject car = Objects.PutObject("SportCar", "car", gameObject.name, posrot);
-            // car.transform.parent = gameObject.transform.parent;
-            // car.transform.localScale = gameObject.transform.localScale;
-            // BehaviorParameters behaviorParameters = car.AddComponent<BehaviorParameters>();
-            // behaviorParameters.BehaviorName = "in5-out1-f";
-            // behaviorParameters.BrainParameters.VectorObservationSize = 5; // number of input values
-            // behaviorParameters.BrainParameters.NumStackedVectorObservations = 1;
-            // behaviorParameters.BrainParameters.ActionSpec = new ActionSpec(0, new int[] { 3, 3 }); // continuous outputs, descrete outputs
-            // // behaviorParameters.Model = Ai.LoadModel1("Assets/Resources/brain.onnx");
-            // RayPerceptionSensorComponent3D rs = car.AddComponent<RayPerceptionSensorComponent3D>();
-            // rs.DetectableTags = new List<string>() { "car", "border", "checkpoint" };
-            // rs.RaysPerDirection = 4;
-            // rs.MaxRayDegrees = 80;
-            // rs.RayLength = terrainLoader.terrainGenData.roadWidth * 5;
-            // rs.StartVerticalOffset = 0.5f;
-            // rs.EndVerticalOffset = 0.5f;
-            // car.AddComponent<CarAgent>();
-            // car.GetComponent<CarAgent>().showGizmos = showGizmos;
-            // car.AddComponent<DecisionRequester>();
-            // Destroy(gameObject);
-
-            GameObject car = Objects.PutObject("SportCarAI", "car", gameObject.name, posrot);
-            car.transform.parent = gameObject.transform.parent;
-            car.transform.localScale = gameObject.transform.localScale;
-            car.GetComponent<CarAgent>().showGizmos = showGizmos;
-            car.GetComponent<CarAgent>().playMode = playMode;
-            Destroy(gameObject);
+            transform.position = startingPosition;
+            transform.rotation = startingRotation;
+            // int numberOfCars = GameObject.FindGameObjectsWithTag("car").Length;
+            // if (numberOfCars == 1 || numberOfCars == startingNumberOfCars) {
+            //     OrientedPoint posrot = new OrientedPoint(startingPosition, startingRotation);
+            //     GameObject car = Objects.PutObject("SportCarAI", "car", gameObject.name, posrot);
+            //     car.transform.parent = gameObject.transform.parent;
+            //     car.transform.localScale = gameObject.transform.localScale;
+            //     car.GetComponent<CarAgent>().showGizmos = showGizmos;
+            //     car.GetComponent<CarAgent>().playMode = playMode;
+            // }
+            // Destroy(this.gameObject);
+            // Debug.Log($"{numberOfCars} {startingNumberOfCars} {GameObject.FindGameObjectsWithTag("car").Length}");
         }
     }
 
@@ -265,9 +240,9 @@ public class CarAgent : Agent {
             Quaternion nearestBezierRot = nearestBezierPosDst.rotation;
             angleToTangent = GetAngleXZBetweenForwardAndPoint(transform.position + nearestBezierRot * Vector3.forward);
             if (showGizmos) {
-                Debug.DrawRay(transform.position, nearestBezierRot * Vector3.forward * 10, Color.green);
+                Debug.DrawRay(transform.position, nearestBezierRot * Vector3.forward * 10, Color.red);
                 Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
-                Debug.DrawLine(transform.position, nearestBezierPos, Color.green);
+                Debug.DrawLine(transform.position, nearestBezierPos, Color.blue);
             }
         }
         return new float[] { distanceToRoadCenter, angleToTangent };

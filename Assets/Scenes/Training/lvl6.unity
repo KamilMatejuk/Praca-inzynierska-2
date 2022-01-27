@@ -152,14 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e07c7e4882c71a08169627ef469a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spacing: 600
   playMode: 0
   showGizmos: 0
   eachInput: 0
   eachOutput: 0
   eachOutsideRoad: 0
-  filenames: c4_bw_l_0,c4_bw_l_1,c4_bw_l_2
-  numberOfInstances: 2
+  filenames: h_c4_1,h_c4_2,h_c4_3,h_c4_4
+  numberOfInstances: 1
 --- !u!4 &2095569000
 Transform:
   m_ObjectHideFlags: 0

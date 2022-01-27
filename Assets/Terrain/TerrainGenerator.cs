@@ -117,7 +117,7 @@ public class TerrainGenerator : MonoBehaviour {
             float z = (float)Variables.TERRAIN_SIZE * (startZ + 0.5f * size) / alphaMapHeight;
             Vector3 p = new Vector3(x, 0, z);
             float distance = controlPoints.GetNearestBezierPoint(p).other;
-            if (size == 1 || distance > 6f * (float)Variables.TERRAIN_SIZE * size / alphaMapWidth) {
+            if (size == 1 || distance > 1.5f * terrainGenData.roadWidth * (float)Variables.TERRAIN_SIZE * size / alphaMapWidth) {
                 float normalizedX = (float)x / (float)Variables.TERRAIN_SIZE;
                 float normalizedZ = (float)z / (float)Variables.TERRAIN_SIZE;
                 float height = controlPoints.GetHeight(x, z);

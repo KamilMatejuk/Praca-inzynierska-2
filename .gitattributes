@@ -1,0 +1,6 @@
+envs/level1_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
+envs/level2_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
+envs/level3_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
+envs/level4_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
+envs/level5_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
+envs/level6_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
