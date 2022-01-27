@@ -5,8 +5,7 @@ UserSettings/
 Assembly-CSharp*
 TestProject.sln
 **/*.pt
-results/envs/training-*_Data/resources.assets.resS
-results/
+results/envs/*_Data/resources.assets.resS
 Assets/ML-Agents/
 Temp/
 obj/

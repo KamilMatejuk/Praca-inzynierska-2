@@ -1,0 +1,29 @@
+{
+    "in5-out1-f": {
+        "checkpoints": [
+            {
+                "steps": 7897,
+                "file_path": "results/level1/in5-out1-f/in5-out1-f-7897.onnx",
+                "reward": -29.907858737269226,
+                "creation_time": 1643255826.8040168,
+                "auxillary_file_paths": [
+                    "results/level1/in5-out1-f/in5-out1-f-7897.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 7897,
+            "file_path": "results/level1/in5-out1-f.onnx",
+            "reward": -29.907858737269226,
+            "creation_time": 1643255826.8040168,
+            "auxillary_file_paths": [
+                "results/level1/in5-out1-f/in5-out1-f-7897.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.8.1+cu102"
+    }
+}

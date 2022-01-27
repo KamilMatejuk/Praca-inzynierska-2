@@ -1,0 +1,307 @@
+Mono path[0] = '/home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Managed'
+Mono config path = '/home/kamil/UnityProjects/TestProject/results/envs/level6_Data/MonoBleedingEdge/etc'
+Preloaded 'lib_burst_generated.so'
+Preloaded 'libgrpc_csharp_ext.x64.so'
+Initialize engine version: 2020.3.26f1 (7298b473bc1a)
+[Subsystems] Discovering subsystems at path /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/UnitySubsystems
+Forcing GfxDevice: Null
+GfxDevice: creating device client; threaded=0
+NullGfxDevice:
+    Version:  NULL 1.0 [1.0]
+    Renderer: Null Device
+    Vendor:   Unity Technologies
+Begin MonoManager ReloadAssembly
+- Completed reload, in  0.098 seconds
+ERROR: Shader Sprites/Default shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+ERROR: Shader Sprites/Mask shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+UnloadTime: 0.789352 ms
+Loading h_c4_1 in playmode: False
+ERROR: Shader Legacy Shaders/VertexLit shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Standard' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Standard shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+WARNING: Shader Unsupported: 'Standard' - All subshaders removed
+WARNING: Shader Did you use #pragma only_renderers and omit this platform?
+WARNING: Shader If subshaders removal was intentional, you may have forgotten turning Fallback off?
+ERROR: Shader Legacy Shaders/Particles/Additive shader is not supported on this GPU (none of subshaders/fallbacks are suitable)
+Fallback handler could not load library /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Mono/libcoreclr.so
+Fallback handler could not load library /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Mono/libcoreclr.so
+Fallback handler could not load library /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Mono/libcoreclr.so
+Fallback handler could not load library /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Mono/libSystem.dylib
+Fallback handler could not load library /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Mono/libSystem.dylib.so
+Fallback handler could not load library /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Mono/libSystem.dylib
+Fallback handler could not load library /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Mono/libcoreclr.so
+Fallback handler could not load library /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Mono/libcoreclr.so
+Fallback handler could not load library /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Mono/libcoreclr.so
+Fallback handler could not load library /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Mono/libSystem.dylib
+Fallback handler could not load library /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Mono/libSystem.dylib.so
+Fallback handler could not load library /home/kamil/UnityProjects/TestProject/results/envs/level6_Data/Mono/libSystem.dylib
+Loading h_c4_2 in playmode: False
+Loading h_c4_3 in playmode: False
+Loading h_c4_4 in playmode: False
+Hit checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit border
+end episode border
+Hit next checkpoint
+Hit next checkpoint
+Hit next checkpoint
+Hit checkpoint out of order
+Hit next checkpoint
+Hit next checkpoint
+Hit next checkpoint
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit border
+end episode border
+Hit checkpoint out of order
+Hit next checkpoint
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit border
+end episode border
+Hit next checkpoint
+Hit next checkpoint
+Hit checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit next checkpoint
+Hit next checkpoint
+Hit checkpoint out of order
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit next checkpoint
+Hit next checkpoint
+Hit next checkpoint
+Hit checkpoint out of order
+Hit next checkpoint
+Hit neighbor checkpoint out of order
+Hit border
+end episode border
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit next checkpoint
+Hit next checkpoint
+Hit next checkpoint
+Hit checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit border
+end episode border
+Hit next checkpoint
+Hit next checkpoint
+Hit next checkpoint
+Hit border
+end episode border
+Hit next checkpoint
+Hit checkpoint out of order
+Hit next checkpoint
+Hit next checkpoint
+Hit next checkpoint
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit next checkpoint
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit border
+end episode border
+Hit next checkpoint
+Hit checkpoint out of order
+Hit border
+end episode border
+Hit border
+end episode border
+Hit checkpoint out of order
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit border
+end episode border
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit next checkpoint
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit next checkpoint
+Hit next checkpoint
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit next checkpoint
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit border
+end episode border
+Hit checkpoint out of order
+Hit next checkpoint
+Hit border
+end episode border
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit next checkpoint
+Hit border
+end episode border
+Hit border
+end episode border
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit border
+end episode border
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit next checkpoint
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit border
+end episode border
+Hit border
+end episode border
+Hit border
+end episode border
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit neighbor checkpoint out of order
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit next checkpoint
+Hit checkpoint out of order
+Hit border
+end episode border
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Hit border
+end episode border
+Hit next checkpoint
+Hit checkpoint out of order
+Hit border
+end episode border
+Hit neighbor checkpoint out of order
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 7f9fa5f7e700 -> priority: 1 
+  Thread -> id: 7f9fa4976700 -> priority: 1 
+  Thread -> id: 7f9fa2f25700 -> priority: 1 
+  Thread -> id: 7f9fa2724700 -> priority: 1 
