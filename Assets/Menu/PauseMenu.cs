@@ -1,50 +1,51 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour {
 
-    public static bool gameIsPaused = false;
+namespace RacingGameBot.Menu {
+    public class PauseMenu : MonoBehaviour {
 
-    public GameObject pauseMenu;
+        public static bool gameIsPaused = false;
 
-    /// <summary>
-    /// Show / hide menu when user clicked Escape
-    /// </summary>
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (gameIsPaused) {
-                ResumeGame();
-            } else {
-                PauseGame();
+        public GameObject pauseMenu;
+
+        /// <summary>
+        /// Show / hide menu when user clicked Escape
+        /// </summary>
+        void Update() {
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                if (gameIsPaused) {
+                    ResumeGame();
+                } else {
+                    PauseGame();
+                }
             }
         }
-    }
 
-    /// <summary>
-    /// Hide menu and resume game
-    /// </summary>
-    public void ResumeGame() {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        gameIsPaused = false;
-    }
+        /// <summary>
+        /// Hide menu and resume game
+        /// </summary>
+        public void ResumeGame() {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1f;
+            gameIsPaused = false;
+        }
 
-    /// <summary>
-    /// Show menu and pause game
-    /// </summary>
-    public void PauseGame() {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        gameIsPaused = true;
-    }
+        /// <summary>
+        /// Show menu and pause game
+        /// </summary>
+        public void PauseGame() {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+            gameIsPaused = true;
+        }
 
-    /// <summary>
-    /// Quit game and open main menu
-    /// </summary>
-    public void QuitGame() {
-        ResumeGame();
-        SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
+        /// <summary>
+        /// Quit game and open main menu
+        /// </summary>
+        public void QuitGame() {
+            ResumeGame();
+            SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
+        }
     }
 }

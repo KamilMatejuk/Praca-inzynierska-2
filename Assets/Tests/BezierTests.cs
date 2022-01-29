@@ -5,25 +5,26 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public class BezierTests : MonoBehaviour {
+namespace RacingGameBot.Tests {
+    public class BezierTests : MonoBehaviour {
 
-    Loop controlPoints;
-    public GameObject sphere;
-    
-    void OnValidate() {
-        UnityEngine.Random.InitState(10);
-        controlPoints = new Loop(Vector3.zero, ScriptableObject.CreateInstance<TerrainGenData>());
-    }
+        Terrains.Loop controlPoints;
+        public GameObject sphere;
 
-    /// <summary>
-    /// Draw sample road loop, as well as mark nearest point to sphere object.
-    /// Used to test computation speed and accuracy of calculating nearest point on loop.
-    /// </summary>
-    void OnDrawGizmos() {
-        #if UNITY_EDITOR
+        void OnValidate() {
+            UnityEngine.Random.InitState(10);
+            controlPoints = new Terrains.Loop(Vector3.zero, ScriptableObject.CreateInstance<Data.TerrainGenData>());
+        }
+
+        /// <summary>
+        /// Draw sample road loop, as well as mark nearest point to sphere object.
+        /// Used to test computation speed and accuracy of calculating nearest point on loop.
+        /// </summary>
+        void OnDrawGizmos() {
+#if UNITY_EDITOR
             if (controlPoints != null) {
                 for (int i = 0; i < controlPoints.NumberOfSegments; i++) {
-                    List<OrientedPoint> bezierPoints = controlPoints.GetSegmentBezierPoints(i);
+                    List<Terrains.OrientedPoint> bezierPoints = controlPoints.GetSegmentBezierPoints(i);
                     Handles.DrawBezier(bezierPoints[0].position,
                                         bezierPoints[3].position,
                                         bezierPoints[1].position,
@@ -36,6 +37,7 @@ public class BezierTests : MonoBehaviour {
                     Handles.DrawBezier(pos, nearest, pos, nearest, Color.red, null, 2f);
                 }
             }
-        #endif
+#endif
+        }
     }
 }
