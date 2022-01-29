@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 595560770}
   - component: {fileID: 595560769}
   - component: {fileID: 595560768}
+  - component: {fileID: 595560771}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -465,6 +466,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 595560766}
   m_CullTransparentMesh: 1
+--- !u!114 &595560771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595560766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0474272d42dc2bc939d61c53b032a55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  defaultFontSize: 0
+  hoverFontSize: 0
+  clickFontSize: 0
 --- !u!1 &665972190
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +808,7 @@ GameObject:
   - component: {fileID: 1157372729}
   - component: {fileID: 1157372728}
   - component: {fileID: 1157372727}
+  - component: {fileID: 1157372730}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -910,6 +930,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157372725}
   m_CullTransparentMesh: 1
+--- !u!114 &1157372730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157372725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0474272d42dc2bc939d61c53b032a55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  defaultFontSize: 0
+  hoverFontSize: 0
+  clickFontSize: 0
 --- !u!1 &1345270787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,6 +1637,7 @@ GameObject:
   - component: {fileID: 2031493469}
   - component: {fileID: 2031493468}
   - component: {fileID: 2031493467}
+  - component: {fileID: 2031493470}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -1720,6 +1759,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031493465}
   m_CullTransparentMesh: 1
+--- !u!114 &2031493470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031493465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0474272d42dc2bc939d61c53b032a55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  defaultFontSize: 0
+  hoverFontSize: 0
+  clickFontSize: 0
 --- !u!1 &2066837376
 GameObject:
   m_ObjectHideFlags: 0

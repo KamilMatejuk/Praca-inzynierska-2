@@ -4,7 +4,6 @@
 | testy - kilka pojazdów                                                                          |        |
 | testy - pofalowany teren                                                                        |        |
 | testy - pofalowany teren z kilkoma pojazdami                                                    |        |
-| dodać krawędzie widoczne / trawę / głazy i zrobić żeby pojazd się od nich odbijał               |   2h   |
 | dodać hover na buttonach                                                                        | 10 min |
 | ogarnąc skalę UI, back ucieka poza ekran                                                        | 20 min |
 | brak kontaktu z myszką i klawiaturą na win                                                      |   4h   |
