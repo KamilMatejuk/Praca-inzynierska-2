@@ -68,15 +68,15 @@ public static class Bezier {
     }
 
     /// <summary>
-    /// Calculate what is the nearest point on bezier cubic curve
+    /// Calculate what is the nearest point on bezier cubic curve using method 1
     /// </summary>
     /// <param name="bezierA">Bezier curve start</param>
     /// <param name="bezierB">Bezier curve control 1</param>
     /// <param name="bezierC">Bezier curve control 2</param>
     /// <param name="bezierD">Bezier curve end</param>
     /// <param name="target">From what point to calculate distance</param>
-    /// <returns>Quaternion where xyz is point and w is distance</returns>
-    public static OrientedPoint GetNearestBezierPoint1(Vector3 bezierA, Vector3 bezierB, Vector3 bezierC, Vector3 bezierD, Vector3 target) {
+    /// <returns>OrientedPoint with position, rotation and distance</returns>
+    public static OrientedPoint GetNearestBezierPointOld(Vector3 bezierA, Vector3 bezierB, Vector3 bezierC, Vector3 bezierD, Vector3 target) {
         float stepsPerSegment = 100;
         float minDistance = Mathf.Infinity;
         OrientedPoint closestPoint = Bezier.GetBezierOrientedPoint(bezierA, bezierB, bezierC, bezierD, 0);
@@ -85,7 +85,6 @@ public static class Bezier {
             float t = j * 1.0f / stepsPerSegment;
             OrientedPoint op = Bezier.GetBezierOrientedPoint(bezierA, bezierB, bezierC, bezierD, t);
             op.position.y = 0; // compare only in 2D, ignore height
-            // float distance = Vector3.Distance(op.position, target);
             float distance = (op.position - target).sqrMagnitude;
             if (distance < minDistance) {
                 minDistance = distance;
@@ -96,9 +95,17 @@ public static class Bezier {
         return new OrientedPoint(closestPoint.position, closestPoint.rotation, Mathf.Sqrt(minDistance));
     }
 
+    /// <summary>
+    /// Calculate what is the nearest point on bezier cubic curve using method 2
+    /// https://hal.inria.fr/file/index/docid/518379/filename/Xiao-DiaoChen2007c.pdf
+    /// </summary>
+    /// <param name="bezierA">Bezier curve start</param>
+    /// <param name="bezierB">Bezier curve control 1</param>
+    /// <param name="bezierC">Bezier curve control 2</param>
+    /// <param name="bezierD">Bezier curve end</param>
+    /// <param name="target">From what point to calculate distance</param>
+    /// <returns>OrientedPoint with position, rotation and distance</returns>
     public static OrientedPoint GetNearestBezierPoint(Vector3 bezierA, Vector3 bezierB, Vector3 bezierC, Vector3 bezierD, Vector3 target) {
-        // doesn't work
-        // https://hal.inria.fr/file/index/docid/518379/filename/Xiao-DiaoChen2007c.pdf
         Vector2 a = new Vector2(bezierA.x, bezierA.z);
         Vector2 b = new Vector2(bezierB.x, bezierB.z);
         Vector2 c = new Vector2(bezierC.x, bezierC.z);

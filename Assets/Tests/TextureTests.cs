@@ -27,6 +27,11 @@ public class TextureTests : MonoBehaviour {
             terrain.terrainData.size = new Vector3(128, 32, 128);
         }
     }
+
+    /// <summary>
+    /// Draw all avaliable textures on one terrain object.
+    /// Used to select best combinations of textures for different levels.
+    /// </summary>
     void OnValidate() {
         if (terrain != null) {
             // add layers

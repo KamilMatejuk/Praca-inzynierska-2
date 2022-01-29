@@ -14,6 +14,9 @@ public class CreateLevelMenu : MonoBehaviour {
     [SerializeField] public GameObject panelGO;
     [SerializeField] public GameObject loadingGO;
 
+    /// <summary>
+    /// Generate staring terrain preview
+    /// </summary>
     void Start() {
         cameraDir = new Vector3(165, 155, 215);
         Rotate(0);
@@ -32,11 +35,19 @@ public class CreateLevelMenu : MonoBehaviour {
         terrainGO.GetComponent<TerrainGenerator>().RemoveTerrainTextures();
     }
 
+    /// <summary>
+    /// Rotate terrain preview
+    /// </summary>
+    /// <param name="angle">Angle</param>
     public void Rotate(float angle) {
         cameraGO.transform.position = Quaternion.Euler(0, angle, 0) * cameraDir;
         cameraGO.transform.rotation = Quaternion.Euler(30, angle - 155, 0);
     }
 
+    /// <summary>
+    /// Change road complexity
+    /// </summary>
+    /// <param name="value">Complexity</param>
     public void MenuOptionChangeComplexity(float value) {
         int complexity = Mathf.RoundToInt(value);
         if (complexity != prevComplexity) {
@@ -47,6 +58,9 @@ public class CreateLevelMenu : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Pass parameters changes into terrain object
+    /// </summary>
     public void MenuOptionChangeDetailsMain(float value) => MenuOptionChangeOneValue<float>(value, "terrainDetailsMain");
     public void MenuOptionChangeDetailsMinor(float value) => MenuOptionChangeOneValue<float>(value, "terrainDetailsMinor");
     public void MenuOptionChangeDetailsTiny(float value) => MenuOptionChangeOneValue<float>(value, "terrainDetailsTiny");
@@ -57,6 +71,10 @@ public class CreateLevelMenu : MonoBehaviour {
     public void MenuOptionChangeOffsetY(float value) => MenuOptionChangeOneValue<float>(value, "offsetY");
     public void MenuOptionChangeTerrainType(int value) => MenuOptionChangeOneValue<TerrainType>((TerrainType)value, "terrainType");
 
+    /// <summary>
+    /// Change road generation seed
+    /// </summary>
+    /// <param name="value">Seed</param>
     public void MenuOptionChangeSeed(string value) {
         try {
             seed = int.Parse(value);
@@ -65,12 +83,19 @@ public class CreateLevelMenu : MonoBehaviour {
         } catch { }
     }
 
+    /// <summary>
+    /// Change save filename
+    /// </summary>
+    /// <param name="value">Complexity</param>
     public void MenuOptionSetFilename(string value) {
         if (value.Length > 0) {
             filename = value.Split('.')[0];
         }
     }
 
+    /// <summary>
+    /// Save generated terrain
+    /// </summary>
     public void Save() {
         panelGO.SetActive(true);
         if (filename == null || filename.Length == 0) {
@@ -81,19 +106,26 @@ public class CreateLevelMenu : MonoBehaviour {
         StartCoroutine(terrainGO.GetComponent<TerrainGenerator>().GenerateTerrainTextures(SaveCallbackUpdateTime, SaveCallbackEnd));
     }
 
+    /// <summary>
+    /// Update saving progress
+    /// </summary>
     public void SaveCallbackUpdateTime(int percentage) {
         loadingGO.GetComponent<TMPro.TMP_Text>().text = $"Saving ...\n({percentage}%)";
     }
 
+    /// <summary>
+    /// Open main menu after finished saving
+    /// </summary>
     public void SaveCallbackEnd() {
         terrainGO.GetComponent<TerrainGenerator>().Save();
-        Back();
-    }
-
-    public void Back() {
         SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
     }
 
+    /// <summary>
+    /// Change terrain parameter by name
+    /// </summary>
+    /// <param name="value">New value</param>
+    /// <param name="name">Field name</param>
     private void MenuOptionChangeOneValue<T>(T value, string name) {
         TerrainGenData obj = terrainGO.GetComponent<TerrainGenerator>().terrainGenData;
         typeof(TerrainGenData).GetField(name).SetValue(obj, value);

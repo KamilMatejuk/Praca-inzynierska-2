@@ -20,6 +20,18 @@ public class TerrainLoader : MonoBehaviour {
     [SerializeField] public bool playMode = false;
     [SerializeField] public string filename;
 
+    /// <summary>
+    /// Save generated terrain into file
+    /// </summary>
+    /// <param name="terrainData">Data of Unity Terrain object</param>
+    /// <param name="terrainGenData">Terrain parameters</param>
+    /// <param name="controlPoints">Loop points</param>
+    /// <param name="meta">position of finish object</param>
+    /// <param name="cars">list of positions of cars</param>
+    /// <param name="carSize">size of car</param>
+    /// <param name="checkpoints">list of positions of checkpoints</param>
+    /// <param name="checkpointSize">size of checkpoint</param>
+    /// <param name="filename">name od save file</param>
     public static void SaveTerrain(TerrainData terrainData, TerrainGenData terrainGenData, OrientedPoint[] controlPoints, Vector3 meta,
                                    OrientedPoint[] cars, Vector3 carSize, OrientedPoint[] checkpoints, Vector3 checkpointSize, string filename) {
         StreamWriter sw = File.CreateText(Application.dataPath + "/Resources/SavedTerrains/" + filename + ".data");
@@ -98,6 +110,9 @@ public class TerrainLoader : MonoBehaviour {
         sw.Close();
     }
 
+    /// <summary>
+    /// Load saved terrain from file
+    /// </summary>
     public void LoadTerrain(string filename, bool _playMode = true) {
         playMode = _playMode;
         if (filename.Length == 0) {
@@ -109,6 +124,9 @@ public class TerrainLoader : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Load Terrain object from file
+    /// </summary>
     public void LoadData(string filename) {
         StreamReader sw = new StreamReader(Application.dataPath + "/Resources/SavedTerrains/" + filename + ".data");
 
@@ -356,6 +374,9 @@ public class TerrainLoader : MonoBehaviour {
         terrainGO.GetComponent<TerrainCollider>().sharedMaterial = (PhysicMaterial)Resources.Load<PhysicMaterial>("Materials/TerrainPhysicMaterial");
     }
 
+    /// <summary>
+    /// Load other objects (cars, borders, checkpoints, etc) from file
+    /// </summary>
     public void LoadObjects(string filename) {
         StreamReader sw = new StreamReader(Application.dataPath + "/Resources/SavedTerrains/" + filename + ".data");
 

@@ -26,6 +26,9 @@ public class TerrainGenerator : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Draw road in editor
+    /// </summary>
     public void ShowRoadBezier() {
         if (showRoadBezier) {
             LineRenderer lr = GetComponent<LineRenderer>();
@@ -49,6 +52,9 @@ public class TerrainGenerator : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Generate terrain
+    /// </summary>
     public void GenerateTerrain() {
         UnityEngine.Random.InitState(seed);
         GenerateLoop();
@@ -56,11 +62,17 @@ public class TerrainGenerator : MonoBehaviour {
         ShowRoadBezier();
     }
 
+    /// <summary>
+    /// Generate road loop
+    /// </summary>
     public void GenerateLoop() {
         UnityEngine.Random.InitState(seed);
         controlPoints = new Loop(gameObject.transform.position, terrainGenData);
     }
 
+    /// <summary>
+    /// Save current terrain
+    /// </summary>
     public void Save() {
         UnityEngine.Random.InitState(seed);
         PutStartFinish();
@@ -94,7 +106,9 @@ public class TerrainGenerator : MonoBehaviour {
         GetComponent<Terrain>().terrainData.SetHeights(0, 0, heights);
     }
 
-
+    /// <summary>
+    /// Clear terrain textures
+    /// </summary>
     public void RemoveTerrainTextures() {
         GetComponent<Terrain>().terrainData.terrainLayers = new TerrainLayer[0];
     }
@@ -157,6 +171,12 @@ public class TerrainGenerator : MonoBehaviour {
         yield return null;
     }
 
+    /// <summary>
+    /// Load texture based on name
+    /// </summary>
+    /// <param name="textureName">Name of texture file</param>
+    /// <param name="size">Texture tiling size</param>
+    /// <returns>TerrainLayer object with loaded texture</returns>
     public static TerrainLayer GetTerrainLayerTexture(string textureName, float size) {
         TerrainLayer terrainLayer = new TerrainLayer();
         terrainLayer.diffuseTexture = (Texture2D)Resources.Load("Textures/" + textureName + "/" + textureName + "_base_color");
@@ -169,6 +189,11 @@ public class TerrainGenerator : MonoBehaviour {
         return terrainLayer;
     }
 
+    /// <summary>
+    /// Load single-colored texture
+    /// </summary>
+    /// <param name="color">Texture color</param>
+    /// <returns>TerrainLayer object with loaded color</returns>
     public static TerrainLayer GetTerrainLayerColor(Color color) {
         TerrainLayer terrainLayer = new TerrainLayer();
         Texture2D tempTexture = new Texture2D(1024, 1024);
@@ -197,7 +222,7 @@ public class TerrainGenerator : MonoBehaviour {
     /// Load layers based on terrain type
     /// </summary>
     /// <param name="terrainType">Type of terrain</param>
-    /// <returns></returns>
+    /// <returns>List of TerrainLayers</returns>
     TerrainLayer[] LoadTerrainLayers(TerrainType terrainType) {
         // https://3dtextures.me/
         List<TerrainLayer> terrainLayers = new List<TerrainLayer>();
@@ -260,7 +285,7 @@ public class TerrainGenerator : MonoBehaviour {
     /// <param name="normal">Normal</param>
     /// <param name="steepness">Steepness</param>
     /// <param name="distanceToRoad">Distance to road</param>
-    /// <returns></returns>
+    /// <returns>List of splatmap data</returns>
     float[] SelectLayersAlpha(TerrainType terrainType, float height, Vector3 normal, float steepness, float distanceToRoad) {
         List<float> splatmapWeights = new List<float>();
         switch (terrainType) {
@@ -355,6 +380,9 @@ public class TerrainGenerator : MonoBehaviour {
         return splatmapWeights.ToArray();
     }
 
+    /// <summary>
+    /// Add start/finish object to the map
+    /// </summary>
     void PutStartFinish() {
         OrientedPoint op = controlPoints.GetCentralPoint(0);
         op.position += transform.position;
@@ -369,6 +397,9 @@ public class TerrainGenerator : MonoBehaviour {
         startFinish.transform.position = pos;
     }
 
+    /// <summary>
+    /// Add cars objects to the map
+    /// </summary>
     void PutCars(int n) {
         GameObject carPrefab = (GameObject)Resources.Load("Prefabs/SportCar");
         Objects.RemoveObjectsByTagInParent("car", gameObject);
@@ -388,6 +419,9 @@ public class TerrainGenerator : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Add checkpoints objects to the map
+    /// </summary>
     void PutCheckpoints() {
         GameObject checkpointPrefab = (GameObject)Resources.Load("Prefabs/StartFinish");
         Objects.RemoveObjectsByTagInParent("checkpoint", gameObject);
@@ -412,6 +446,9 @@ public class TerrainGenerator : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Add borders to the map
+    /// </summary>
     void PutBorders() {
         Objects.RemoveObjectsByTagInParent("border", gameObject);
         GameObject bordersGroup = Objects.PutParentObject("border", "Borders");

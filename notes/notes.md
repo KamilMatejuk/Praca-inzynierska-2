@@ -4,14 +4,9 @@
 | testy - kilka pojazdów                                                                          |        |
 | testy - pofalowany teren                                                                        |        |
 | testy - pofalowany teren z kilkoma pojazdami                                                    |        |
-| dodać hover na buttonach                                                                        | 10 min |
-| ogarnąc skalę UI, back ucieka poza ekran                                                        | 20 min |
 | brak kontaktu z myszką i klawiaturą na win                                                      |   4h   |
-| dodać instrukcje pobierania z githuba (albo wrzucić na steama)                                  | 30 min |
 | pogenerować poziomy i je ładnie nazwać                                                          |   1h   |
 | sprawdzić czy działa zczytywanie odpowiedniej wysokości - ułożenie mety itd                     |        |
-| podopisywać dokumentacje do metod, poprawić instniejącą,dodać d`okumentacje techniczną do pracy |   4h   |
-| poprawić stylowanie listy algorytmów                                                            |   1h   |
 | poprawić wykresy - wybór akcji                                                                  | 20 min |
 | poprawić wykresy - hiperparametry x 3                                                           | 20 min |
 | czytanie całej pracy                                                                            |   4h   |

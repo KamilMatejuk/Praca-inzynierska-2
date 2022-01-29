@@ -9,43 +9,10 @@ public class Loop {
     [SerializeField, HideInInspector] public List<OrientedPoint> points;
     [SerializeField, HideInInspector] public TerrainGenData terrainGenData;
 
-    /// <summary>
-    /// Select height for each point
-    /// </summary>
-    /// <param name="x">X position</param>
-    /// <param name="z">Z position</param>
-    /// <param name="detailsMain">How much wavy is main terrain</param>
-    /// <param name="detailsMinor">How much wavy are bigger details</param>
-    /// <param name="detailsTiny">How much wavy are smaller details</param>
-    /// <returns></returns>
-    // public static float PerlinNoise(float x, float z, float detailsMain, float detailsMinor, float detailsTiny) {
-    //     return detailsMain * Mathf.PerlinNoise(10f + x/2, 10f + z/2) +
-    //            detailsMinor * Mathf.PerlinNoise(x, z) +
-    //            detailsTiny * Mathf.PerlinNoise(x*2, z*2);
-    // }
-
-    public float GetHeight(float x, float y) {
-        // return PerlinNoise(
-        //     (x + terrainGenData.offsetX) * terrainGenData.scale,
-        //     (y + terrainGenData.offsetY) * terrainGenData.scale,
-        //     terrainGenData.terrainDetailsMain,
-        //     terrainGenData.terrainDetailsMinor,
-        //     terrainGenData.terrainDetailsTiny
-        // );
-        x += terrainGenData.offsetX;
-        y += terrainGenData.offsetY;
-        x /= 100;
-        y /= 100;
-        return terrainGenData.terrainDetailsMain * Mathf.PerlinNoise(
-                10f + x * terrainGenData.terrainScaleMain / 2,
-                10f + y * terrainGenData.terrainScaleMain / 2
-            ) + terrainGenData.terrainDetailsMinor * Mathf.PerlinNoise(
-                x * terrainGenData.terrainScaleMinor,
-                y * terrainGenData.terrainScaleMinor
-            ) + terrainGenData.terrainDetailsTiny * Mathf.PerlinNoise(
-                x * terrainGenData.terrainScaleTiny * 2,
-                y * terrainGenData.terrainScaleTiny * 2
-            );
+    public int NumberOfSegments {
+        get {
+            return points.Count / 3;
+        }
     }
 
     /// <summary>
@@ -57,8 +24,11 @@ public class Loop {
     }
 
     /// <summary>
-    /// Create loop from received data
+    /// Create loop from saved data
     /// </summary>
+    /// <param name="parentPosition">position of loop center</param>
+    /// <param name="_points">list of loop points</param>
+    /// <param name="_terrainGenData">terrain data</param>
     public Loop(Vector3 parentPosition, List<OrientedPoint> _points, TerrainGenData _terrainGenData) {
         terrainGenData = _terrainGenData;
         points = _points;
@@ -70,7 +40,8 @@ public class Loop {
     /// <summary>
     /// Create loop based of additional params
     /// </summary>
-    /// <param name="_terrainGenData">Other params</param>
+    /// <param name="parentPosition">position of loop center</param>
+    /// <param name="_terrainGenData">terrain data</param>
     public Loop(Vector3 parentPosition, TerrainGenData _terrainGenData) {
         terrainGenData = _terrainGenData;
         points = GenerateLoopBezier(SelectRandomPoints());
@@ -86,6 +57,33 @@ public class Loop {
         }
     }
 
+    /// <summary>
+    /// Get height for each point
+    /// </summary>
+    /// <param name="x">X position</param>
+    /// <param name="z">Z position</param>
+    /// <returns>height</returns>
+    public float GetHeight(float x, float z) {
+        x += terrainGenData.offsetX;
+        z += terrainGenData.offsetY;
+        x /= 100;
+        z /= 100;
+        return terrainGenData.terrainDetailsMain * Mathf.PerlinNoise(
+                10f + x * terrainGenData.terrainScaleMain / 2,
+                10f + z * terrainGenData.terrainScaleMain / 2
+            ) + terrainGenData.terrainDetailsMinor * Mathf.PerlinNoise(
+                x * terrainGenData.terrainScaleMinor,
+                z * terrainGenData.terrainScaleMinor
+            ) + terrainGenData.terrainDetailsTiny * Mathf.PerlinNoise(
+                x * terrainGenData.terrainScaleTiny * 2,
+                z * terrainGenData.terrainScaleTiny * 2
+            );
+    }
+
+    /// <summary>
+    /// Select random points for loop
+    /// </summary>
+    /// <returns>list of points</returns>
     private List<Vector3> SelectRandomPoints() {
         List<Vector3> positions = new List<Vector3>();
         // generate positions
@@ -126,6 +124,9 @@ public class Loop {
         return positions;
     }
 
+    /// <summary>
+    /// Scale and update loop points data to fit in terrain size
+    /// </summary>
     private void PostprocessLoop() {
         // get borders
         List<float> borders = GetBorder();
@@ -140,7 +141,6 @@ public class Loop {
         float minZ = borders[2] - padding;
         float maxZ = borders[3] + padding;
         size = Mathf.Max(maxX - minX, maxZ - minZ);
-
         // scale to fit square Variables.TERRAIN_SIZE x Variables.TERRAIN_SIZE
         float scaleX = (Variables.TERRAIN_SIZE - 2 * padding) / (borders[1] - borders[0]);
         float scaleZ = (Variables.TERRAIN_SIZE - 2 * padding) / (borders[3] - borders[2]);
@@ -148,15 +148,6 @@ public class Loop {
         for (int i = 0; i < points.Count; i++) {
             points[i].position = Vector3.Scale(points[i].position, scale);
         }
-        // // scale to fit square of nearest pow 2
-        // mapSize = Mathf.CeilToInt(Mathf.Pow(2, Mathf.Ceil(Mathf.Log(size) / Mathf.Log(2))));
-        // float scaleX = (mapSize - 2 * padding) / (borders[1] - borders[0]);
-        // float scaleZ = (mapSize - 2 * padding) / (borders[3] - borders[2]);
-        // Vector3 scale = new Vector3(scaleX, 1f, scaleZ);
-        // for (int i = 0; i < points.Count; i++) {
-        //     points[i].position = Vector3.Scale(points[i].position, scale);
-        // }
-        
         // update borders
         borders = GetBorder();
         minX = borders[0] - padding;
@@ -181,12 +172,6 @@ public class Loop {
                                                              bezierPoints[2].position,
                                                              bezierPoints[3].position, 0f);
             points[LoopIndex(3 * i + 1)].rotation = op.rotation;
-        }
-    }
-
-    public int NumberOfSegments {
-        get {
-            return points.Count / 3;
         }
     }
 
@@ -283,7 +268,7 @@ public class Loop {
                 maxZ = Mathf.Max(maxZ, p.z);
             }
         }
-        return new List<float>(){minX, maxX, minZ, maxZ};
+        return new List<float>() { minX, maxX, minZ, maxZ };
     }
 
     /// <summary>
@@ -304,6 +289,11 @@ public class Loop {
         return (i + NumberOfSegments) % NumberOfSegments;
     }
 
+    /// <summary>
+    /// Get points along loop, divided equally
+    /// </summary>
+    /// <param name="n">Number of points</param>
+    /// <returns>List of points</returns>
     public List<OrientedPoint> GetEquallySpacedPoints(int n) {
         if (n <= 0) {
             return new List<OrientedPoint>();
@@ -333,6 +323,11 @@ public class Loop {
         return equallySpacedPoints;
     }
 
+    /// <summary>
+    /// Move each point of loop by some vector
+    /// </summary>
+    /// <param name="pos">Move vector</param>
+    /// <returns>height</returns>
     public void Translate(Vector3 pos) {
         for (int i = 0; i < points.Count; i++) {
             points[i].position += pos;

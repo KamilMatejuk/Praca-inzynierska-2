@@ -6,6 +6,10 @@ public class EndMenu : MonoBehaviour {
     public GameObject endMenu;
     public GameObject winningText;
 
+    /// <summary>
+    /// Show menu at the end of race
+    /// </summary>
+    /// <param name="won">Whether user won or lost</param>
     public void Show(bool won) {
         if (won) {
             winningText.GetComponent<TMPro.TMP_Text>().text = "You won";
@@ -16,6 +20,9 @@ public class EndMenu : MonoBehaviour {
         Time.timeScale = 0f;
     }
 
+    /// <summary>
+    /// Quit game and return to main menu
+    /// </summary>
     public void QuitGame() {
         endMenu.SetActive(false);
         Time.timeScale = 1f;

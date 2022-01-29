@@ -15,6 +15,10 @@ public class BezierTests : MonoBehaviour {
         controlPoints = new Loop(Vector3.zero, ScriptableObject.CreateInstance<TerrainGenData>());
     }
 
+    /// <summary>
+    /// Draw sample road loop, as well as mark nearest point to sphere object.
+    /// Used to test computation speed and accuracy of calculating nearest point on loop.
+    /// </summary>
     void OnDrawGizmos() {
         #if UNITY_EDITOR
             if (controlPoints != null) {

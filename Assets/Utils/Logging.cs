@@ -8,6 +8,11 @@ public static class Logging {
 
     private static string basePath = Application.dataPath.Substring(0, Application.dataPath.LastIndexOf("/")) + "/Logs/";
 
+    /// <summary>
+    /// Convert list to string
+    /// </summary>
+    /// <param name="l">list of objects of type T</param>
+    /// <returns>list in string format</returns>
     public static string GetListString<T>(List<T> l) {
         if (l == null) {
             return "null";
@@ -29,6 +34,11 @@ public static class Logging {
         return sb.ToString();
     }
 
+    /// <summary>
+    /// Convert multiple params to one string
+    /// </summary>
+    /// <param name="args">objects of type T</param>
+    /// <returns>objects in one string</returns>
     public static string GetParamString<T>(params T[] args) {
         string log = "";
         foreach (T arg in args) {
@@ -37,6 +47,11 @@ public static class Logging {
         return log;
     }
 
+    /// <summary>
+    /// Append string to file. Create file if not exists.
+    /// </summary>
+    /// <param name="filename">name of log file</param>
+    /// <param name="text">data to log</param>
     public static void LogToFile(string filename, string text) {
         string file = basePath + filename;
         StreamWriter sw;

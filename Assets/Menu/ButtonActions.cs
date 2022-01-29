@@ -12,6 +12,9 @@ public class ButtonActions : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [SerializeField, HideInInspector] private float hoverFontSize;
     [SerializeField, HideInInspector] private float clickFontSize;
 
+    /// <summary>
+    /// Get reference to button text
+    /// </summary>
     private void Start() {
         Transform trans = gameObject.transform;
         for (int i = 0; i < trans.childCount; i++) {
@@ -29,6 +32,10 @@ public class ButtonActions : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
+    /// <summary>
+    /// Change text size and color on hover enter
+    /// </summary>
+    /// <param name="eventData">Hover event data</param>
     public void OnPointerEnter(PointerEventData eventData) {
         if (text != null) {
             text.color = hoverColor;
@@ -36,6 +43,10 @@ public class ButtonActions : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
+    /// <summary>
+    /// Change text size and color on hover exit
+    /// </summary>
+    /// <param name="eventData">Hover event data</param>
     public void OnPointerExit(PointerEventData eventData) {
         if (text != null) {
             text.color = defaultColor;
@@ -43,13 +54,20 @@ public class ButtonActions : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-    public void OnPointerClick(PointerEventData pointerEventData) {
+    /// <summary>
+    /// Change text size and color on click
+    /// </summary>
+    /// <param name="eventData">Click event data</param>
+    public void OnPointerClick(PointerEventData eventData) {
         if (text != null) {
             text.color = hoverColor;
             text.fontSize = clickFontSize;
         }
     }
 
+    /// <summary>
+    /// Reset text to stating values at the beginning and end of its existence
+    /// </summary>
     private void OnEnable() => this.OnPointerExit(null);
     private void OnDisable() => this.OnPointerExit(null);
     private void OnDestroy() => this.OnPointerExit(null);

@@ -1,6 +1,8 @@
 using UnityEngine;
 
-
+/// <summary>
+/// Point containing position and rotation in 3D space
+/// </summary>
 public class OrientedPoint {
     public Vector3 position;
     public Quaternion rotation;
@@ -33,9 +35,5 @@ public class OrientedPoint {
 
     public Vector3 LocalToWorldPosition(Vector3 localSpaceposition) {
         return position + rotation * localSpaceposition;
-    }
-
-    public Vector3 LocalToWorldVec(Vector3 localSpaceposition) {
-        return rotation * localSpaceposition;
     }
 }

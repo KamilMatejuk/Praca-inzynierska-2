@@ -17,24 +17,28 @@ public class CarAgent : Agent {
     private bool startingPositionRotationSet = false;
     private Vector3 startingPosition;
     private Quaternion startingRotation;
-    private string logFileName;
     private float prevForwardValue;
     private float prevSidewaysValue;
     private StatsRecorder statsRecorder;
     private Vector3 lastPosition;
     private int startingNumberOfCars = 1;
 
+
+    /// <summary>
+    /// Load data from terrain on start
+    /// </summary>
     void Start() {
-        string timeString = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
-        logFileName = "training-" + timeString + ".log";
         GameObject terrain = Objects.GetParentWithName(gameObject, "Terrain");
         terrainGO = Objects.GetChildWithName(terrain, "Loaded Terrain");
         terrainLoader = terrain.GetComponent<TerrainLoader>();
         statsRecorder = Academy.Instance.StatsRecorder;
         numberOfAllCheckpoints = terrainLoader.checkpoints.Count;
-        // startingNumberOfCars = GameObject.FindGameObjectsWithTag("car").Length;
     }
 
+    /// <summary>
+    /// Set car starting position in first episode,
+    /// reset it at the beginning of each episode
+    /// </summary>
     public override void OnEpisodeBegin() {
         if (startingPositionRotationSet) {
             transform.position = startingPosition;
@@ -50,6 +54,14 @@ public class CarAgent : Agent {
         numberOfCheckpointsAlreadyHitInThisEpisode = 0;
     }
 
+    /// <summary>
+    /// Collect observation data from environment
+    /// * distance to road center
+    /// * current input axis positions for forward and sideways movement
+    /// * slope of terrain
+    /// * velocity
+    /// </summary>
+    /// <param name="sensor">Car sensor</param>
     public override void CollectObservations(VectorSensor sensor) {
         float[] distanceAndTangent = GetDistanceToRoadCenterAndAngleToTangent();
         sensor.AddObservation(distanceAndTangent[0]); // distance to center of road
@@ -65,6 +77,10 @@ public class CarAgent : Agent {
         sensor.AddObservation(velocity);
     }
 
+    /// <summary>
+    /// Move car based on inference results and assign rewards
+    /// </summary>
+    /// <param name="actions">Received actions</param>
     public override void OnActionReceived(ActionBuffers actions) {
         // string a = "";
         // foreach (var item in actions.ContinuousActions) a += item + " ";
@@ -92,9 +108,13 @@ public class CarAgent : Agent {
         AddReward((frameDistance - 0.1f) * 1f); // positive for distance bigger then 0.1 ~ 0.05
         AddReward(0.01f); // the longer the better
         lastPosition = transform.position;
-        // Debug.Log(Logging.GetParamString<float>(distanceToRoadCenter, angleToTangent, frameDistance));
     }
 
+    /// <summary>
+    /// Handle car collisions with environment objects,
+    /// like other cars, checkpoints, finish, etc.
+    /// </summary>
+    /// <param name="other">Object with which car collided</param>
     public void OnTriggerEnter(Collider other) {
         if (other.name.Contains("Checkpoint ")) {
             if (numberOfAllCheckpoints != 0) {
@@ -145,12 +165,21 @@ public class CarAgent : Agent {
         }
     }
 
+    /// <summary>
+    /// Read user inputs for manual steering
+    /// </summary>
+    /// <param name="actionsOut">Car actions</param>
     public override void Heuristic(in ActionBuffers actionsOut) {
         ActionSegment<int> discreteActions = actionsOut.DiscreteActions;
         discreteActions[0] = 1 + Mathf.RoundToInt(Input.GetAxisRaw("Vertical"));
         discreteActions[1] = 1 + Mathf.RoundToInt(Input.GetAxisRaw("Horizontal"));
     }
 
+    /// <summary>
+    /// Move car based on received actions
+    /// </summary>
+    /// <param name="forwardMovement">Which way to move forward/backward</param>
+    /// <param name="sidewaysMovement">Which way to move sideways</param>
     private void MoveCarBasedOnDiscreteActions(int forwardMovement, int sidewaysMovement) {
         float scaleV = 5f;
         float scaleH = 5f;
@@ -201,24 +230,21 @@ public class CarAgent : Agent {
         // Debug.Log("axis " + nextForwardMovement + " " + nextSidewaysMovement + " " + GetComponent<Rigidbody>().velocity.magnitude);
     }
 
+    /// <summary>
+    /// Reload car, resetting it to starting position
+    /// </summary>
     private void ReloadCar() {
         if (startingPositionRotationSet && terrainLoader != null && terrainGO != null) {
             transform.position = startingPosition;
             transform.rotation = startingRotation;
-            // int numberOfCars = GameObject.FindGameObjectsWithTag("car").Length;
-            // if (numberOfCars == 1 || numberOfCars == startingNumberOfCars) {
-            //     OrientedPoint posrot = new OrientedPoint(startingPosition, startingRotation);
-            //     GameObject car = Objects.PutObject("SportCarAI", "car", gameObject.name, posrot);
-            //     car.transform.parent = gameObject.transform.parent;
-            //     car.transform.localScale = gameObject.transform.localScale;
-            //     car.GetComponent<CarAgent>().showGizmos = showGizmos;
-            //     car.GetComponent<CarAgent>().playMode = playMode;
-            // }
-            // Destroy(this.gameObject);
-            // Debug.Log($"{numberOfCars} {startingNumberOfCars} {GameObject.FindGameObjectsWithTag("car").Length}");
         }
     }
 
+    /// <summary>
+    /// Get angle between car forward direction and direction to some point
+    /// </summary>
+    /// <param name="point">Other direction end</param>
+    /// <returns>Angle normalized in range [-1, 1]</returns>
     private float GetAngleXZBetweenForwardAndPoint(Vector3 point) {
         Vector3 forwardXZ = new Vector3(transform.forward.x, 0, transform.forward.z);
         Vector3 pointXZ = new Vector3(point.x, 0, point.z);
@@ -231,6 +257,11 @@ public class CarAgent : Agent {
         return radianANgle / Mathf.PI; // angle normalized [-1, 1]
     }
 
+    /// <summary>
+    /// Find nearest point of the road.
+    /// Return distance to it and angle between forward and road tangent in this point
+    /// </summary>
+    /// <returns>List of distance and angle</returns>
     private float[] GetDistanceToRoadCenterAndAngleToTangent() {
         float distanceToRoadCenter = 0f;
         float angleToTangent = 0f;
