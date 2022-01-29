@@ -4,3 +4,7 @@ envs/level3_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
 envs/level4_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
 envs/level5_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
 envs/level6_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
+Assets/OtherAssets/DreamForestTree/Materials/ClearSky.psd filter=lfs diff=lfs merge=lfs -text
+Assets/OtherAssets/DreamForestTree/_HDRP[[:space:]]patch/DreamTreesHDRP.unitypackage filter=lfs diff=lfs merge=lfs -text
+Assets/OtherAssets/DreamForestTree/_URP[[:space:]]patch/DreamTreesURP.unitypackage filter=lfs diff=lfs merge=lfs -text
+Assets/OtherAssets/WoodLog/Materials/Wood_Log_normal.png filter=lfs diff=lfs merge=lfs -text
