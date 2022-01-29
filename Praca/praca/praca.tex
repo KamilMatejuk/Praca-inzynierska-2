@@ -27,7 +27,7 @@
 \selectlanguage{polish}
 
 % Kodowanie dokumentu
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 
 % Dowolny rozmiar czcionek, kodowanie znaków
 \usepackage{lmodern}
@@ -340,41 +340,6 @@
 	\renewcommand{\footrulewidth}{0.2pt}		% Grubość linii w stopce
 }
 
-\fancypagestyle{listOfAlgorithmsStyle}{
-	\fancyhf{}									% wyczyść stopki i nagłówki
-	\fancyhead[RO]{								% Prawy, nieparzysty nagłówek
-		\hrulefill \hspace{16pt} \large Spis algorytmów
-		\put(-472.1, 12.1){%
-			\makebox(0,0)[l]{%
-			\includegraphics[width=0.05\textwidth]{figures/pwr-logo}
-			}
-		}
-		\put(-443,5.5){%
-			\makebox(0,0)[l]{%
-				\small Politechnika Wrocławska
-			}
-		}
-	}
-	\fancyhead[LE]{								% Lewy, parzysty nagłówek
-		\large Spis tabel \hspace{16pt} \hrulefill 
-		\put(-22, 12.1){%
-			\makebox(0,0)[l]{%
-\includegraphics[width=0.05\textwidth]{figures/wit-logo}
-			}
-		}
-		\put(-210,5.5){%
-			\makebox(0,0)[l]{%
-				\small Wydział Informatyki i Telekomunikacji
-			}
-		}
-	}
-	\fancyfoot[LE,RO]{							% Stopki
-		\thepage
-	}
-	\renewcommand{\headrulewidth}{0pt}			% Grubość linii w nagłówku
-	\renewcommand{\footrulewidth}{0.2pt}		% Grubość linii w stopce
-}
-
 % Domyślny styl dla dodatków
 \fancypagestyle{appendixStyle}{
 	\fancyhf{}									% wyczyść stopki i nagłówki
@@ -627,15 +592,15 @@
 % ***************************************************************************************************
 
 % Prawidłowe dzielenie wyrazów
-\hyphenation{wszy-stkich ko-lu-mnę każ-da od-leg-łość
-	dzie-dzi-ny dzie-dzi-na rów-nych rów-ny
-	pole-ga zmie-nna pa-ra-met-rów wzo-rem po-cho-dzi
-	o-trzy-ma wte-dy wa-run-ko-wych lo-gicz-nie
-	skreś-la-na skreś-la-ną cał-ko-wi-tych wzo-rów po-rzą-dek po-rząd-kiem
-	przy-kład pod-zbio-rów po-mię-dzy re-pre-zen-to-wa-ne
-	rów-no-waż-ne bi-blio-te-kach wy-pro-wa-dza ma-te-ria-łów
-	prze-ka-za-nym skoń-czo-nym moż-esz na-tu-ral-na cią-gu tab-li-cy
-	prze-ka-za-nej od-po-wied-nio}
+% \hyphenation{wszy-stkich ko-lu-mnę każ-da od-leg-łość
+% 	dzie-dzi-ny dzie-dzi-na rów-nych rów-ny
+% 	pole-ga zmie-nna pa-ra-met-rów wzo-rem po-cho-dzi
+% 	o-trzy-ma wte-dy wa-run-ko-wych lo-gicz-nie
+% 	skreś-la-na skreś-la-ną cał-ko-wi-tych wzo-rów po-rzą-dek po-rząd-kiem
+% 	przy-kład pod-zbio-rów po-mię-dzy re-pre-zen-to-wa-ne
+% 	rów-no-waż-ne bi-blio-te-kach wy-pro-wa-dza ma-te-ria-łów
+% 	prze-ka-za-nym skoń-czo-nym moż-esz na-tu-ral-na cią-gu tab-li-cy
+% 	prze-ka-za-nej od-po-wied-nio}
 
 % ***************************************************************************************************
 % Dokument
@@ -718,13 +683,6 @@
 	\pagestyle{listOfTablesStyle}
 	\listoftables
 	% \addcontentsline{toc}{chapter}{Spis tabel}
-
-	% spis algorytmów (opcjonalnie)
-	% \clearpage
-	% \renewcommand{\listtablename}{Spis algorytmów}
-	\pagestyle{listOfAlgorithmsStyle}
-	\listofalgorithms
-	% \addcontentsline{toc}{chapter}{Spis algorytmów}
 
     \clearpage % \cleardoublepage
     
