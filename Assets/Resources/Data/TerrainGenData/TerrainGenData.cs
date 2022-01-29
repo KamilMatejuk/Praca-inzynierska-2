@@ -9,7 +9,7 @@ public class TerrainGenData : UpdatableData {
 
     public TerrainType terrainType = TerrainType.Forest;
     [Range(5000f, 50000f)]  public float roadLength = 10000f;
-    [Range(1f, 10f)]        public float roadWidth = 7f;
+    [Range(1f, 10f)]        public float roadWidth = 5f;
     [Range(0.05f, 0.25f)]   public float paddingPercent = 0.2f;
     [Range(3, 10)]          public int numberOfSegments = 4;
     [Range(0, 40)]          public int numberOfCheckpoints = 40;

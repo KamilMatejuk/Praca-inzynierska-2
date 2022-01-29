@@ -76,7 +76,7 @@ public class CarAgent : Agent {
         float distanceToRoadCenter = distanceAndTangent[0]; // distance to center of road
         float angleToTangent = distanceAndTangent[1]; // angle between forward and tangent
 
-        if (distanceToRoadCenter > 2) {
+        if (!playMode && distanceToRoadCenter > 2) {
             if (statsRecorder == null) {
                 statsRecorder = Academy.Instance.StatsRecorder;
             }
@@ -126,7 +126,6 @@ public class CarAgent : Agent {
         } else if (other.name.Contains("Border") || other.name.Contains("BorderRoad")) {
             Debug.Log("Hit border");
             AddReward(-0.1f);
-            Debug.Log("end episode border");
             goto endEpisode;
         } else if (other.name != "Loaded Terrain") {
             Debug.Log("Hit something other: " + other.name);
@@ -136,12 +135,14 @@ public class CarAgent : Agent {
     continueEpisode:
         return;
     endEpisode:
-        if (statsRecorder == null) {
-            statsRecorder = Academy.Instance.StatsRecorder;
+        if (!playMode) {
+            if (statsRecorder == null) {
+                statsRecorder = Academy.Instance.StatsRecorder;
+            }
+            statsRecorder.Add("VisitedCheckpoints", numberOfCheckpointsAlreadyHitInThisEpisode);
+            EndEpisode();
+            ReloadCar();
         }
-        statsRecorder.Add("VisitedCheckpoints", numberOfCheckpointsAlreadyHitInThisEpisode);
-        EndEpisode();
-        ReloadCar();
     }
 
     public override void Heuristic(in ActionBuffers actionsOut) {

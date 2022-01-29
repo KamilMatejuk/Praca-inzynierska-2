@@ -12,7 +12,6 @@ public class MainMenu : MonoBehaviour {
     [SerializeField] public GameObject playMenu;
 
     public void MenuOptionPlayGame() {
-        Debug.Log(filename);
         if (filename.Length != 0) {
             SceneManager.LoadScene("Game", LoadSceneMode.Single);
         }

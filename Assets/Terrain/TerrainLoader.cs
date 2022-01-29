@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using System.IO;
 using System;
 
@@ -186,38 +187,6 @@ public class TerrainLoader : MonoBehaviour {
         terrainData.alphamapResolution = Variables.TERRAIN_SIZE * 4;
         terrainData.SetAlphamaps(0, 0, splatmapData);
 
-        // terrain trees
-        if (terrainGenData.terrainType == TerrainType.Desert || terrainGenData.terrainType == TerrainType.Forest) {
-            TreePrototype[] tps = new TreePrototype[] { new TreePrototype(), new TreePrototype() };
-            tps[0].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/PalmTree");
-            tps[1].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Tree");
-            terrainData.treePrototypes = tps;
-            List<TreeInstance> treeInstances = new List<TreeInstance>();
-            for (int xi = 0; xi < alphamapSize.x; xi++) {
-                for (int yi = 0; yi < alphamapSize.y; yi++) {
-                    if (splatmapData[yi, xi, 0] == 0 && UnityEngine.Random.value > 0.995f) {
-                        TreeInstance ti = new TreeInstance();
-                        ti.position = new Vector3(xi / alphamapSize.x, 0, yi / alphamapSize.y);
-                        ti.widthScale = 1f;
-                        ti.heightScale = 1f;
-                        ti.color = Color.white;
-                        ti.lightmapColor = Color.white;
-                        if (terrainGenData.terrainType == TerrainType.Desert) {
-                            ti.prototypeIndex = 0;
-                        } else if (terrainGenData.terrainType == TerrainType.Forest) {
-                            ti.prototypeIndex = 1;
-                        }
-                        treeInstances.Add(ti);
-                    }
-                }
-            }
-            terrainData.SetTreeInstances(treeInstances.ToArray(), true);
-        }
-
-        terrainGO.GetComponent<Terrain>().terrainData = terrainData;
-        terrainGO.GetComponent<TerrainCollider>().terrainData = terrainData;
-        terrainGO.GetComponent<TerrainCollider>().sharedMaterial = (PhysicMaterial)Resources.Load<PhysicMaterial>("Materials/TerrainPhysicMaterial");
-
         // loop
         List<OrientedPoint> controlPointsList = new List<OrientedPoint>();
         tempIndex = 0;
@@ -228,6 +197,163 @@ public class TerrainLoader : MonoBehaviour {
             tempIndex++;
         }
         controlPoints = new Loop(gameObject.transform.position, controlPointsList, terrainGenData);
+
+        // terrain trees
+        int[] bigTreeInstances = {};
+        int[] smallTreeInstances = {};
+        int[] mainBackgroundTreeInstances = {};
+        int[] otherBackgroundTreeInstances = {};
+        float backgroundTreeRandomMinBound = 0.995f;
+        float backgroundTreeOtherOverMainRandomMinBound = 0.7f;
+        float roadTreeBigOverSmallRandomMinBound = 0.35f;
+        if (terrainGenData.terrainType == TerrainType.Forest) {
+            TreePrototype[] tps = Enumerable.Repeat(new TreePrototype(), 19).Select(x => new TreePrototype()).ToArray();
+            tps[0].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Tree");
+            tps[1].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Plants1");
+            tps[2].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Plants2");
+            tps[3].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Plants3");
+            tps[4].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Plants4");
+            tps[5].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Plants5");
+            tps[6].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock1");
+            tps[7].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock2");
+            tps[8].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock3");
+            tps[9].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock4");
+            tps[10].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock5");
+            tps[11].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock6");
+            tps[12].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock7");
+            tps[13].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock8");
+            tps[14].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock9");
+            tps[15].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock10");
+            tps[16].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock11");
+            tps[17].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock12");
+            tps[18].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/TreeLog");
+            terrainData.treePrototypes = tps;
+            bigTreeInstances = new int[] { 6, 7, 10, 11, 12, 13, 14, 15, 16, 17 };
+            smallTreeInstances = new int[] { 1, 2, 3, 4, 5, 8, 9, 18 };
+            mainBackgroundTreeInstances = new int[] { 0 };
+            otherBackgroundTreeInstances = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ,15, 16, 17, 18 };
+            backgroundTreeRandomMinBound = 0.995f;
+            backgroundTreeOtherOverMainRandomMinBound = 0.7f;
+            roadTreeBigOverSmallRandomMinBound = 0.35f;
+        }
+        else if (terrainGenData.terrainType == TerrainType.Desert) {
+            TreePrototype[] tps = Enumerable.Repeat(new TreePrototype(), 14).Select(x => new TreePrototype()).ToArray();
+            tps[0].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/PalmTree");
+            tps[1].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock3");
+            tps[2].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock4");
+            tps[3].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Stones1");
+            tps[4].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Stones2");
+            tps[5].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Stones3");
+            tps[6].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Sphinx");
+            tps[7].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/PyramidStepped");
+            tps[8].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/PyramidSmooth");
+            tps[9].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Obelisk");
+            tps[10].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/ColumnRound");
+            tps[11].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/ColumnSquare");
+            tps[12].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock3");
+            tps[13].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock4");
+            terrainData.treePrototypes = tps;
+            bigTreeInstances = new int[] { 9, 10, 11 };
+            smallTreeInstances = new int[] { 1, 2, 3, 4, 5, 12, 13 };
+            mainBackgroundTreeInstances = new int[] { 0, 3, 4, 5 };
+            otherBackgroundTreeInstances = new int[] { 1, 2, 6, 7, 8, 9, 10, 11 };
+            backgroundTreeRandomMinBound = 0.999f;
+            backgroundTreeOtherOverMainRandomMinBound = 0.15f;
+            roadTreeBigOverSmallRandomMinBound = 0.95f;
+        }
+        else if (terrainGenData.terrainType == TerrainType.Mountains) {
+            TreePrototype[] tps = Enumerable.Repeat(new TreePrototype(), 22).Select(x => new TreePrototype()).ToArray();
+            tps[0].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock1");
+            tps[1].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock2");
+            tps[2].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock3");
+            tps[3].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock4");
+            tps[4].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock5");
+            tps[5].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock6");
+            tps[6].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock7");
+            tps[7].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock8");
+            tps[8].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock9");
+            tps[9].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock10");
+            tps[10].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock11");
+            tps[11].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock12");
+            tps[12].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock13");
+            tps[13].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock14");
+            tps[14].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock15");
+            tps[15].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock16");
+            tps[16].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock17");
+            tps[17].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/SnowRock18");
+            tps[18].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock9");
+            tps[19].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock10");
+            tps[20].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock11");
+            tps[21].prefab = (GameObject)Resources.Load<GameObject>("Prefabs/Rock12");
+            terrainData.treePrototypes = tps;
+            bigTreeInstances = new int[] { 6, 7, 8, 9, 10, 11 };
+            smallTreeInstances = new int[] { 0, 1, 2, 3, 4, 5 };
+            mainBackgroundTreeInstances = new int[] { 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 };
+            otherBackgroundTreeInstances = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+            backgroundTreeRandomMinBound = 0.995f;
+            backgroundTreeOtherOverMainRandomMinBound = 0.4f;
+            roadTreeBigOverSmallRandomMinBound = 0.3f;
+        }
+
+        int GetRandomFromArray(int[] arr) => arr.Length == 0 ? 0 : arr[Mathf.FloorToInt(UnityEngine.Random.value * arr.Count())];
+        // draw random trees
+        List<TreeInstance> treeInstances = new List<TreeInstance>();
+        for (int xi = 0; xi < alphamapSize.x; xi++) {
+            for (int yi = 0; yi < alphamapSize.y; yi++) {
+                if (splatmapData[yi, xi, 0] == 0 && UnityEngine.Random.value > backgroundTreeRandomMinBound) {
+                    TreeInstance ti = new TreeInstance();
+                    ti.position = new Vector3(xi / alphamapSize.x, -0.1f, yi / alphamapSize.y);
+                    ti.widthScale = 0.9f + (UnityEngine.Random.value / 5f);
+                    ti.heightScale = 0.9f + (UnityEngine.Random.value / 5f);
+                    ti.color = Color.white;
+                    ti.lightmapColor = Color.white;
+                    ti.prototypeIndex = GetRandomFromArray(mainBackgroundTreeInstances);
+                    if (UnityEngine.Random.value > backgroundTreeOtherOverMainRandomMinBound) {
+                        ti.prototypeIndex = GetRandomFromArray(otherBackgroundTreeInstances);
+                    }
+                    treeInstances.Add(ti);
+                }
+            }
+        }
+        // draw across road
+        List<OrientedPoint> equallySpacedPoints = controlPoints.GetEquallySpacedPoints(200);
+        for (int i = 0; i < equallySpacedPoints.Count; i++) {
+            OrientedPoint start = equallySpacedPoints[(i + 0) % equallySpacedPoints.Count];
+            OrientedPoint end = equallySpacedPoints[(i + 1) % equallySpacedPoints.Count];
+            foreach (Vector3 offset in new Vector3[] { Vector3.left, Vector3.right }) {
+                Vector3 s = start.LocalToWorldPosition(offset * terrainGenData.roadWidth * 2f * (0.9f + (UnityEngine.Random.value / 5f)));
+                Vector3 e = end.LocalToWorldPosition(offset * terrainGenData.roadWidth * 2f * (0.9f + (UnityEngine.Random.value / 5f)));
+                List<float> displacements = new List<float>();
+                List<int> prototypes = new List<int>();
+                if (UnityEngine.Random.value > roadTreeBigOverSmallRandomMinBound) {
+                    // with 50% probability add one big element
+                    displacements.Add(0.25f + (UnityEngine.Random.value * 0.5f));
+                    prototypes.Add(GetRandomFromArray(bigTreeInstances));
+                } else {
+                    // else add 8 small elements
+                    for (int j = 0; j < 4; j++) {
+                        displacements.Add((j / 4f) + (UnityEngine.Random.value / 4f));
+                        prototypes.Add(GetRandomFromArray(smallTreeInstances));
+                    }
+                }
+                for (int j = 0; j < prototypes.Count; j++) {
+                    Vector3 pos = (e + (e - s) * displacements[j]) - terrainGO.transform.position;
+                    TreeInstance ti = new TreeInstance();
+                    ti.position = new Vector3(pos.x / Variables.TERRAIN_SIZE, (pos.y / Variables.TERRAIN_HEIGHT) - 0.1f, pos.z / Variables.TERRAIN_SIZE);
+                    ti.widthScale = 0.9f + (UnityEngine.Random.value / 5f);
+                    ti.heightScale = 0.9f + (UnityEngine.Random.value / 5f);
+                    ti.color = Color.white;
+                    ti.lightmapColor = Color.white;
+                    ti.prototypeIndex = prototypes[j];
+                    treeInstances.Add(ti);
+                }
+            }
+        }
+        terrainData.SetTreeInstances(treeInstances.ToArray(), true);
+
+        terrainGO.GetComponent<Terrain>().terrainData = terrainData;
+        terrainGO.GetComponent<TerrainCollider>().terrainData = terrainData;
+        terrainGO.GetComponent<TerrainCollider>().sharedMaterial = (PhysicMaterial)Resources.Load<PhysicMaterial>("Materials/TerrainPhysicMaterial");
     }
 
     public void LoadObjects(string filename) {
@@ -313,35 +439,37 @@ public class TerrainLoader : MonoBehaviour {
             }
         }
         // border alongside road
-        int details = 100;
-        List<OrientedPoint> equallySpacedPoints = controlPoints.GetEquallySpacedPoints(details);
-        float blockHeight = terrainSize.y * 0.4f;
-        float blockWidth = 1f;
-        GameObject roadBordersGroup = Objects.PutParentObject("border", "Borders");
-        roadBordersGroup.transform.parent = bordersGroup.transform;
-        void AddBorderSegment(Vector3 offset, int i) {
-            Vector3 curr = equallySpacedPoints[(i + 0) % equallySpacedPoints.Count].LocalToWorldPosition(offset * terrainGenData.roadWidth * 2f);
-            Vector3 next = equallySpacedPoints[(i + 1) % equallySpacedPoints.Count].LocalToWorldPosition(offset * terrainGenData.roadWidth * 2f);
-            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            cube.name = "BorderRoad";
-            cube.tag = "border";
-            cube.transform.parent = roadBordersGroup.transform;
-            cube.transform.localScale = new Vector3(blockWidth, blockHeight, (next - curr).magnitude);
-            cube.transform.position = next + (next - curr) * 0.5f;
-            Vector3 forwardXZ = new Vector3(transform.forward.x, 0, transform.forward.z);
-            Vector3 positionXZ = new Vector3(transform.position.x, 0, transform.position.z);
-            Vector3 directionToPointXZ = next - curr;
-            float angle = Mathf.Acos(Vector3.Dot(forwardXZ.normalized, directionToPointXZ.normalized));
-            float crossY = Vector3.Cross(forwardXZ, directionToPointXZ).y;
-            float crossYSign = crossY >= 0 ? 1f : -1f;
-            float radianANgle = angle * crossYSign; // angle in radians [-pi, pi]
-            cube.transform.rotation *= Quaternion.Euler(0, radianANgle * 180 / Mathf.PI, 0); // angle normalized to degrees [-180, 180]
-            cube.GetComponent<BoxCollider>().isTrigger = true;
-            cube.GetComponent<MeshRenderer>().enabled = showBorders;
-        }
-        for (int i = 0; i < equallySpacedPoints.Count; i++) {
-            AddBorderSegment(Vector3.left, i);
-            AddBorderSegment(Vector3.right, i);
+        if (!playMode) {
+            int details = 100;
+            List<OrientedPoint> equallySpacedPoints = controlPoints.GetEquallySpacedPoints(details);
+            float blockHeight = terrainSize.y * 0.4f;
+            float blockWidth = 1f;
+            GameObject roadBordersGroup = Objects.PutParentObject("border", "Borders");
+            roadBordersGroup.transform.parent = bordersGroup.transform;
+            void AddBorderSegment(Vector3 offset, int i) {
+                Vector3 curr = equallySpacedPoints[(i + 0) % equallySpacedPoints.Count].LocalToWorldPosition(offset * terrainGenData.roadWidth * 2f);
+                Vector3 next = equallySpacedPoints[(i + 1) % equallySpacedPoints.Count].LocalToWorldPosition(offset * terrainGenData.roadWidth * 2f);
+                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                cube.name = "BorderRoad";
+                cube.tag = "border";
+                cube.transform.parent = roadBordersGroup.transform;
+                cube.transform.localScale = new Vector3(blockWidth, blockHeight, (next - curr).magnitude);
+                cube.transform.position = next + (next - curr) * 0.5f;
+                Vector3 forwardXZ = new Vector3(transform.forward.x, 0, transform.forward.z);
+                Vector3 positionXZ = new Vector3(transform.position.x, 0, transform.position.z);
+                Vector3 directionToPointXZ = next - curr;
+                float angle = Mathf.Acos(Vector3.Dot(forwardXZ.normalized, directionToPointXZ.normalized));
+                float crossY = Vector3.Cross(forwardXZ, directionToPointXZ).y;
+                float crossYSign = crossY >= 0 ? 1f : -1f;
+                float radianANgle = angle * crossYSign; // angle in radians [-pi, pi]
+                cube.transform.rotation *= Quaternion.Euler(0, radianANgle * 180 / Mathf.PI, 0); // angle normalized to degrees [-180, 180]
+                cube.GetComponent<BoxCollider>().isTrigger = true;
+                cube.GetComponent<MeshRenderer>().enabled = showBorders;
+            }
+            for (int i = 0; i < equallySpacedPoints.Count; i++) {
+                AddBorderSegment(Vector3.left, i);
+                AddBorderSegment(Vector3.right, i);
+            }
         }
 
         // light
@@ -350,7 +478,7 @@ public class TerrainLoader : MonoBehaviour {
         Light light = lightGO.AddComponent<Light>();
         light.color = Color.white;
         light.type = LightType.Directional;
-        light.intensity = 1;
+        light.intensity = 0.05f;
         lightGO.transform.localPosition = new Vector3(Variables.TERRAIN_SIZE / 2, Variables.TERRAIN_HEIGHT * 2, Variables.TERRAIN_SIZE / 2);
 
         // cars

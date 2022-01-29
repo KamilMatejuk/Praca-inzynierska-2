@@ -2,22 +2,31 @@
     "in5-out1-f": {
         "checkpoints": [
             {
-                "steps": 7897,
-                "file_path": "results/level1/in5-out1-f/in5-out1-f-7897.onnx",
-                "reward": -29.907858737269226,
-                "creation_time": 1643255826.8040168,
+                "steps": 19999941,
+                "file_path": "results/level1/in5-out1-f/in5-out1-f-19999941.onnx",
+                "reward": 15.124194860458374,
+                "creation_time": 1643319954.1646888,
                 "auxillary_file_paths": [
-                    "results/level1/in5-out1-f/in5-out1-f-7897.pt"
+                    "results/level1/in5-out1-f/in5-out1-f-19999941.pt"
+                ]
+            },
+            {
+                "steps": 20000005,
+                "file_path": "results/level1/in5-out1-f/in5-out1-f-20000005.onnx",
+                "reward": 15.124194860458374,
+                "creation_time": 1643319954.2122147,
+                "auxillary_file_paths": [
+                    "results/level1/in5-out1-f/in5-out1-f-20000005.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 7897,
+            "steps": 20000005,
             "file_path": "results/level1/in5-out1-f.onnx",
-            "reward": -29.907858737269226,
-            "creation_time": 1643255826.8040168,
+            "reward": 15.124194860458374,
+            "creation_time": 1643319954.2122147,
             "auxillary_file_paths": [
-                "results/level1/in5-out1-f/in5-out1-f-7897.pt"
+                "results/level1/in5-out1-f/in5-out1-f-20000005.pt"
             ]
         }
     },

@@ -48,13 +48,13 @@ public class MultiTraining : MonoBehaviour {
         terrainLoader.showGizmos = showGizmos;
         terrain.GetComponent<TerrainLoader>().LoadTerrain(filename, false);
         // light
-        GameObject lightGO = new GameObject("Light");
-        lightGO.transform.parent = terrain.transform;
-        Light light = lightGO.AddComponent<Light>();
-        light.color = Color.white;
-        light.type = LightType.Directional;
-        light.intensity = 5;
-        lightGO.transform.localPosition = position + new Vector3(0, Variables.TERRAIN_HEIGHT, 0);
+        // GameObject lightGO = new GameObject("Light");
+        // lightGO.transform.parent = terrain.transform;
+        // Light light = lightGO.AddComponent<Light>();
+        // light.color = Color.white;
+        // light.type = LightType.Directional;
+        // light.intensity = 1;
+        // lightGO.transform.localPosition = position + new Vector3(0, Variables.TERRAIN_HEIGHT, 0);
     }
 
 }
