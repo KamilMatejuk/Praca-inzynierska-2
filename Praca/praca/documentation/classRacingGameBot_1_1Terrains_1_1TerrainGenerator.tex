@@ -1,0 +1,167 @@
+
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator}${}
+\subsection{RacingGameBot.Terrains.TerrainGenerator Class Reference}
+\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator}
+\index{RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}}
+
+\begin{figure}[H]
+    \minipage{.5\textwidth}
+        \centering
+        \includegraphics[height=6cm,width=\textwidth]{documentation/classRacingGameBot_1_1Terrains_1_1TerrainGenerator__inherit__graph}
+        \caption{Inheritance diagram for \\RacingGameBot.Terrains.TerrainGenerator}
+    \endminipage\hfill
+    \minipage{.5\textwidth}
+        \centering
+        \includegraphics[height=6cm,width=\textwidth]{documentation/classRacingGameBot_1_1Terrains_1_1TerrainGenerator__coll__graph}
+        \caption{Collaboration diagram for \\RacingGameBot.Terrains.TerrainGenerator}
+    \endminipage
+    \label{table}
+\end{figure}
+
+\subsection*{Public Member Functions}
+\begin{itemize}
+\item[]  
+void \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a6059fe2042e6d22c87cdaa24c484ecb3}{ShowRoadBezier}} ()
+\begin{itemize}\small\item[] \em Draw road in editor \end{itemize}\item[]  
+void \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a0675f55b32ed9be71281aae154beace3}{GenerateTerrain}} ()
+\begin{itemize}\small\item[] \em Generate terrain \end{itemize}\item[]  
+void \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a42ee9ad27a6bd31a13bc1afdf18ba4cc}{GenerateLoop}} ()
+\begin{itemize}\small\item[] \em Generate road loop \end{itemize}\item[]  
+void \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a0080a467970dfacdbb9c70c282e91e5d}{Save}} ()
+\begin{itemize}\small\item[] \em Save current terrain \end{itemize}\item[]  
+void \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_ace159b51c13eb1afed8cf830374fc187}{GenerateTerrainShape}} ()
+\begin{itemize}\small\item[] \em Create terrain shape (heightmap) based on perlin noise \end{itemize}\item[]  
+void \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a2fccf1172cbe939317ee9b1c1e3bb837}{RemoveTerrainTextures}} ()
+\begin{itemize}\small\item[] \em Clear terrain textures \end{itemize}\item[]  
+IEnumerator \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a3bcb40196402e8f4393c9b3710e7a25b}{GenerateTerrainTextures}} (System.Action$<$ int $>$ callbackUpdateTime=null, System.Action callbackEnd=null)
+\begin{itemize}\small\item[] \em Add textures and \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Objects}{Utils.Objects}} to terrain based on terrain type \end{itemize}\end{itemize}
+\subsection*{Static Public Member Functions}
+\begin{itemize}
+\item[]  
+static TerrainLayer \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a091f7644a0b5abdaf5dffb6c8ce611e8}{GetTerrainLayerTexture}} (string textureName, float size)
+\begin{itemize}\small\item[] \em Load texture based on name \end{itemize}\item[]  
+static TerrainLayer \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a5e614f0f16f169fdab412edc54de60ce}{GetTerrainLayerColor}} (Color color)
+\begin{itemize}\small\item[] \em Load single-\/colored texture \end{itemize}\end{itemize}
+\subsection*{Public Attributes}
+\begin{itemize}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a1303bb0ddd394076be8d8b8bb51cf14c}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a1303bb0ddd394076be8d8b8bb51cf14c}} 
+bool {\bfseries generateOnChanges} = false
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a368b9624fed4ab9147bd6d39a027b7bb}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a368b9624fed4ab9147bd6d39a027b7bb}} 
+int {\bfseries seed} = 0
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a5c602fa7077b571af85967669437bfa8}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a5c602fa7077b571af85967669437bfa8}} 
+\mbox{\hyperlink{classRacingGameBot_1_1Data_1_1TerrainGenData}{Data.TerrainGenData}} {\bfseries terrainGenData}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_af98aa23e4399ad08f200f20ef289bb5c}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_af98aa23e4399ad08f200f20ef289bb5c}} 
+bool {\bfseries showCheckpoints} = false
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_affbe9232c4af5f169e68c5f7896f3f23}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_affbe9232c4af5f169e68c5f7896f3f23}} 
+bool {\bfseries showBorders} = false
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_acdbfe8dddbb26949a7a36ddc751db917}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_acdbfe8dddbb26949a7a36ddc751db917}} 
+bool {\bfseries showRoadBezier} = false
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a6d57853858d9c760825bce1bb62eeea0}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a6d57853858d9c760825bce1bb62eeea0}} 
+string {\bfseries filename}
+\end{itemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a42ee9ad27a6bd31a13bc1afdf18ba4cc}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a42ee9ad27a6bd31a13bc1afdf18ba4cc}} 
+\index{RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}!GenerateLoop@{GenerateLoop}}
+\index{GenerateLoop@{GenerateLoop}!RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}}
+\subsubsection{\texorpdfstring{GenerateLoop()}{GenerateLoop()}}
+{\footnotesize\ttfamily void RacingGameBot.Terrains.TerrainGenerator.GenerateLoop ()}\\
+Generate road loop \\
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a0675f55b32ed9be71281aae154beace3}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a0675f55b32ed9be71281aae154beace3}} 
+\index{RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}!GenerateTerrain@{GenerateTerrain}}
+\index{GenerateTerrain@{GenerateTerrain}!RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}}
+\subsubsection{\texorpdfstring{GenerateTerrain()}{GenerateTerrain()}}
+{\footnotesize\ttfamily void RacingGameBot.Terrains.TerrainGenerator.GenerateTerrain ()}\\
+Generate terrain \\
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_ace159b51c13eb1afed8cf830374fc187}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_ace159b51c13eb1afed8cf830374fc187}} 
+\index{RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}!GenerateTerrainShape@{GenerateTerrainShape}}
+\index{GenerateTerrainShape@{GenerateTerrainShape}!RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}}
+\subsubsection{\texorpdfstring{GenerateTerrainShape()}{GenerateTerrainShape()}}
+{\footnotesize\ttfamily void RacingGameBot.Terrains.TerrainGenerator.GenerateTerrainShape ()}\\
+Create terrain shape (heightmap) based on perlin noise \\
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a3bcb40196402e8f4393c9b3710e7a25b}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a3bcb40196402e8f4393c9b3710e7a25b}} 
+\index{RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}!GenerateTerrainTextures@{GenerateTerrainTextures}}
+\index{GenerateTerrainTextures@{GenerateTerrainTextures}!RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}}
+\subsubsection{\texorpdfstring{GenerateTerrainTextures()}{GenerateTerrainTextures()}}
+{\footnotesize\ttfamily IEnumerator RacingGameBot.Terrains.TerrainGenerator.GenerateTerrainTextures (\begin{itemize}
+    \item[] [{System.Action$<$ int $>$}]{ callbackUpdateTime = {\ttfamily null}, }
+    \item[] [{System.Action}]{ callbackEnd = {\ttfamily null} }
+\end{itemize}\hspace{0.5cm})}\\
+Add textures and objects to terrain based on terrain type \\
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a5e614f0f16f169fdab412edc54de60ce}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a5e614f0f16f169fdab412edc54de60ce}} 
+\index{RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}!GetTerrainLayerColor@{GetTerrainLayerColor}}
+\index{GetTerrainLayerColor@{GetTerrainLayerColor}!RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}}
+\subsubsection{\texorpdfstring{GetTerrainLayerColor()}{GetTerrainLayerColor()}}
+{\footnotesize\ttfamily static TerrainLayer RacingGameBot.Terrains.TerrainGenerator.GetTerrainLayerColor (\begin{itemize}
+    \item[] [{Color}]{ color }
+\end{itemize}\hspace{0.5cm})}\\
+Load single-colored texture \\
+\begin{tabular}{|c|c|}
+\hline
+{\em color} & Texture color\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+TerrainLayer object with loaded color
+\end{Return}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a091f7644a0b5abdaf5dffb6c8ce611e8}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a091f7644a0b5abdaf5dffb6c8ce611e8}} 
+\index{RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}!GetTerrainLayerTexture@{GetTerrainLayerTexture}}
+\index{GetTerrainLayerTexture@{GetTerrainLayerTexture}!RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}}
+\subsubsection{\texorpdfstring{GetTerrainLayerTexture()}{GetTerrainLayerTexture()}}
+{\footnotesize\ttfamily static TerrainLayer RacingGameBot.Terrains.TerrainGenerator.GetTerrainLayerTexture (\begin{itemize}
+    \item[] [{string}]{ textureName, }
+    \item[] [{float}]{ size }
+\end{itemize}\hspace{0.5cm})}\\
+Load texture based on name \\
+\begin{tabular}{|c|c|}
+\hline
+{\em textureName} & Name of texture file\\
+\hline
+{\em size} & Texture tiling size\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+TerrainLayer object with loaded texture
+\end{Return}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a2fccf1172cbe939317ee9b1c1e3bb837}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a2fccf1172cbe939317ee9b1c1e3bb837}} 
+\index{RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}!RemoveTerrainTextures@{RemoveTerrainTextures}}
+\index{RemoveTerrainTextures@{RemoveTerrainTextures}!RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}}
+\subsubsection{\texorpdfstring{RemoveTerrainTextures()}{RemoveTerrainTextures()}}
+{\footnotesize\ttfamily void RacingGameBot.Terrains.TerrainGenerator.RemoveTerrainTextures ()}\\
+Clear terrain textures \\
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a0080a467970dfacdbb9c70c282e91e5d}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a0080a467970dfacdbb9c70c282e91e5d}} 
+\index{RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}!Save@{Save}}
+\index{Save@{Save}!RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}}
+\subsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void RacingGameBot.Terrains.TerrainGenerator.Save ()}\\
+Save current terrain \\
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a6059fe2042e6d22c87cdaa24c484ecb3}$\label{classRacingGameBot_1_1Terrains_1_1TerrainGenerator_a6059fe2042e6d22c87cdaa24c484ecb3}} 
+\index{RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}!ShowRoadBezier@{ShowRoadBezier}}
+\index{ShowRoadBezier@{ShowRoadBezier}!RacingGameBot.Terrains.TerrainGenerator@{RacingGameBot.Terrains.TerrainGenerator}}
+\subsubsection{\texorpdfstring{ShowRoadBezier()}{ShowRoadBezier()}}
+{\footnotesize\ttfamily void RacingGameBot.Terrains.TerrainGenerator.ShowRoadBezier ()}\\
+Draw road in editor 

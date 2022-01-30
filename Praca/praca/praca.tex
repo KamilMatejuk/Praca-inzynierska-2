@@ -425,7 +425,7 @@
 
 
 % Formatowanie tytułów sekcji
-\titleformat{\section}[hang]					% kształt
+\titleformat{\subsection}[hang]					% kształt
 {
 	\vspace{2ex}
 %	\titlerule\vspace{1ex}
@@ -446,7 +446,7 @@
 %ALD- ustawienia wielkości fontów dla rozdziałów i sekcji
 \usepackage{sectsty}
 %\chapterfont{\fontsize{14}{17.6}\selectfont}
-\sectionfont{\fontsize{13}{16.8}\selectfont}
+\subsectionfont{\fontsize{13}{16.8}\selectfont}
 \subsectionfont{\fontsize{12}{15.6}\selectfont}
 
 % ***************************************************************************************************
@@ -732,7 +732,8 @@
        \renewcommand{\appendixname}{Załącznik}
 	
 	\input{dodatek1}
-	
+	\clearpage % \cleardoublepage 
+	\input{dodatek2}
 	\clearpage % \cleardoublepage 
 
 \end{document}

@@ -1,0 +1,159 @@
+
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader}${}
+\subsection{RacingGameBot.Terrains.TerrainLoader Class Reference}
+\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader}
+\index{RacingGameBot.Terrains.TerrainLoader@{RacingGameBot.Terrains.TerrainLoader}}
+
+\begin{figure}[H]
+    \minipage{.5\textwidth}
+        \centering
+        \includegraphics[height=6cm,width=\textwidth]{documentation/classRacingGameBot_1_1Terrains_1_1TerrainLoader__inherit__graph}
+        \caption{Inheritance diagram for \\RacingGameBot.Terrains.TerrainLoader}
+    \endminipage\hfill
+    \minipage{.5\textwidth}
+        \centering
+        \includegraphics[height=6cm,width=\textwidth]{documentation/classRacingGameBot_1_1Terrains_1_1TerrainLoader__coll__graph}
+        \caption{Collaboration diagram for \\RacingGameBot.Terrains.TerrainLoader}
+    \endminipage
+    \label{table}
+\end{figure}
+
+\subsection*{Public Member Functions}
+\begin{itemize}
+\item[]  
+void \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a7e82145f406430cf516265434a43d98a}{LoadTerrain}} (string filename, bool \_playMode=true)
+\begin{itemize}\small\item[] \em Load saved terrain from file \end{itemize}\item[]  
+void \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainLoader_ad9e6dc6405f203a126eb3fe520a94834}{LoadData}} (string filename)
+\begin{itemize}\small\item[] \em Load Terrain object from file \end{itemize}\item[]  
+void \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a47767935d84faf745cc992b00cc40f11}{LoadObjects}} (string filename)
+\begin{itemize}\small\item[] \em Load other objects (cars, borders, checkpoints, etc) from file \end{itemize}\end{itemize}
+\subsection*{Static Public Member Functions}
+\begin{itemize}
+\item[]  
+static void \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1TerrainLoader_ad0789e00030abf3ec13cc8781c3fe8a2}{SaveTerrain}} (TerrainData terrainData, \mbox{\hyperlink{classRacingGameBot_1_1Data_1_1TerrainGenData}{Data.TerrainGenData}} terrainGenData, 
+\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}}\mbox{[}$\,$\mbox{]} controlPoints, Vector3 meta, \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}}\mbox{[}$\,$\mbox{]} cars, Vector3 carSize, \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}}\mbox{[}$\,$\mbox{]} checkpoints, Vector3 checkpointSize, string filename)
+\begin{itemize}\small\item[] \em Save generated terrain into file \end{itemize}\end{itemize}
+\subsection*{Public Attributes}
+\begin{itemize}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a30bd32f60a16dfd98c428408760fe345}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a30bd32f60a16dfd98c428408760fe345}} 
+string {\bfseries basePath}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_af1486afe1e28be10867737ac48a0a54f}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_af1486afe1e28be10867737ac48a0a54f}} 
+\mbox{\hyperlink{classRacingGameBot_1_1Data_1_1TerrainGenData}{Data.TerrainGenData}} {\bfseries terrainGenData}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_ae8550e8025382bcb4ab7d6b084c54faf}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_ae8550e8025382bcb4ab7d6b084c54faf}} 
+\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop}{Loop}} {\bfseries controlPoints}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a39111692136549cf839a9e3f733a22f1}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a39111692136549cf839a9e3f733a22f1}} 
+GameObject {\bfseries startFinish}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_aa149adcf834f94b730bd38a896e96e08}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_aa149adcf834f94b730bd38a896e96e08}} 
+List$<$ GameObject $>$ {\bfseries checkpoints}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a6773a074df1c5fd16729d75ada0f8977}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a6773a074df1c5fd16729d75ada0f8977}} 
+List$<$ GameObject $>$ {\bfseries cars}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_ab5dcd2e7a5330f4e1594fd51a5ca06d4}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_ab5dcd2e7a5330f4e1594fd51a5ca06d4}} 
+GameObject {\bfseries terrainGO}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a1ee4b505502d5ce905b38c43956dc7b5}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a1ee4b505502d5ce905b38c43956dc7b5}} 
+Vector3 {\bfseries terrainDataSize}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_ace44446bc17cba42abee2783d23bcba4}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_ace44446bc17cba42abee2783d23bcba4}} 
+bool {\bfseries showCheckpoints} = false
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a82e9845efbd08be7c099ba1336a1e41a}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a82e9845efbd08be7c099ba1336a1e41a}} 
+bool {\bfseries showBorders} = false
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a7e4736520df5fa4d92b2c3f1f1e0d109}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a7e4736520df5fa4d92b2c3f1f1e0d109}} 
+bool {\bfseries showGizmos} = false
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a46ff58bd301ef3171f90c7a63aa520da}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a46ff58bd301ef3171f90c7a63aa520da}} 
+bool {\bfseries playMode} = false
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_aa7cda1f6f718ab727fcefa25c5e28d63}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_aa7cda1f6f718ab727fcefa25c5e28d63}} 
+string {\bfseries filename}
+\end{itemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_ad9e6dc6405f203a126eb3fe520a94834}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_ad9e6dc6405f203a126eb3fe520a94834}} 
+\index{RacingGameBot.Terrains.TerrainLoader@{RacingGameBot.Terrains.TerrainLoader}!LoadData@{LoadData}}
+\index{LoadData@{LoadData}!RacingGameBot.Terrains.TerrainLoader@{RacingGameBot.Terrains.TerrainLoader}}
+\subsubsection{\texorpdfstring{LoadData()}{LoadData()}}
+{\footnotesize\ttfamily void RacingGameBot.Terrains.TerrainLoader.LoadData (\begin{itemize}
+    \item[] [{string}]{ filename }
+\end{itemize}\hspace{0.5cm})}\\
+Load Terrain object from file \\
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a47767935d84faf745cc992b00cc40f11}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a47767935d84faf745cc992b00cc40f11}} 
+\index{RacingGameBot.Terrains.TerrainLoader@{RacingGameBot.Terrains.TerrainLoader}!LoadObjects@{LoadObjects}}
+\index{LoadObjects@{LoadObjects}!RacingGameBot.Terrains.TerrainLoader@{RacingGameBot.Terrains.TerrainLoader}}
+\subsubsection{\texorpdfstring{LoadObjects()}{LoadObjects()}}
+{\footnotesize\ttfamily void RacingGameBot.Terrains.TerrainLoader.LoadObjects (\begin{itemize}
+    \item[] [{string}]{ filename }
+\end{itemize}\hspace{0.5cm})}\\
+Load other objects (cars, borders, checkpoints, etc) from file \\
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a7e82145f406430cf516265434a43d98a}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_a7e82145f406430cf516265434a43d98a}} 
+\index{RacingGameBot.Terrains.TerrainLoader@{RacingGameBot.Terrains.TerrainLoader}!LoadTerrain@{LoadTerrain}}
+\index{LoadTerrain@{LoadTerrain}!RacingGameBot.Terrains.TerrainLoader@{RacingGameBot.Terrains.TerrainLoader}}
+\subsubsection{\texorpdfstring{LoadTerrain()}{LoadTerrain()}}
+{\footnotesize\ttfamily void RacingGameBot.Terrains.TerrainLoader.LoadTerrain (\begin{itemize}
+    \item[] [{string}]{ filename, }
+    \item[] [{bool}]{\_playMode = {\ttfamily true} }
+\end{itemize}\hspace{0.5cm})}\\
+Load saved terrain from file \\
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1TerrainLoader_ad0789e00030abf3ec13cc8781c3fe8a2}$\label{classRacingGameBot_1_1Terrains_1_1TerrainLoader_ad0789e00030abf3ec13cc8781c3fe8a2}} 
+\index{RacingGameBot.Terrains.TerrainLoader@{RacingGameBot.Terrains.TerrainLoader}!SaveTerrain@{SaveTerrain}}
+\index{SaveTerrain@{SaveTerrain}!RacingGameBot.Terrains.TerrainLoader@{RacingGameBot.Terrains.TerrainLoader}}
+\subsubsection{\texorpdfstring{SaveTerrain()}{SaveTerrain()}}
+{\footnotesize\ttfamily static void RacingGameBot.Terrains.TerrainLoader.SaveTerrain (\begin{itemize}
+    \item[] [{TerrainData}]{ terrainData, }
+    \item[] [{\mbox{\hyperlink{classRacingGameBot_1_1Data_1_1TerrainGenData}{Data.TerrainGenData}}}]{ terrainGenData, }
+    \item[] [{\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}}\mbox{[}$\,$\mbox{]}}]{ controlPoints, }
+    \item[] [{Vector3}]{ meta, }
+    \item[] [{\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}}\mbox{[}$\,$\mbox{]}}]{ cars, }
+    \item[] [{Vector3}]{ carSize, }
+    \item[] [{\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}}\mbox{[}$\,$\mbox{]}}]{ checkpoints, }
+    \item[] [{Vector3}]{ checkpointSize, }
+    \item[] [{string}]{ filename }
+\end{itemize}\hspace{0.5cm})}\\
+Save generated terrain into file \\
+\begin{tabular}{|c|c|}
+\hline
+{\em terrainData} & Data of Unity Terrain object\\
+\hline
+{\em terrainGenData} & Terrain parameters\\
+\hline
+{\em controlPoints} & Loop points\\
+\hline
+{\em meta} & position of finish object\\
+\hline
+{\em cars} & list of positions of cars\\
+\hline
+{\em carSize} & size of car\\
+\hline
+{\em checkpoints} & list of positions of checkpoints\\
+\hline
+{\em checkpointSize} & size of checkpoint\\
+\hline
+{\em filename} & name od save file\\
+\hline
+\end{tabular}

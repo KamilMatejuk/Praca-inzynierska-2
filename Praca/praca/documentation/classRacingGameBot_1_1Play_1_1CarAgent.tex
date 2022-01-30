@@ -1,0 +1,116 @@
+
+$\hypertarget{classRacingGameBot_1_1Play_1_1CarAgent}${}
+\subsection{RacingGameBot.Play.CarAgent Class Reference}
+\label{classRacingGameBot_1_1Play_1_1CarAgent}
+\index{RacingGameBot.Play.CarAgent@{RacingGameBot.Play.CarAgent}}
+
+\begin{figure}[H]
+    \minipage{.5\textwidth}
+        \centering
+        \includegraphics[height=6cm,width=\textwidth]{documentation/classRacingGameBot_1_1Play_1_1CarAgent__inherit__graph}
+        \caption{Inheritance diagram for \\RacingGameBot.Play.CarAgent}
+    \endminipage\hfill
+    \minipage{.5\textwidth}
+        \centering
+        \includegraphics[height=6cm,width=\textwidth]{documentation/classRacingGameBot_1_1Play_1_1CarAgent__coll__graph}
+        \caption{Collaboration diagram for \\RacingGameBot.Play.CarAgent}
+    \endminipage
+    \label{table}
+\end{figure}
+
+\subsection*{Public Member Functions}
+\begin{itemize}
+\item[]  
+override void \mbox{\hyperlink{classRacingGameBot_1_1Play_1_1CarAgent_a1a88dadc71f190f4bd9000fc92fcf534}{OnEpisodeBegin}} ()
+\begin{itemize}\small\item[] \em Set car starting position in first episode, reset it at the beginning of each episode \end{itemize}\item[]  
+override void \mbox{\hyperlink{classRacingGameBot_1_1Play_1_1CarAgent_a200700254aa02bef33edf50af522be7a}{CollectObservations}} (VectorSensor sensor)
+\begin{itemize}\small\item[] \em Collect observation data from environment \end{itemize}\item[]  
+override void \mbox{\hyperlink{classRacingGameBot_1_1Play_1_1CarAgent_ab0dddeeecc837714465d40e5ede7d507}{OnActionReceived}} (ActionBuffers actions)
+\begin{itemize}\small\item[] \em Move car based on inference results and assign rewards \end{itemize}\item[]  
+void \mbox{\hyperlink{classRacingGameBot_1_1Play_1_1CarAgent_a60320fcbd4ee7a3a4a636d6c5f51a9fa}{OnTriggerEnter}} (Collider other)
+\begin{itemize}\small\item[] \em Handle car collisions with environment objects, like other cars, checkpoints, finish, etc. \end{itemize}\item[]  
+override void \mbox{\hyperlink{classRacingGameBot_1_1Play_1_1CarAgent_a5fe0055071343b94e121f2ca9094c164}{Heuristic}} (in ActionBuffers actionsOut)
+\begin{itemize}\small\item[] \em Read user inputs for manual steering \end{itemize}\end{itemize}
+\subsection*{Public Attributes}
+\begin{itemize}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Play_1_1CarAgent_affd085f2b1f07fdbebbd91679ef1eadb}$
+    \label{classRacingGameBot_1_1Play_1_1CarAgent_affd085f2b1f07fdbebbd91679ef1eadb}
+}
+bool {showGizmos} = false
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Play_1_1CarAgent_a13d1204dbc73500078ef58644f6311a8}$\label{classRacingGameBot_1_1Play_1_1CarAgent_a13d1204dbc73500078ef58644f6311a8}} 
+bool {\bfseries playMode} = false
+\end{itemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Play_1_1CarAgent_a200700254aa02bef33edf50af522be7a}$\label{classRacingGameBot_1_1Play_1_1CarAgent_a200700254aa02bef33edf50af522be7a}} 
+\index{RacingGameBot.Play.CarAgent@{RacingGameBot.Play.CarAgent}!CollectObservations@{CollectObservations}}
+\index{CollectObservations@{CollectObservations}!RacingGameBot.Play.CarAgent@{RacingGameBot.Play.CarAgent}}
+\subsubsection{\texorpdfstring{CollectObservations()}{CollectObservations()}}
+{\footnotesize\ttfamily override void RacingGameBot.Play.CarAgent.CollectObservations (\begin{itemize}
+    \item[] [{VectorSensor}]{ sensor }
+\end{itemize}\hspace{0.5cm})}\\
+Collect observation data from environment: \\
+$\cdot$ distance to road center\\
+$\cdot$ current input axis positions for forward and sideways movement\\
+$\cdot$ slope of terrain\\
+$\cdot$ velocity\\
+\begin{tabular}{|c|c|}
+\hline
+{\em sensor} & Car sensor\\
+\hline
+\end{tabular}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Play_1_1CarAgent_a5fe0055071343b94e121f2ca9094c164}$\label{classRacingGameBot_1_1Play_1_1CarAgent_a5fe0055071343b94e121f2ca9094c164}} 
+\index{RacingGameBot.Play.CarAgent@{RacingGameBot.Play.CarAgent}!Heuristic@{Heuristic}}
+\index{Heuristic@{Heuristic}!RacingGameBot.Play.CarAgent@{RacingGameBot.Play.CarAgent}}
+\subsubsection{\texorpdfstring{Heuristic()}{Heuristic()}}
+{\footnotesize\ttfamily override void RacingGameBot.Play.CarAgent.Heuristic (\begin{itemize}
+    \item[] [{in ActionBuffers}]{ actionsOut }
+\end{itemize}\hspace{0.5cm})}\\
+Read user inputs for manual steering \\
+\begin{tabular}{|c|c|}
+\hline
+{\em actionsOut} & Car actions\\
+\hline
+\end{tabular}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Play_1_1CarAgent_ab0dddeeecc837714465d40e5ede7d507}$\label{classRacingGameBot_1_1Play_1_1CarAgent_ab0dddeeecc837714465d40e5ede7d507}} 
+\index{RacingGameBot.Play.CarAgent@{RacingGameBot.Play.CarAgent}!OnActionReceived@{OnActionReceived}}
+\index{OnActionReceived@{OnActionReceived}!RacingGameBot.Play.CarAgent@{RacingGameBot.Play.CarAgent}}
+\subsubsection{\texorpdfstring{OnActionReceived()}{OnActionReceived()}}
+{\footnotesize\ttfamily override void RacingGameBot.Play.CarAgent.OnActionReceived (\begin{itemize}
+    \item[] [{ActionBuffers}]{ actions }
+\end{itemize}\hspace{0.5cm})}\\
+Move car based on inference results and assign rewards \\
+\begin{tabular}{|c|c|}
+\hline
+{\em actions} & Received actions\\
+\hline
+\end{tabular}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Play_1_1CarAgent_a1a88dadc71f190f4bd9000fc92fcf534}$\label{classRacingGameBot_1_1Play_1_1CarAgent_a1a88dadc71f190f4bd9000fc92fcf534}} 
+\index{RacingGameBot.Play.CarAgent@{RacingGameBot.Play.CarAgent}!OnEpisodeBegin@{OnEpisodeBegin}}
+\index{OnEpisodeBegin@{OnEpisodeBegin}!RacingGameBot.Play.CarAgent@{RacingGameBot.Play.CarAgent}}
+\subsubsection{\texorpdfstring{OnEpisodeBegin()}{OnEpisodeBegin()}}
+{\footnotesize\ttfamily override void RacingGameBot.Play.CarAgent.OnEpisodeBegin()}\\
+Set car starting position in first episode, reset it at the beginning of each episode \\
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Play_1_1CarAgent_a60320fcbd4ee7a3a4a636d6c5f51a9fa}$\label{classRacingGameBot_1_1Play_1_1CarAgent_a60320fcbd4ee7a3a4a636d6c5f51a9fa}} 
+\index{RacingGameBot.Play.CarAgent@{RacingGameBot.Play.CarAgent}!OnTriggerEnter@{OnTriggerEnter}}
+\index{OnTriggerEnter@{OnTriggerEnter}!RacingGameBot.Play.CarAgent@{RacingGameBot.Play.CarAgent}}
+\subsubsection{\texorpdfstring{OnTriggerEnter()}{OnTriggerEnter()}}
+{\footnotesize\ttfamily void RacingGameBot.Play.CarAgent.OnTriggerEnter (\begin{itemize}
+    \item[] [{Collider}]{ other }
+\end{itemize}\hspace{0.5cm})}\\
+Handle car collisions with environment objects, like other cars, checkpoints, finish, etc. \\
+\begin{tabular}{|c|c|}
+\hline
+{\em other} & Object with which car collided\\
+\hline
+\end{tabular}

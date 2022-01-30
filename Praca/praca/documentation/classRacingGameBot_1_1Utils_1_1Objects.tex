@@ -1,0 +1,153 @@
+
+$\hypertarget{classRacingGameBot_1_1Utils_1_1Objects}${}
+\subsection{RacingGameBot.Utils.Objects Class Reference}
+\label{classRacingGameBot_1_1Utils_1_1Objects}
+\index{RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}}
+
+\begin{figure}[H]
+    \minipage{.5\textwidth}
+        \centering
+        \includegraphics[height=6cm,width=\textwidth]{documentation/classRacingGameBot_1_1Utils_1_1Objects__inherit__graph}
+        \caption{Inheritance diagram for \\RacingGameBot.Utils.Objects}
+    \endminipage\hfill
+    \minipage{.5\textwidth}
+        \centering
+        \includegraphics[height=6cm,width=\textwidth]{documentation/classRacingGameBot_1_1Utils_1_1Objects__coll__graph}
+        \caption{Collaboration diagram for \\RacingGameBot.Utils.Objects}
+    \endminipage
+    \label{table}
+\end{figure}
+
+\subsection*{Static Public Member Functions}
+\begin{itemize}
+\item[]  
+static void \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Objects_a470212c434547aac475e2c8ee7c3bd16}{RemoveAllObjectsByTag}} (string tag)
+\begin{itemize}\small\item[] \em Remove all objects by tag \end{itemize}\item[]  
+static void \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Objects_a2e56cd57a6819402d4b42e29de16412c}{RemoveObjectsByTagInParent}} (string tag, GameObject parent)
+\begin{itemize}\small\item[] \em Remove all objects by tag, which are children of some object \end{itemize}\item[]  
+static GameObject \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Objects_a36bff4d237ccd98b36573ed7872114f1}{PutParentObject}} (string tag, string name)
+\begin{itemize}\small\item[] \em Create empty object with tag and name \end{itemize}\item[]  
+static GameObject \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Objects_a3800d0d8c3c7402ca0af07a08eed961b}{PutObject}} (string prefabName, string tag, string name, \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{Terrains.OrientedPoint}} posrot, Vector3? size=null)
+\begin{itemize}\small\item[] \em Create object from prefab \end{itemize}\item[]  
+static GameObject \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Objects_ac23bb5d0f9d68c4196af65e54a83812f}{GetChildWithName}} (GameObject obj, string name)
+\begin{itemize}\small\item[] \em Get object by name, which is below some object in hierarchy \end{itemize}\item[]  
+static GameObject \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Objects_aa55012d594fc94816076dfe15f2b9111}{GetParentWithName}} (GameObject obj, string name)
+\begin{itemize}\small\item[] \em Get object by name, which is above some object in hierarchy \end{itemize}\end{itemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Utils_1_1Objects_ac23bb5d0f9d68c4196af65e54a83812f}$\label{classRacingGameBot_1_1Utils_1_1Objects_ac23bb5d0f9d68c4196af65e54a83812f}} 
+\index{RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}!GetChildWithName@{GetChildWithName}}
+\index{GetChildWithName@{GetChildWithName}!RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}}
+\subsubsection{\texorpdfstring{GetChildWithName()}{GetChildWithName()}}
+{\footnotesize\ttfamily static GameObject RacingGameBot.Utils.Objects.GetChildWithName (\begin{itemize}
+    \item[] [{GameObject}]{obj, }
+    \item[] [{string}]{name }
+\end{itemize}\hspace{0.5cm})}\\
+Get object by name, which is below some object in hierarchy \\
+\begin{tabular}{|c|c|}
+\hline
+{\em obj} & Parent object\\
+\hline
+{\em name} & Object name\\
+\hline
+\end{tabular}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Utils_1_1Objects_aa55012d594fc94816076dfe15f2b9111}$\label{classRacingGameBot_1_1Utils_1_1Objects_aa55012d594fc94816076dfe15f2b9111}} 
+\index{RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}!GetParentWithName@{GetParentWithName}}
+\index{GetParentWithName@{GetParentWithName}!RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}}
+\subsubsection{\texorpdfstring{GetParentWithName()}{GetParentWithName()}}
+{\footnotesize\ttfamily static GameObject RacingGameBot.Utils.Objects.GetParentWithName (\begin{itemize}
+    \item[] [{GameObject}]{obj, }
+    \item[] [{string}]{name }
+\end{itemize}\hspace{0.5cm})}\\
+Get object by name, which is above some object in hierarchy \\
+\begin{tabular}{|c|c|}
+\hline
+{\em obj} & Child object\\
+\hline
+{\em name} & Object name\\
+\hline
+\end{tabular}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Utils_1_1Objects_a3800d0d8c3c7402ca0af07a08eed961b}$\label{classRacingGameBot_1_1Utils_1_1Objects_a3800d0d8c3c7402ca0af07a08eed961b}} 
+\index{RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}!PutObject@{PutObject}}
+\index{PutObject@{PutObject}!RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}}
+\subsubsection{\texorpdfstring{PutObject()}{PutObject()}}
+{\footnotesize\ttfamily static GameObject RacingGameBot.Utils.Objects.PutObject (\begin{itemize}
+    \item[] [{string}]{ prefabName, }
+    \item[] [{string}]{ tag, }
+    \item[] [{string}]{ name, }
+    \item[] [{\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{Terrains.OrientedPoint}}}]{posrot, }
+    \item[] [{Vector3?}]{size = {\ttfamily null} }
+\end{itemize}\hspace{0.5cm})}\\
+Create object from prefab \\
+\begin{tabular}{|c|c|}
+\hline
+{\em prefabName} & Name of prefab asset\\
+\hline
+{\em tag} & Object tag\\
+\hline
+{\em name} & Object name\\
+\hline
+{\em posrot} & Position and rotation of object\\
+\hline
+{\em size} & Size of object\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+Created GameObject
+\end{Return}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Utils_1_1Objects_a36bff4d237ccd98b36573ed7872114f1}$\label{classRacingGameBot_1_1Utils_1_1Objects_a36bff4d237ccd98b36573ed7872114f1}} 
+\index{RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}!PutParentObject@{PutParentObject}}
+\index{PutParentObject@{PutParentObject}!RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}}
+\subsubsection{\texorpdfstring{PutParentObject()}{PutParentObject()}}
+{\footnotesize\ttfamily static GameObject RacingGameBot.Utils.Objects.PutParentObject (\begin{itemize}
+    \item[] [{string}]{ tag, }
+    \item[] [{string}]{ name }
+\end{itemize}\hspace{0.5cm})}\\
+Create empty object with tag and name \\
+\begin{tabular}{|c|c|}
+\hline
+{\em tag} & Object tag\\
+\hline
+{\em name} & Object name\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+Created GameObject
+\end{Return}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Utils_1_1Objects_a470212c434547aac475e2c8ee7c3bd16}$\label{classRacingGameBot_1_1Utils_1_1Objects_a470212c434547aac475e2c8ee7c3bd16}} 
+\index{RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}!RemoveAllObjectsByTag@{RemoveAllObjectsByTag}}
+\index{RemoveAllObjectsByTag@{RemoveAllObjectsByTag}!RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}}
+\subsubsection{\texorpdfstring{RemoveAllObjectsByTag()}{RemoveAllObjectsByTag()}}
+{\footnotesize\ttfamily static void RacingGameBot.Utils.Objects.RemoveAllObjectsByTag (\begin{itemize}
+    \item[] [{string}]{ tag }
+\end{itemize}\hspace{0.5cm})}\\
+Remove all objects by tag \\
+\begin{tabular}{|c|c|}
+\hline
+{\em tag} & Object tag\\
+\hline
+\end{tabular}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Utils_1_1Objects_a2e56cd57a6819402d4b42e29de16412c}$\label{classRacingGameBot_1_1Utils_1_1Objects_a2e56cd57a6819402d4b42e29de16412c}} 
+\index{RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}!RemoveObjectsByTagInParent@{RemoveObjectsByTagInParent}}
+\index{RemoveObjectsByTagInParent@{RemoveObjectsByTagInParent}!RacingGameBot.Utils.Objects@{RacingGameBot.Utils.Objects}}
+\subsubsection{\texorpdfstring{RemoveObjectsByTagInParent()}{RemoveObjectsByTagInParent()}}
+{\footnotesize\ttfamily static void RacingGameBot.Utils.Objects.RemoveObjectsByTagInParent (\begin{itemize}
+    \item[] [{string}]{ tag, }
+    \item[] [{GameObject}]{ parent }
+\end{itemize}\hspace{0.5cm})}\\
+Remove all objects by tag, which are children of some object \\
+\begin{tabular}{|c|c|}
+\hline
+{\em tag} & Object tag\\
+\hline
+{\em parent} & Parent object\\
+\hline
+\end{tabular}
+

@@ -1,0 +1,251 @@
+
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop}${}\subsection{RacingGameBot.Terrains.Loop Class Reference}
+\label{classRacingGameBot_1_1Terrains_1_1Loop}\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsection*{Public Member Functions}
+\begin{itemize}
+\item[]  
+\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop_a1987feede10352f34020b11cda6992be}{Loop}} ()
+\begin{itemize}\small\item[] \em Create simple circular loop of size (1, 1) \end{itemize}\item[]  
+\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop_aed3c036d763d3221e2f300b75b5b3147}{Loop}} (Vector3 parentPosition, List$<$ \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}} $>$ \_points, \mbox{\hyperlink{classRacingGameBot_1_1Data_1_1TerrainGenData}{Data.TerrainGenData}} \_terrainGenData)
+\begin{itemize}\small\item[] \em Create loop from saved data \end{itemize}\item[]  
+\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop_a9ffae2886249722719e53b4b2d44d434}{Loop}} (Vector3 parentPosition, \mbox{\hyperlink{classRacingGameBot_1_1Data_1_1TerrainGenData}{Data.TerrainGenData}} \_terrainGenData)
+\begin{itemize}\small\item[] \em Create loop based of additional params \end{itemize}\item[]  
+float \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop_aa7a063c54579f4517412a58fb2fdfeb5}{GetHeight}} (float x, float z)
+\begin{itemize}\small\item[] \em Get height for each point \end{itemize}\item[]  
+\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}} \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop_ad4e2caec1248d97cc5657a15bab60f20}{GetCentralPoint}} (int i)
+\begin{itemize}\small\item[] \em Get starting point of each segment \end{itemize}\item[]  
+List$<$ \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}} $>$ \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop_af567446e2e660a5f194c875bb1373e02}{GetSegmentBezierPoints}} (int i)
+\begin{itemize}\small\item[] \em Get bezier points for ith segment \end{itemize}\item[]  
+\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}} \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop_a036e5e639b03e7c5dd45d6cb23f5d110}{GetNearestBezierPoint}} (Vector3 target)
+\begin{itemize}\small\item[] \em Calculate what is the nearest point on created loop \end{itemize}\item[]  
+List$<$ float $>$ \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop_a3818b085637c0737ad6b3e44f3665f28}{GetBorder}} ()
+\begin{itemize}\small\item[] \em Find minimal and maximal values of created loop \end{itemize}\item[]  
+int \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop_a8c4034ca8f34335c4221e4a53342b1ea}{LoopIndex}} (int i)
+\begin{itemize}\small\item[] \em Make sure index is always in the boundaries \end{itemize}\item[]  
+int \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop_ae0a6c89f25315ca30fab524a87130096}{LoopCentralIndex}} (int i)
+\begin{itemize}\small\item[] \em Make sure index is always in the boundaries of segments \end{itemize}\item[]  
+List$<$ \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}} $>$ \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop_a2f28c5b2afa893f98f358f154c3fa7da}{GetEquallySpacedPoints}} (int n)
+\begin{itemize}\small\item[] \em Get points along loop, divided equally \end{itemize}\item[]  
+void \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1Loop_acf6682358b749df745fa3cf36977c29a}{Translate}} (Vector3 pos)
+\begin{itemize}\small\item[] \em Move each point of loop by some vector \end{itemize}\end{itemize}
+\subsection*{Public Attributes}
+\begin{itemize}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_aee4a76a48a23f03aa7492f5f2260cb51}$\label{classRacingGameBot_1_1Terrains_1_1Loop_aee4a76a48a23f03aa7492f5f2260cb51}} 
+float {\bfseries minDistanceBetweenPoints} = 0.1f
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_a72fcf92d306e62439cb797fa436526f2}$\label{classRacingGameBot_1_1Terrains_1_1Loop_a72fcf92d306e62439cb797fa436526f2}} 
+List$<$ \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}} $>$ {\bfseries points}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_a0c3edd9cfb05aa6400907cbc479e6e38}$\label{classRacingGameBot_1_1Terrains_1_1Loop_a0c3edd9cfb05aa6400907cbc479e6e38}} 
+\mbox{\hyperlink{classRacingGameBot_1_1Data_1_1TerrainGenData}{Data.TerrainGenData}} {\bfseries terrainGenData}
+\end{itemize}
+\subsection*{Properties}
+\begin{itemize}
+\item[]  
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_aa2382c5621d8feff18aab6ee24a9ae38}$\label{classRacingGameBot_1_1Terrains_1_1Loop_aa2382c5621d8feff18aab6ee24a9ae38}} 
+int {\bfseries NumberOfSegments}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{itemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_a1987feede10352f34020b11cda6992be}$\label{classRacingGameBot_1_1Terrains_1_1Loop_a1987feede10352f34020b11cda6992be}} 
+\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}!Loop@{Loop}}
+\index{Loop@{Loop}!RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsubsection{\texorpdfstring{Loop()}{Loop()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily RacingGameBot.Terrains.Loop.Loop ()}\\
+Create simple circular loop of size (1, 1) \\
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_aed3c036d763d3221e2f300b75b5b3147}$\label{classRacingGameBot_1_1Terrains_1_1Loop_aed3c036d763d3221e2f300b75b5b3147}} 
+\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}!Loop@{Loop}}
+\index{Loop@{Loop}!RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsubsection{\texorpdfstring{Loop()}{Loop()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily RacingGameBot.Terrains.Loop.Loop (\begin{itemize}
+    \item[] [{Vector3}]{ parentPosition, }
+    \item[] [{List$<$ \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}} $>$}]{ \_points, }
+    \item[] [{\mbox{\hyperlink{classRacingGameBot_1_1Data_1_1TerrainGenData}{Data.TerrainGenData}}}]{ \_terrainGenData }
+\end{itemize}\hspace{0.5cm})}\\
+Create loop from saved data \\
+\begin{tabular}{|c|c|}
+\hline
+{\em parentPosition} & position of loop center\\
+\hline
+{\em \_points} & list of loop points\\
+\hline
+{\em \_terrainGenData} & terrain data\\
+\hline
+\end{tabular}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_a9ffae2886249722719e53b4b2d44d434}$\label{classRacingGameBot_1_1Terrains_1_1Loop_a9ffae2886249722719e53b4b2d44d434}} 
+\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}!Loop@{Loop}}
+\index{Loop@{Loop}!RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsubsection{\texorpdfstring{Loop()}{Loop()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily RacingGameBot.Terrains.Loop.Loop (\begin{itemize}
+    \item[] [{Vector3}]{ parentPosition, }
+    \item[] [{\mbox{\hyperlink{classRacingGameBot_1_1Data_1_1TerrainGenData}{Data.TerrainGenData}}}]{ \_terrainGenData }
+\end{itemize}\hspace{0.5cm})}\\
+Create loop based of additional params \\
+\begin{tabular}{|c|c|}
+\hline
+{\em parentPosition} & position of loop center\\
+\hline
+{\em \_terrainGenData} & terrain data\\
+\hline
+\end{tabular}
+
+
+\subsection{Member Function Documentation}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_a3818b085637c0737ad6b3e44f3665f28}$\label{classRacingGameBot_1_1Terrains_1_1Loop_a3818b085637c0737ad6b3e44f3665f28}} 
+\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}!GetBorder@{GetBorder}}
+\index{GetBorder@{GetBorder}!RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsubsection{\texorpdfstring{GetBorder()}{GetBorder()}}
+{\footnotesize\ttfamily List$<$float$>$ RacingGameBot.Terrains.Loop.GetBorder ()}\\
+Find minimal and maximal values of created loop \\
+\\ \begin{Return}
+minX, maxX, minZ, maxZ
+\end{Return}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_ad4e2caec1248d97cc5657a15bab60f20}$\label{classRacingGameBot_1_1Terrains_1_1Loop_ad4e2caec1248d97cc5657a15bab60f20}} 
+\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}!GetCentralPoint@{GetCentralPoint}}
+\index{GetCentralPoint@{GetCentralPoint}!RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsubsection{\texorpdfstring{GetCentralPoint()}{GetCentralPoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}} RacingGameBot.Terrains.Loop.GetCentralPoint (\begin{itemize}
+    \item[] [{int}]{ i }
+\end{itemize}\hspace{0.5cm})}\\
+Get starting point of each segment \\
+\begin{tabular}{|c|c|}
+\hline
+{\em i} & Number of segment from created loop\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+Starting point
+\end{Return}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_a2f28c5b2afa893f98f358f154c3fa7da}$\label{classRacingGameBot_1_1Terrains_1_1Loop_a2f28c5b2afa893f98f358f154c3fa7da}} 
+\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}!GetEquallySpacedPoints@{GetEquallySpacedPoints}}
+\index{GetEquallySpacedPoints@{GetEquallySpacedPoints}!RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsubsection{\texorpdfstring{GetEquallySpacedPoints()}{GetEquallySpacedPoints()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}}$>$ RacingGameBot.Terrains.Loop.GetEquallySpacedPoints (\begin{itemize}
+    \item[] [{int}]{ n }
+\end{itemize}\hspace{0.5cm})}\\
+Get points along loop, divided equally \\
+\begin{tabular}{|c|c|}
+\hline
+{\em n} & Number of points\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+List of points
+\end{Return}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_aa7a063c54579f4517412a58fb2fdfeb5}$\label{classRacingGameBot_1_1Terrains_1_1Loop_aa7a063c54579f4517412a58fb2fdfeb5}} 
+\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}!GetHeight@{GetHeight}}
+\index{GetHeight@{GetHeight}!RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsubsection{\texorpdfstring{GetHeight()}{GetHeight()}}
+{\footnotesize\ttfamily float RacingGameBot.Terrains.Loop.GetHeight (\begin{itemize}
+    \item[] [{float}]{ x, }
+    \item[] [{float}]{ z }
+\end{itemize}\hspace{0.5cm})}\\
+Get height for each point \\
+\begin{tabular}{|c|c|}
+\hline
+{\em x} & X position\\
+\hline
+{\em z} & Z position\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+height
+\end{Return}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_a036e5e639b03e7c5dd45d6cb23f5d110}$\label{classRacingGameBot_1_1Terrains_1_1Loop_a036e5e639b03e7c5dd45d6cb23f5d110}} 
+\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}!GetNearestBezierPoint@{GetNearestBezierPoint}}
+\index{GetNearestBezierPoint@{GetNearestBezierPoint}!RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsubsection{\texorpdfstring{GetNearestBezierPoint()}{GetNearestBezierPoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}} RacingGameBot.Terrains.Loop.GetNearestBezierPoint (\begin{itemize}
+    \item[] [{Vector3}]{ target }
+\end{itemize}\hspace{0.5cm})}\\
+Calculate what is the nearest point on created loop \\
+\begin{tabular}{|c|c|}
+\hline
+{\em target} & From what point to calculate distance\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+Quaternion where xyz is point and w is distance
+\end{Return}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_af567446e2e660a5f194c875bb1373e02}$\label{classRacingGameBot_1_1Terrains_1_1Loop_af567446e2e660a5f194c875bb1373e02}} 
+\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}!GetSegmentBezierPoints@{GetSegmentBezierPoints}}
+\index{GetSegmentBezierPoints@{GetSegmentBezierPoints}!RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsubsection{\texorpdfstring{GetSegmentBezierPoints()}{GetSegmentBezierPoints()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classRacingGameBot_1_1Terrains_1_1OrientedPoint}{OrientedPoint}}$>$ RacingGameBot.Terrains.Loop.GetSegmentBezierPoints (\begin{itemize}
+    \item[] [{int}]{ i }
+\end{itemize}\hspace{0.5cm})}\\
+Get bezier points for i-th segment \\ 
+\begin{tabular}{|c|c|}
+\hline
+{\em i} & Number of segment from created loop\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+List of 2 end points and 2 controls
+\end{Return}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_ae0a6c89f25315ca30fab524a87130096}$\label{classRacingGameBot_1_1Terrains_1_1Loop_ae0a6c89f25315ca30fab524a87130096}} 
+\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}!LoopCentralIndex@{LoopCentralIndex}}
+\index{LoopCentralIndex@{LoopCentralIndex}!RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsubsection{\texorpdfstring{LoopCentralIndex()}{LoopCentralIndex()}}
+{\footnotesize\ttfamily int RacingGameBot.Terrains.Loop.LoopCentralIndex (\begin{itemize}
+    \item[] [{int}]{ i }
+\end{itemize}\hspace{0.5cm})}\\
+Make sure index is always in the boundaries of segments \\
+\begin{tabular}{|c|c|}
+\hline
+{\em i} & Index\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+Looped index
+\end{Return}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_a8c4034ca8f34335c4221e4a53342b1ea}$\label{classRacingGameBot_1_1Terrains_1_1Loop_a8c4034ca8f34335c4221e4a53342b1ea}} 
+\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}!LoopIndex@{LoopIndex}}
+\index{LoopIndex@{LoopIndex}!RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsubsection{\texorpdfstring{LoopIndex()}{LoopIndex()}}
+{\footnotesize\ttfamily int RacingGameBot.Terrains.Loop.LoopIndex (\begin{itemize}
+    \item[] [{int}]{ i }
+\end{itemize}\hspace{0.5cm})}\\
+Make sure index is always in the boundaries \\
+\begin{tabular}{|c|c|}
+\hline
+{\em i} & Index\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+Looped index
+\end{Return}
+\mbox{
+$\hypertarget{classRacingGameBot_1_1Terrains_1_1Loop_acf6682358b749df745fa3cf36977c29a}$\label{classRacingGameBot_1_1Terrains_1_1Loop_acf6682358b749df745fa3cf36977c29a}} 
+\index{RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}!Translate@{Translate}}
+\index{Translate@{Translate}!RacingGameBot.Terrains.Loop@{RacingGameBot.Terrains.Loop}}
+\subsubsection{\texorpdfstring{Translate()}{Translate()}}
+{\footnotesize\ttfamily void RacingGameBot.Terrains.Loop.Translate (\begin{itemize}
+    \item[] [{Vector3}]{ pos }
+\end{itemize}\hspace{0.5cm})}\\
+Move each point of loop by some vector \\
+\begin{tabular}{|c|c|}
+\hline
+{\em pos} & Move vector\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+height
+\end{Return}

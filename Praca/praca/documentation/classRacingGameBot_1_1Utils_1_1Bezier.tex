@@ -1,0 +1,200 @@
+\hypertarget{classRacingGameBot_1_1Utils_1_1Bezier}{}
+\section{RacingGameBot.Utils.Bezier Class Reference}
+\label{classRacingGameBot_1_1Utils_1_1Bezier}
+\index{RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}}
+
+\subsection*{Static Public Member Functions}
+\begin{itemize}
+\item[] static Vector3 \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Bezier_a3e92c1a09faa360bd0aeb4f7915788f4}{EvaluateQuadratic}} (Vector3 a, Vector3 b, Vector3 c, float t)
+\begin{itemize}
+\small
+\item[] \em Get point at t\% along quadratic bezier curve \end{itemize}
+\item[] static Vector3 \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Bezier_ab4601798803b08a1d8d0a82d34f3c2e8}{EvaluateCubic}} (Vector3 a, Vector3 b, Vector3 c, Vector3 d, float t)
+\begin{itemize}
+\small
+\item[] \em Get point at t\% along cubic bezier curve \end{itemize}\item[] static float \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Bezier_a3071f815b287a70f4089d70d1b1d19ac}{EvaluateCubicLength}} (Vector3 a, Vector3 b, Vector3 c, Vector3 d)
+\begin{itemize}
+\small
+\item[] \em Evaluate length of bezier curve \end{itemize}
+\item[] static Terrains.OrientedPoint \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Bezier_ad32b47fbd977497a23e38688c92b704e}{GetBezierOrientedPoint}} (Vector3 a, Vector3 b, Vector3 c, Vector3 d, float t)
+\begin{itemize}
+\small
+\item[] \em Get oriented point at t\% along bezier curve \end{itemize}\item[] static Terrains.OrientedPoint \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Bezier_ab5f612106cf61ddcd238b8dddf976156}{GetNearestBezierPointOld}} (Vector3 bezierA, Vector3 bezierB, Vector3 bezierC, Vector3 bezierD, Vector3 target)
+\begin{itemize}
+\small
+\item[] \em Calculate what is the nearest point on bezier cubic curve using method 1 \end{itemize}
+\item[] static Terrains.OrientedPoint \mbox{\hyperlink{classRacingGameBot_1_1Utils_1_1Bezier_a1c19a38e9654e7f8f07278daf8c2a663}{GetNearestBezierPoint}} (Vector3 bezierA, Vector3 bezierB, Vector3 bezierC, Vector3 bezierD, Vector3 target)
+\begin{itemize}
+\small
+\item[] \em Calculate what is the nearest point on bezier cubic curve using method 2 \end{itemize}\end{itemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{$\hypertarget{classRacingGameBot_1_1Utils_1_1Bezier_ab4601798803b08a1d8d0a82d34f3c2e8}$
+\label{classRacingGameBot_1_1Utils_1_1Bezier_ab4601798803b08a1d8d0a82d34f3c2e8}} 
+\index{RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}!EvaluateCubic@{EvaluateCubic}}
+\index{EvaluateCubic@{EvaluateCubic}!RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}}
+\subsubsection{\texorpdfstring{EvaluateCubic()}{EvaluateCubic()}}
+{\footnotesize\ttfamily static Vector3 RacingGameBot.Utils.Bezier.EvaluateCubic (\begin{itemize}
+    \item[] [{Vector3}]{ a, }
+    \item[] [{Vector3}]{ b, }
+    \item[] [{Vector3}]{ c, }
+    \item[] [{Vector3}]{ d, }
+    \item[] [{float}]{ t }
+\end{itemize}\hspace{0.5cm})}\\
+Get point at t\% along cubic bezier curve \\
+\begin{tabular}{|c|c|}
+\hline
+{\em a} & Bezier curve start\\
+\hline
+{\em b} & Bezier curve control 1\\
+\hline
+{\em c} & Bezier curve control 2\\
+\hline
+{\em d} & Bezier curve end\\
+\hline
+{\em t} & Percent of curve distance\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+Point at t\% along cubic bezier curve
+\end{Return}
+\mbox{$\hypertarget{classRacingGameBot_1_1Utils_1_1Bezier_a3071f815b287a70f4089d70d1b1d19ac}$
+\label{classRacingGameBot_1_1Utils_1_1Bezier_a3071f815b287a70f4089d70d1b1d19ac}} 
+\index{RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}!EvaluateCubicLength@{EvaluateCubicLength}}
+\index{EvaluateCubicLength@{EvaluateCubicLength}!RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}}
+\subsubsection{\texorpdfstring{EvaluateCubicLength()}{EvaluateCubicLength()}}
+{\footnotesize\ttfamily static float RacingGameBot.Utils.Bezier.EvaluateCubicLength (\begin{itemize}
+    \item[] [{Vector3}]{ a, }
+    \item[] [{Vector3}]{ b, }
+    \item[] [{Vector3}]{ c, }
+    \item[] [{Vector3}]{ d }
+\end{itemize}\hspace{0.5cm})}\\
+Evaluate length of bezier curve \\
+\begin{tabular}{|c|c|}
+\hline
+{\em a} & Bezier curve start\\
+\hline
+{\em b} & Bezier curve control 1\\
+\hline
+{\em c} & Bezier curve control 2\\
+\hline
+{\em d} & Bezier curve end\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+Evaluated length
+\end{Return}
+\mbox{$\hypertarget{classRacingGameBot_1_1Utils_1_1Bezier_a3e92c1a09faa360bd0aeb4f7915788f4}$
+\label{classRacingGameBot_1_1Utils_1_1Bezier_a3e92c1a09faa360bd0aeb4f7915788f4}} 
+\index{RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}!EvaluateQuadratic@{EvaluateQuadratic}}
+\index{EvaluateQuadratic@{EvaluateQuadratic}!RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}}
+\subsubsection{\texorpdfstring{EvaluateQuadratic()}{EvaluateQuadratic()}}
+{\footnotesize\ttfamily static Vector3 RacingGameBot.Utils.Bezier.EvaluateQuadratic (\begin{itemize}
+    \item[] [{Vector3}]{ a, }
+    \item[] [{Vector3}]{ b, }
+    \item[] [{Vector3}]{ c, }
+    \item[] [{float}]{ t }
+\end{itemize}\hspace{0.5cm})}\\
+Get point at t\% along quadratic bezier curve \\
+\begin{tabular}{|c|c|}
+\hline
+{\em a} & Bezier curve start\\
+\hline
+{\em b} & Bezier curve control 1\\
+\hline
+{\em c} & Bezier curve control 2\\
+\hline
+{\em t} & Percent of curve distance\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+Point at t\% along quadratic bezier curve
+\end{Return}
+\mbox{$\hypertarget{classRacingGameBot_1_1Utils_1_1Bezier_ad32b47fbd977497a23e38688c92b704e}$
+\label{classRacingGameBot_1_1Utils_1_1Bezier_ad32b47fbd977497a23e38688c92b704e}} 
+\index{RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}!GetBezierOrientedPoint@{GetBezierOrientedPoint}}
+\index{GetBezierOrientedPoint@{GetBezierOrientedPoint}!RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}}
+\subsubsection{\texorpdfstring{GetBezierOrientedPoint()}{GetBezierOrientedPoint()}}
+{\footnotesize\ttfamily static Terrains.OrientedPoint RacingGameBot.Utils.Bezier.GetBezierOrientedPoint (\begin{itemize}
+    \item[] [{Vector3}]{ a, }
+    \item[] [{Vector3}]{ b, }
+    \item[] [{Vector3}]{ c, }
+    \item[] [{Vector3}]{ d, }
+    \item[] [{float}]{ t }
+\end{itemize}\hspace{0.5cm})}\\
+Get oriented point at t\% along bezier curve \\
+\begin{tabular}{|c|c|}
+\hline
+{\em a} & Bezier curve start\\
+\hline
+{\em b} & Bezier curve control 1\\
+\hline
+{\em c} & Bezier curve control 2\\
+\hline
+{\em d} & Bezier curve end\\
+\hline
+{\em t} & Percent of curve distance\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+Oriented point at t\% along bezier curve
+\end{Return}
+\mbox{$\hypertarget{classRacingGameBot_1_1Utils_1_1Bezier_a1c19a38e9654e7f8f07278daf8c2a663}$
+\label{classRacingGameBot_1_1Utils_1_1Bezier_a1c19a38e9654e7f8f07278daf8c2a663}} 
+\index{RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}!GetNearestBezierPoint@{GetNearestBezierPoint}}
+\index{GetNearestBezierPoint@{GetNearestBezierPoint}!RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}}
+\subsubsection{\texorpdfstring{GetNearestBezierPoint()}{GetNearestBezierPoint()}}
+{\footnotesize\ttfamily static Terrains.OrientedPoint RacingGameBot.Utils.Bezier.GetNearestBezierPoint (\begin{itemize}
+    \item[] [{Vector3}]{ bezierA, }
+    \item[] [{Vector3}]{ bezierB, }
+    \item[] [{Vector3}]{ bezierC, }
+    \item[] [{Vector3}]{ bezierD, }
+    \item[] [{Vector3}]{ target }
+\end{itemize}\hspace{0.5cm})}\\
+Calculate what is the nearest point on bezier cubic curve using method 2 \\
+\begin{tabular}{|c|c|}
+\hline
+{\em bezierA} & Bezier curve start\\
+\hline
+{\em bezierB} & Bezier curve control 1\\
+\hline
+{\em bezierC} & Bezier curve control 2\\
+\hline
+{\em bezierD} & Bezier curve end\\
+\hline
+{\em target} & From what point to calculate distance\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+OrientedPoint with position, rotation and distance
+\end{Return}
+\mbox{$\hypertarget{classRacingGameBot_1_1Utils_1_1Bezier_ab5f612106cf61ddcd238b8dddf976156}$
+\label{classRacingGameBot_1_1Utils_1_1Bezier_ab5f612106cf61ddcd238b8dddf976156}} 
+\index{RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}!GetNearestBezierPointOld@{GetNearestBezierPointOld}}
+\index{GetNearestBezierPointOld@{GetNearestBezierPointOld}!RacingGameBot.Utils.Bezier@{RacingGameBot.Utils.Bezier}}
+\subsubsection{\texorpdfstring{GetNearestBezierPointOld()}{GetNearestBezierPointOld()}}
+{\footnotesize\ttfamily static Terrains.OrientedPoint RacingGameBot.Utils.Bezier.GetNearestBezierPointOld (\begin{itemize}
+    \item[] [{Vector3}]{ bezierA, }
+    \item[] [{Vector3}]{ bezierB, }
+    \item[] [{Vector3}]{ bezierC, }
+    \item[] [{Vector3}]{ bezierD, }
+    \item[] [{Vector3}]{ target }
+\end{itemize}\hspace{0.5cm})}\\
+Calculate what is the nearest point on bezier cubic curve using method 1 \\
+\begin{tabular}{|c|c|}
+\hline
+{\em bezierA} & Bezier curve start\\
+\hline
+{\em bezierB} & Bezier curve control 1\\
+\hline
+{\em bezierC} & Bezier curve control 2\\
+\hline
+{\em bezierD} & Bezier curve end\\
+\hline
+{\em target} & From what point to calculate distance\\
+\hline
+\end{tabular}
+\\ \begin{Return}
+OrientedPoint with position, rotation and distance
+\end{Return}
