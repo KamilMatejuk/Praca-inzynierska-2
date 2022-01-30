@@ -15,12 +15,12 @@
 
 
 # treningi
-trening-01: 1 płaski teren, 1 pojazd -> l_c1_1 (seed 12, complexity 3)
-trening-01: 3 płaskie tereny, 1 pojazd -> l_c1_2, l_c1_3, l_c1_4 (seed 90876, complexity 3) (seed 5678, complexity 4) (seed 3215, complexity 6)
-trening-01: 4 płaskie tereny, 4 pojazdy -> l_c4_1, l_c4_2, l_c4_3, l_c4_4
-trening-01: 1 pofalowany teren, 1 pojazd -> h_c1_1 (seed 3456789, complexity 2)
-trening-01: 3 pofalowane tereny, 1 pojazd -> h_c1_2, h_c1_3, h_c1_4
-trening-01: 4 pofalowane tereny, 4 pojazdy -> h_c4_1, h_c4_2, h_c4_3, h_c4_4
+trening-01: 1 płaski teren, 1 pojazd -> l_c1_1
+trening-02: 3 płaskie tereny, 1 pojazd -> l_c1_2, l_c1_3, l_c1_4
+trening-03: 4 płaskie tereny, 4 pojazdy -> l_c4_1, l_c4_2, l_c4_3, l_c4_4
+trening-04: 1 pofalowany teren, 1 pojazd -> h_c1_1
+trening-05: 3 pofalowane tereny, 1 pojazd -> h_c1_2, h_c1_3, h_c1_4
+trening-06: 4 pofalowane tereny, 4 pojazdy -> h_c4_1, h_c4_2, h_c4_3, h_c4_4
 
 ## Testy
 **test-01**

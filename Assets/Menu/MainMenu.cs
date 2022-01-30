@@ -42,12 +42,17 @@ namespace RacingGameBot.Menu {
             mainMenu.SetActive(false);
             playMenu.SetActive(true);
             GameObject dropdown = Utils.Objects.GetChildWithName(playMenu, "Dropdown");
-            options = new List<TMPro.TMP_Dropdown.OptionData>();
             string path = Application.dataPath + "/Resources/SavedTerrains/";
+            List<string> filenames = new List<string>();
             foreach (FileInfo file in new DirectoryInfo(path).GetFiles()) {
                 if (!file.Name.Contains(".meta")) {
-                    options.Add(new TMPro.TMP_Dropdown.OptionData(file.Name));
+                    filenames.Add(file.Name);
                 }
+            }
+            filenames.Sort();
+            options = new List<TMPro.TMP_Dropdown.OptionData>();
+            foreach (string file in filenames) {
+                options.Add(new TMPro.TMP_Dropdown.OptionData(file));
             }
             dropdown.GetComponent<TMPro.TMP_Dropdown>().options = options;
             MenuOptionChooseFilename(0);
