@@ -26,7 +26,7 @@ namespace RacingGameBot.Menu {
             terrainGO.transform.position = new Vector3(Utils.Variables.TERRAIN_SIZE / -2, 0, Utils.Variables.TERRAIN_SIZE / -2);
             terrainGO.AddComponent<Terrains.TerrainGenerator>();
             Data.TerrainGenData terrainGenData = ScriptableObject.CreateInstance<Data.TerrainGenData>();
-            terrainGenData.terrainType = Data.TerrainType.Basic;
+            terrainGenData.terrainType = Data.TerrainType.Forest;
             terrainGenData.numberOfCheckpoints = 40;
             terrainGO.GetComponent<Terrains.TerrainGenerator>().seed = seed;
             terrainGO.GetComponent<Terrains.TerrainGenerator>().generateOnChanges = true;
@@ -119,6 +119,13 @@ namespace RacingGameBot.Menu {
         /// </summary>
         public void SaveCallbackEnd() {
             terrainGO.GetComponent<Terrains.TerrainGenerator>().Save();
+            Back();
+        }
+
+        /// <summary>
+        /// Come back to main menu
+        /// </summary>
+        public void Back() {
             SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
         }
 

@@ -230,10 +230,10 @@ namespace RacingGameBot.Terrains {
 
             // first layer is road
             switch (terrainType) {
-                case Data.TerrainType.Basic:
-                    terrainLayers.Add(GetTerrainLayerColor(new Color(0f, 0f, 0f)));
-                    terrainLayers.Add(GetTerrainLayerColor(new Color(1f, 1f, 1f)));
-                    break;
+                // case Data.TerrainType.Basic:
+                //     terrainLayers.Add(GetTerrainLayerColor(new Color(0f, 0f, 0f)));
+                //     terrainLayers.Add(GetTerrainLayerColor(new Color(1f, 1f, 1f)));
+                //     break;
 
                 case Data.TerrainType.Forest:
                     terrainLayers.Add(GetTerrainLayerTexture("Road4", 2f));
@@ -291,15 +291,15 @@ namespace RacingGameBot.Terrains {
             List<float> splatmapWeights = new List<float>();
             switch (terrainType) {
                 /* ********************************************** Basic ********************************************** */
-                case Data.TerrainType.Basic:
-                    if (distanceToRoad < terrainGenData.roadWidth) {
-                        splatmapWeights.Add(1f);
-                        splatmapWeights.Add(0f);
-                    } else {
-                        splatmapWeights.Add(0f);
-                        splatmapWeights.Add(1f);
-                    }
-                    break;
+                // case Data.TerrainType.Basic:
+                //     if (distanceToRoad < terrainGenData.roadWidth) {
+                //         splatmapWeights.Add(1f);
+                //         splatmapWeights.Add(0f);
+                //     } else {
+                //         splatmapWeights.Add(0f);
+                //         splatmapWeights.Add(1f);
+                //     }
+                //     break;
 
                 /* ********************************************** mountains ********************************************** */
                 case Data.TerrainType.Mountains:
