@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RacingGameBot.Utils {
@@ -80,11 +78,11 @@ namespace RacingGameBot.Utils {
         public static Terrains.OrientedPoint GetNearestBezierPointOld(Vector3 bezierA, Vector3 bezierB, Vector3 bezierC, Vector3 bezierD, Vector3 target) {
             float stepsPerSegment = 100;
             float minDistance = Mathf.Infinity;
-            Terrains.OrientedPoint closestPoint = Bezier.GetBezierOrientedPoint(bezierA, bezierB, bezierC, bezierD, 0);
+            Terrains.OrientedPoint closestPoint = GetBezierOrientedPoint(bezierA, bezierB, bezierC, bezierD, 0);
             float foundT = 0f;
             for (float j = 0; j < stepsPerSegment; j++) {
                 float t = j * 1.0f / stepsPerSegment;
-                Terrains.OrientedPoint op = Bezier.GetBezierOrientedPoint(bezierA, bezierB, bezierC, bezierD, t);
+                Terrains.OrientedPoint op = GetBezierOrientedPoint(bezierA, bezierB, bezierC, bezierD, t);
                 op.position.y = 0; // compare only in 2D, ignore height
                 float distance = (op.position - target).sqrMagnitude;
                 if (distance < minDistance) {
@@ -151,7 +149,7 @@ namespace RacingGameBot.Utils {
                 }
             }
             float foundT = bisection(0, 1, 10e-5f, 10e-5f, 10);
-            Terrains.OrientedPoint closestPoint = Bezier.GetBezierOrientedPoint(bezierA, bezierB, bezierC, bezierD, foundT);
+            Terrains.OrientedPoint closestPoint = GetBezierOrientedPoint(bezierA, bezierB, bezierC, bezierD, foundT);
             Vector2 p = new Vector2(closestPoint.position.x, closestPoint.position.z);
             return new Terrains.OrientedPoint(closestPoint.position, closestPoint.rotation, Vector2.Distance(tar, p));
         }
