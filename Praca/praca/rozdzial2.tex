@@ -104,16 +104,14 @@ Dla każdej płaszczyzny bot zwraca wartość rzeczywistą z zakresu $[-1, 1]$. 
 Dla każdej płaszczyzny bot zwraca wartość całkowita ze zbioru ${-1, 0, 1}$. W pierwszej płaszczyźnie wartość $-1$ odpowiada zwiększeniu nacisku na pedał hamulca, $0$ oznacza brak zmian, $1$ oznacza zwiększenie nacisku na pedał gazu. Analogicznie w drugiej plaszczyźnie, $-1$ odpowiada skręceniu kierownicy mozniej w lewo, $1$ mocniej w prawo, a $0$ brak zmian. W ten sposób zmiany są bardziej płynne w czasie.
 
 \subsubsection{Porównanie}
-Zastosowanie akcji dyskretnych pozwoliło botowi na zancznie łatwiejsze poruszanie się w środowisku, co przełożyło sie na znacznie lepsze wyniki w pierwszych 300 000 krokach treningu.
-\begin{center}
-    \color[HTML]{CC3311} ------------ \color{black} Akcje ciągłe \hspace{1cm} \color[HTML]{0077BB} ------------ \color{black} Akcje dyskretne
-\end{center}
+Zastosowanie akcji dyskretnych pozwoliło botowi na zancznie łatwiejsze poruszanie się w środowisku, co przełożyło sie na znacznie lepsze wyniki w pierwszych 400 000 krokach treningu.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.5\textwidth]{figures/output_values_compare}
+    \includegraphics[width=\textwidth]{graphs/output_actions}
     \caption{Porównanie metod podejmowania akcji}
     \label{fig}
 \end{figure}
+\clearpage
 
 \subsection{Zdefiniowanie funkcji oceny}
 Ocena powinna odzwierciedlać w jakim stopniu wykonana akcja przybliżyła bota do osiągnięcia celu. W każdym cyklu, podjęta akcja oceniana jest na podstawie trzech parametrów.

@@ -268,10 +268,10 @@ if __name__ == '__main__':
     # data_checkpoints = [get_data_from_file('run-test-00_in9-out1-f-tag-VisitedCheckpoints.csv')]
     # generate_graph(names, data_reward, data_checkpoints, 'training_progress_1.png', 0, 35, 0.5, 8)
     # only lidar
-    names = ['etap 1']
-    data_reward = [get_data_from_file('run-test-23_in5-out1-f-tag-Environment_Cumulative Reward.csv')]
-    data_checkpoints = [get_data_from_file('run-test-23_in5-out1-f-tag-VisitedCheckpoints.csv')]
-    generate_graph(names, data_reward, data_checkpoints, 'training_progress_1.png', 0, 220, 0, 11)
+    # names = ['etap 1']
+    # data_reward = [get_data_from_file('run-test-23_in5-out1-f-tag-Environment_Cumulative Reward.csv')]
+    # data_checkpoints = [get_data_from_file('run-test-23_in5-out1-f-tag-VisitedCheckpoints.csv')]
+    # generate_graph(names, data_reward, data_checkpoints, 'training_progress_1.png', 0, 220, 0, 11)
     
     # example_graph('example.png')
     pass
