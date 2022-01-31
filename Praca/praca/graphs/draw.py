@@ -4,7 +4,7 @@ from perlin_noise import PerlinNoise
 from math import log2, log10, sqrt
 import matplotlib.pyplot as plt
 
-SMOOTHING = 0.99
+SMOOTHING = 0.9
 
 
 def smooth(scalars):  # Weight between 0 and 1
@@ -35,11 +35,20 @@ def generate_graph(names, data_reward, data_checkpoints, filename, minr=None, ma
     plt.subplot(121)
     plt.title('Cumulative Reward')
     plt.xlabel('Training step')
-    plt.xticks([0, 10000000, 20000000, 30000000, 40000000, 50000000], ['0', '10M', '20M', '30M', '40M', '50M'])
+    plt.xticks([0, 100000, 200000, 300000, 400000, 500000])
+    # plt.xticks([0, 10000000, 20000000, 30000000, 40000000, 50000000], ['0', '10M', '20M', '30M', '40M', '50M'])
     for i, d in enumerate(data_reward):
         steps = [i[0] for i in d]
-        values = [i[1] for i in d]
-        # print(f"mean reward: {sum(values) / len(values)}")
+        values = [3 * i[1] for i in d]
+        import copy
+        v = copy.copy(values)
+        v.sort()
+        print("reward")
+        print(f"średnia: {sum(values) / len(values)}")
+        print(f"top 99%: {sum(v[int(0.01 * len(v)):]) / len(v[int(0.01 * len(v)):])}")
+        print(f"top 90%: {sum(v[int(0.1 * len(v)):]) / len(v[int(0.1 * len(v)):])}")
+        print(f"top 50%: {sum(v[int(0.5 * len(v)):]) / len(v[int(0.5 * len(v)):])}")
+        print(f"max: {v[-1]}")
         values_smoothend = smooth(values)
         c = colors[i]
         n = names[i]
@@ -49,18 +58,27 @@ def generate_graph(names, data_reward, data_checkpoints, filename, minr=None, ma
         plt.plot(steps, values, color=f"{c}55")
         plt.plot(steps, values_smoothend, color=f"{c}ff", label=n)
     if (minr is not None and maxr is not None):
-        plt.ylim(minr, maxr)
+        plt.ylim(3 * minr, 3 * maxr)
     
     # Cut your window in 1 row and 2 columns, and start a plot in the second part
     lines = []
     plt.subplot(122)
     plt.title('Visited Checkpoints')
     plt.xlabel('Training step')
-    plt.xticks([0, 10000000, 20000000, 30000000, 40000000, 50000000], ['0', '10M', '20M', '30M', '40M', '50M'])
+    plt.xticks([0, 100000, 200000, 300000, 400000, 500000])
+    # plt.xticks([0, 10000000, 20000000, 30000000, 40000000, 50000000], ['0', '10M', '20M', '30M', '40M', '50M'])
     for i, d in enumerate(data_checkpoints):
         steps = [i[0] for i in d]
-        values = [i[1] for i in d]
-        # print(f"mean checkpoints: {sum(values) / len(values)}")
+        values = [3 * i[1] for i in d]
+        import copy
+        v = copy.copy(values)
+        v.sort()
+        print("checkpoints")
+        print(f"średnia: {sum(values) / len(values)}")
+        print(f"top 99%: {sum(v[int(0.01 * len(v)):]) / len(v[int(0.01 * len(v)):])}")
+        print(f"top 90%: {sum(v[int(0.1 * len(v)):]) / len(v[int(0.1 * len(v)):])}")
+        print(f"top 50%: {sum(v[int(0.5 * len(v)):]) / len(v[int(0.5 * len(v)):])}")
+        print(f"max: {v[-1]}")
         values_smoothend = smooth(values)
         c = colors[i]
         n = names[i]
@@ -68,13 +86,13 @@ def generate_graph(names, data_reward, data_checkpoints, filename, minr=None, ma
         l, = plt.plot(steps, values_smoothend, color=f"{c}ff", label=n)
         lines.append(l)
     if (minc is not None and maxc is not None):
-        plt.ylim(minc, maxc)
+        plt.ylim(3 * minc, 3 * maxc)
     
-    plt.figlegend(lines, names, bbox_to_anchor=[0.5, 0], loc='lower center', ncol=3)
+    plt.figlegend(lines, names, bbox_to_anchor=[0.5, 0], loc='lower center', ncol=2)
     fig = plt.gcf()
     fig.set_size_inches(10, 4)
     plt.tight_layout()
-    plt.subplots_adjust(bottom=0.15)
+    plt.subplots_adjust(bottom=0.2)
     plt.savefig(filename)
     # plt.show()
     
@@ -128,7 +146,7 @@ if __name__ == '__main__':
     # data_checkpoints = [
     #     get_data_from_file('run-test-06_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-07_in9-out1-f-tag-VisitedCheckpoints.csv')]
-    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_gamma.png', -8, 5, 0.3, 1.75)
+    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_gamma-2.png', -5, 6, 0.5, 1.9)
     
     # #################### lambd ####################
     # names = ['lambd: 0.95', 'lambd: 0.85']
@@ -138,7 +156,7 @@ if __name__ == '__main__':
     # data_checkpoints = [
     #     get_data_from_file('run-test-07_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-08_in9-out1-f-tag-VisitedCheckpoints.csv')]
-    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_lambd.png', -4, 5, 0.3, 1.9)
+    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_lambd-2.png', -3, 6, 0.5, 1.9)
 
     # #################### buffer_size ####################
     # names = ['buffer_size: 10240', 'buffer_size: 40960']
@@ -148,7 +166,7 @@ if __name__ == '__main__':
     # data_checkpoints = [
     #     get_data_from_file('run-test-08_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-09_in9-out1-f-tag-VisitedCheckpoints.csv')]
-    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_buffer_size.png', -10, 5, 0.3, 1.9)
+    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_buffer_size-2.png', -5, 6, 0.5, 1.9)
 
     # #################### batch_size ####################
     # names = ['batch_size: 1024', 'batch_size: 256', 'batch_size: 32']
@@ -160,7 +178,7 @@ if __name__ == '__main__':
     #     get_data_from_file('run-test-08_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-10_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-11_in9-out1-f-tag-VisitedCheckpoints.csv')]
-    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_batch_size.png', -3, 5.5, 0.3, 1.9)
+    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_batch_size-2.png', -3, 6, 0.5, 1.9)
     
     # #################### learning_rate ####################
     # names = ['learning_rate: 0.00001', 'learning_rate: 0.0003', 'learning_rate: 0.001']
@@ -172,7 +190,7 @@ if __name__ == '__main__':
     #     get_data_from_file('run-test-12_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-10_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-13_in9-out1-f-tag-VisitedCheckpoints.csv')]
-    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_learning_rate.png', -6, 5.5, 0.3, 1.9)
+    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_learning_rate-2.png', -6, 5.5, 0.3, 1.9)
     
     # #################### beta ####################
     # names = ['beta: 0.0001', 'beta: 0.005', 'beta: 0.01']
@@ -184,7 +202,7 @@ if __name__ == '__main__':
     #     get_data_from_file('run-test-15_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-10_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-14_in9-out1-f-tag-VisitedCheckpoints.csv')]
-    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_beta.png', -1.5, 5.5, 0.5, 1.9)
+    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_beta-2.png', -2, 6, 0.5, 1.9)
     
     #################### epsilon ####################
     # names = ['epsilon: 0.2', 'epsilon: 0.4']
@@ -194,7 +212,7 @@ if __name__ == '__main__':
     # data_checkpoints = [
     #     get_data_from_file('run-test-10_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-16_in9-out1-f-tag-VisitedCheckpoints.csv')]
-    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_epsilon.png', -3, 5.5, 0.5, 1.9)
+    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_epsilon-2.png', -3, 6, 0.5, 1.9)
 
     # #################### vis_encode_type ####################
     # names = [
@@ -215,7 +233,7 @@ if __name__ == '__main__':
     #     get_data_from_file('run-test-18_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-19_in9-out1-f-tag-VisitedCheckpoints.csv'),
     # ]
-    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_vis_encode_type.png', -3, 5.5, 0.5, 1.9)
+    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_vis_encode_type-2.png', -3, 5.5, 0.5, 1.9)
     
     #################### network size ####################
     # names = ['num_layers: 2 hidden_units: 128', 'num_layers: 4 hidden_units: 192']
@@ -225,7 +243,7 @@ if __name__ == '__main__':
     # data_checkpoints = [
     #     get_data_from_file('run-test-18_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-20_in9-out1-f-tag-VisitedCheckpoints.csv')]
-    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_network_size.png', -3, 5.5, 0.5, 1.9)
+    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_network_size-2.png', -3, 5.5, 0.5, 1.9)
 
     # #################### select input ####################
     # names = [
@@ -259,7 +277,7 @@ if __name__ == '__main__':
     # data_checkpoints = [
     #     get_data_from_file('run-test-06_in9-out1-f-tag-VisitedCheckpoints.csv'),
     #     get_data_from_file('run-test-18_in9-out1-f-tag-VisitedCheckpoints.csv')]
-    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_tuning_results.png', -8, 5, 0.5, 2)
+    # generate_graph(names, data_reward, data_checkpoints, 'hyperparameters_tuning_results-2.png', -5, 6, 0.5, 2)
     
     #################### traning lvl 1 ####################
     # lidar + camera top

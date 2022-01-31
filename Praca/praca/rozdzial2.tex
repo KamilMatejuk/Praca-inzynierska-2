@@ -249,13 +249,32 @@ Zmienna $epsilon$ informuje w jakim stopniu akceptowane są rozbieżności pomi�
     %     \label{fig}
     % \end{figure}
 
-Finalnie zostały wybrane poniższe hiperparametry, co pozwoliło na zauważalną poprawę treningu. Średnia wartość nagrody dla całego okresu wzrosła z $2.46$ do $3.26$ ($+32.5\%$), natomaist stopień postępu trasy wzrósł z $1.305$ do $1.499$ ($+14.9\%$).
+Finalnie zostały wybrane poniższe hiperparametry, co pozwoliło na zauważalną poprawę treningu.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        & \multicolumn{3}{c|}{Funkcja nagrody} & \multicolumn{3}{c|}{Postęp trasy}\\
+        & przed & po & zmiana & przed & po & zmiana \\
+        \hline
+        \hline
+        średnia z wszystkich iteracji &  7.38 &  9.79 & +32.5\% & 3.91 & 4.49 & +14.8\% \\
+        średnia z najlepszych 99\%    &  7.81 & 10.15 & +29.9\% & 3.93 & 4.52 & +15.0\% \\
+        średnia z najlepszych 90\%    &  9.63 & 11.49 & +19.3\% & 4.15 & 4.73 & +13.9\% \\
+        średnia z najlepszych 50\%    & 12.38 & 13.99 & +13.0\% & 4.75 & 5.13 &  +8.0\% \\
+        maksimum                      & 19.04 & 19.64 &  +3.1\% & 6.18 & 6.35 &  +2.7\% \\
+        \hline
+    \end{tabular}
+    \caption{Wybór hiperparametrów: porównanie wyników}
+    \label{table}
+\end{table}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graphs/hyperparameters_tuning_results.png}
     \caption{Wybór hiperparametrów: porównanie wyników}
     \label{fig}
 \end{figure}
+
 \begin{algorithm}[H]
 \caption{Hiperparametry finalne treningu}\label{alg}
 $hyperparameters:$\\
