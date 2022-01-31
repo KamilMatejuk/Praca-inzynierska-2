@@ -398,10 +398,15 @@ namespace RacingGameBot.Terrains {
             Vector3 metaSize = Utils.Parser.Vector3Parse(sw.ReadLine());
             Utils.Objects.RemoveObjectsByTagInParent("meta", terrainGO);
             OrientedPoint posrot = controlPoints.GetCentralPoint(0);
-            posrot.position.y += metaSize.y / 2;
             startFinish = Utils.Objects.PutObject("StartFinish", "meta", "Meta", posrot, metaSize);
             startFinish.GetComponent<BoxCollider>().isTrigger = true;
             startFinish.transform.parent = terrainGO.transform;
+            Vector3 pos = posrot.position;
+            pos.y = controlPoints.GetHeight(
+                pos.x - terrainGO.transform.position.x, 
+                pos.z - terrainGO.transform.position.z
+            ) * Utils.Variables.TERRAIN_HEIGHT + (metaSize.y / 4);
+            startFinish.transform.position = pos;
 
             // cars read
             string numberOfCars = sw.ReadLine();
@@ -421,12 +426,10 @@ namespace RacingGameBot.Terrains {
                 posrot = Utils.Parser.OrientedPointParse(checkpointsString[tempIndex]);
                 GameObject checkpoint = Utils.Objects.PutObject("Checkpoint", "checkpoint", "Checkpoint " + (i + 1), posrot, checkpointSize);
                 checkpoint.transform.parent = checkpointsParent.transform;
-                // checkpoint.transform.localPosition += terrainGO.transform.localPosition;
                 checkpoint.transform.position += terrainGO.transform.position + new Vector3(Utils.Variables.TERRAIN_SIZE / 2, 0, Utils.Variables.TERRAIN_SIZE / 2);
                 checkpoint.GetComponent<MeshRenderer>().enabled = showCheckpoints;
                 checkpoint.GetComponent<BoxCollider>().enabled = true;
                 checkpoint.GetComponent<BoxCollider>().isTrigger = true;
-                // checkpoint.layer = 2; // Ignore Raycast Layer
                 checkpoints.Add(checkpoint);
                 tempIndex++;
             }
@@ -511,8 +514,14 @@ namespace RacingGameBot.Terrains {
                 posrot = Utils.Parser.OrientedPointParse(carsString[tempIndex]);
                 GameObject car = Utils.Objects.PutObject("SportCarAI", "car", "Car " + (i + 1), posrot, carSize);
                 car.transform.parent = carsParent.transform;
-                car.transform.position += terrainGO.transform.position + new Vector3(Utils.Variables.TERRAIN_SIZE / 2, 5, Utils.Variables.TERRAIN_SIZE / 2);
-                car.transform.position -= posrot.rotation * Vector3.forward * 5;
+                pos = posrot.position + terrainGO.transform.position + new Vector3(Utils.Variables.TERRAIN_SIZE / 2, 0, Utils.Variables.TERRAIN_SIZE / 2);
+                pos.y = controlPoints.GetHeight(
+                    pos.x - terrainGO.transform.position.x, 
+                    pos.z - terrainGO.transform.position.z
+                ) * Utils.Variables.TERRAIN_HEIGHT;
+                pos -= posrot.rotation * Vector3.forward * 7f;
+                pos.y += 5f;
+                car.transform.position = pos;
                 car.GetComponent<Play.CarAgent>().showGizmos = showGizmos;
                 car.GetComponent<Play.CarAgent>().playMode = playMode;
                 cars.Add(car);
