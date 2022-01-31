@@ -1,17 +1,17 @@
 \chapter{Wytrenowanie bota}
 \thispagestyle{chapterBeginStyle}
 
-\subsection{Cel i funkcjonalności}
+\section{Cel i funkcjonalności}
 Wytrenowany bot powinien być w stanie poruszać się po wygenerowanym wcześniej terenie, rozpoznając i trzymając się drogi. Trening bota powinien wykorzystywać metody uczenia przez wzmacnianie.
 
-\subsection{Wykorzystane technologie}
+\section{Wykorzystane technologie}
 Silnik Unity udostępnia dodatek open-source ML-Agents \cite{UnityMlAgentsRepository} \cite{UnityMlAgents}, który pozwala na wykorzystanie środowisk utworzonych w grze do treningu modeli. Stanowi on warstwę łączącą Unity z biblioteką Tensorflow, oraz zapewnia wiele nowoczesnych algorytmów głębokiego uczenia przez wzmacnianie (m.in. Proximal Policy Optimization (PPO), Soft Actor-Critic (SAC), self-play). W powyższej pracy wykorzystano algorytm PPO, ze względu na większą stabilność treningu \cite{CompareDrlAlgorithms}. Śledzenie wielu metryk postępu uczenia było dostępnych z wykorzystaniem programu tensorboard.
 
-\subsection{Uczenie przez wzmacnianie}
+\section{Uczenie przez wzmacnianie}
 Uczenie przez wzmacnianie jestem jednym z trzech głównych nurtów uczenia maszynowego, gdzie agent uczy się polityki optymalnej w danym środowisku metodą prób i błędów, otrzymując wyłącznie wartość nagrody jako informację zwrotną. W przeciwieństwie do uczenia nadzorowanego, metoda ta nie wymaga wcześniejszego przygotowania dużej ilości opisanych danych. Pozwala to na wprowadzenie bota do nieznanego środowiska i natychmiastowe podjęcie interakcji.\\
 Cykl uczenia przez wzmacnianie opiera się na akcji bota i reakcji. Bot zbiera obserwacje na podstawie stanu w jakim się znajduje w środowisku. Następnie podejmuje decyzję na podstawie obserwacji. Po podjęciu decyzji wykonywana jest odpowiednia akcja, po czym za akcję przyznawana jest nagroda lub kara, w zależności czy akcja wpłynęła pozytywnie na przybliżanie się bota do celu. Na podstawie zbioru informacji zawierającego stan początkowy, podjęte akcje i otrzymaną nagrodę trenowana jest polityka, maksymalizując oczekiwaną nagrodę.
 \clearpage
-\subsection{Metodyka uczenia}
+\section{Metodyka uczenia}
 Wstępne uczenie odbywa się na terenach płaskich (wysokość każdego punktu jest równa zero) oraz w terenie ze zwiększonym kontrastem - droga jest czarna a wszystko pozostałe jest białe. Do treningu uruchomione jest naraz 12 terenów, zawierających 4 różne trasy. Na każdym z terenów znajduje się pomiędzy 1 a 4 pojazdy, co oznacza że model jest trenowany na 12-48 niezależnych instancjach naraz, w celu przyspieszenia nauki. W kolejnych etapach zwiększany jest stopień trudności trasy, reprezentowany przez ilość i ostrość zakrętów. Następnie zwiększane jest pofałdowanie terenu, oraz zmieniane są tekstury drogi i terenu.
 \begin{figure}[H]
     \centering
@@ -20,7 +20,7 @@ Wstępne uczenie odbywa się na terenach płaskich (wysokość każdego punktu j
     \label{fig}
 \end{figure}
 
-\subsection{Analiza wyników}
+\section{Analiza wyników}
 Wyniki uczenia przedstawione zostały na wykresie za pomocą dwóch metryk. Wartość \textit{Cumulative Reward} oznacza średnią wartość nagrody z jednego epizodu dla jednego agenta. Wartosć \textit{Visited punkt kontrolnys} informuje jak dużą część trasy przeszedł agent, uśrednioną z jednego epizodu dla jednego agenta. Pełne okrążenie zaweira w sobie 40 punktów kontrolnych. Wartości zaznaczone na wykresach bledszym kolorem są wartościami rzeczywistymi, natomiast wartości pogrubione wyliczone zostały z wykorzystaniem średniej kroczącej eksponencjalnej, aby lepiej uwidocznić tendencje zmian.
 
 \begin{figure}[H]
@@ -30,10 +30,10 @@ Wyniki uczenia przedstawione zostały na wykresie za pomocą dwóch metryk. Wart
     \label{fig}
 \end{figure}
 
-\subsection{Wybór obserwacji}
+\section{Wybór obserwacji}
 Wybór informacji, jakie dostępne są dla bota znacznie wpłynie na podejmowane przez niego decyzje. Za mała ilość informacji nie pozwoli na wykrycie odpowiedniej ilości szczegółów trasy, natomiast za duża znacznie zwiększy czas treningu i inferencji, wprowadzając niepotrzebny szum.
 
-\subsubsection{Dane wynikające z trasy}
+\subsection{Dane wynikające z trasy}
 Pierwszy sposób obserwacji opiera się na wartościach, do których zwykły gracz nie ma dostępu, ponieważ wymagają m.in. znajomości dokładnego wzoru  krzywej trasy do wyliczenia. Dane, które są przekazywane do modelu jako obserwacje to:
 \begin{itemize}
     \item odległość w linii prostej od aktualnej pozycji do centrum szerokości trasy
@@ -46,7 +46,7 @@ Pierwszy sposób obserwacji opiera się na wartościach, do których zwykły gra
     \item aktualna prędkość
 \end{itemize}
 
-\subsubsection{Dane odległości od krawędzi}
+\subsection{Dane odległości od krawędzi}
 Podobnie jak większość samochodów autonomicznych, poniższa metoda wykorzystuje wizualizację przestrzeni na podstawie odległości, nazywaną lidar \cite{Lidar}. Technologia ta w realnym świecie buduje model otoczenia wysyłając wiązki laserowe i mierząc trasę przebytą przez nie do przeszkody. Analogicznie, symulowany pojazd testuje odległości od krawędzi trasy oraz ewentualnych przeszkód, takich jak inne pojazdy.
 \begin{figure}[H]
     \centering
@@ -56,7 +56,7 @@ Podobnie jak większość samochodów autonomicznych, poniższa metoda wykorzyst
 \end{figure}
 Dodatkowo przekazywana jest aktualna prędkość pojazdu jako obserwacja, zważywszy że nie da się jej w żaden sposób odczytać z jednej klatki pomiarów.
 
-\subsubsection{Dane wizualne jednowymiarowe}
+\subsection{Dane wizualne jednowymiarowe}
 Poniższe podejście testuje metodę obserwacji wykorzystującą bodźce wizualne. W tym przypadku tworzona jest lista wartości kolorów dla każdego punktu w stałej odległości od pojazdu. Generuje to okrąg kolorów na około pojazdu, który powinien być w stanie przekazać takie informacje jak zakręty na trasie, będąc znacznie mniejszego rozmiaru niż obraz z kamery. Na rysunku zaznaczono kilka promieni pobierających kolory otoczenia.
 \begin{figure}[H]
     \centering
@@ -66,7 +66,7 @@ Poniższe podejście testuje metodę obserwacji wykorzystującą bodźce wizualn
 \end{figure}
 Dodatkowo przekazywana jest aktualna prędkość pojazdu jako obserwacja, zważywszy że nie da się jej w żaden sposób odczytać z danych wizualnych.
 
-\subsubsection{Dane wizualne z kamery przedniej}
+\subsection{Dane wizualne z kamery przedniej}
 Wykorzystująć imformacje w postaci w jakiej są one widoczne dla każdego gracza, kolejna metoda pobiera obraz z kamery jako obserwacje. Kamera umiejscowiona jest na przedzie pojazdu, zapewniając perspektywę podobną do zwykłego prowadzenia auta. Aby ograniczyć ilość informacji dostarczanych do sieci, obraz z kamery skalowany jest do rozdzielczości $40x20$ oraz konwertowany na skalę szarości. Dodatkowo, jak powyżej, przekazywana jest aktualna prędkość pojazdu.
 \begin{figure}[H]
     \centering
@@ -75,7 +75,7 @@ Wykorzystująć imformacje w postaci w jakiej są one widoczne dla każdego grac
     \label{fig}
 \end{figure}
 
-\subsubsection{Dane wizualne z kamery z lotu ptaka}
+\subsection{Dane wizualne z kamery z lotu ptaka}
 Wykorzystująć imformacje widoczne przez kamerę z lotu ptaka model powinien być w stanie łatwiej zauważyć krzywiznę toru. Tak jak powyżej, obraz z kamery skalowany jest do rozdzielczości $30x20$ oraz konwertowany na skalę szarości, oraz przekazywana jest aktualna prędkość pojazdu.
 \begin{figure}[H]
     \centering
@@ -84,7 +84,7 @@ Wykorzystująć imformacje widoczne przez kamerę z lotu ptaka model powinien by
     \label{fig}
 \end{figure}
 
-\subsubsection{Porównanie}
+\subsection{Porównanie}
 Poniżej znajdują się wykresy porównujące szybkość uczenia się w pierwszych 400 000 iteracjach. Wykres pierwszy pokazuje otrzymaną nagrodę za akcję, uśrednioną dla każdego agenta, dla każdej akcji. Drugi wykres przedstawia jak daleko udało się dojechać. Na przestrzeni całego toru rozłożone jest 40 punktów kontrolnych. Celem jest maksymalizacja obu wartości.
 \begin{figure}[H]
     \centering
@@ -94,16 +94,16 @@ Poniżej znajdują się wykresy porównujące szybkość uczenia się w pierwszy
 \end{figure}
 Najlepsze wyniki otrzymano dla metody wykorzystującej odległości od przeszkód. Metoda ta zbiera łącznie 14 dystansów, co wystarcza do zawarcia najpotrzebniejszych informacji. Dane z kamery okazały się zbyt obszerne (odpowiednio 600 i 800 pikseli), spowalniając trening.
 \clearpage
-\subsection{Wybór akcji}
+\section{Wybór akcji}
 Po podjęciu decyzji bot musi wykonać odpowiednią akcję. Bot podejmuje decyzję w dwóch płaszczyznach. Pierwsza odnosi się do przemieszczania przód-tył, natomiast dróga odpowiada skręceniu kierownicy prawo-lewo. Decyzje te mogłyby być wybierane z przestrzeni ciągłych lub dyskretnych.
 
-\subsubsection{Akcje w przestrzeni ciągłej}
+\subsection{Akcje w przestrzeni ciągłej}
 Dla każdej płaszczyzny bot zwraca wartość rzeczywistą z zakresu $[-1, 1]$. W pierwszej płaszczyźnie wartość odpowiada dokładnie stopniowi wciśnięcia pedału gazu, natomiast w drugiej - kątowi skrętu kierownicy. Poniważ bot jest w stanie zawsze ustawić konkretną wartość, przejścia pomiędzy kolejnymi akcjami nie muszą być płynne - w pierwszej klatce bot może skierować kierownicę 30 stopni w lewo, natomaist już klatkę później może ustawić ją na 20 stopni w prawo, bez stanów przejściowych.
 
-\subsubsection{Akcje w przestrzeni dyskretnej}
+\subsection{Akcje w przestrzeni dyskretnej}
 Dla każdej płaszczyzny bot zwraca wartość całkowita ze zbioru ${-1, 0, 1}$. W pierwszej płaszczyźnie wartość $-1$ odpowiada zwiększeniu nacisku na pedał hamulca, $0$ oznacza brak zmian, $1$ oznacza zwiększenie nacisku na pedał gazu. Analogicznie w drugiej plaszczyźnie, $-1$ odpowiada skręceniu kierownicy mozniej w lewo, $1$ mocniej w prawo, a $0$ brak zmian. W ten sposób zmiany są bardziej płynne w czasie.
 
-\subsubsection{Porównanie}
+\subsection{Porównanie}
 Zastosowanie akcji dyskretnych pozwoliło botowi na zancznie łatwiejsze poruszanie się w środowisku, co przełożyło sie na znacznie lepsze wyniki w pierwszych 400 000 krokach treningu.
 \begin{figure}[H]
     \centering
@@ -113,7 +113,7 @@ Zastosowanie akcji dyskretnych pozwoliło botowi na zancznie łatwiejsze porusza
 \end{figure}
 \clearpage
 
-\subsection{Zdefiniowanie funkcji oceny}
+\section{Zdefiniowanie funkcji oceny}
 Ocena powinna odzwierciedlać w jakim stopniu wykonana akcja przybliżyła bota do osiągnięcia celu. W każdym cyklu, podjęta akcja oceniana jest na podstawie trzech parametrów.
 \begin{align*}
     Q &= (0.5 - distanceToRoadCenter) \cdot 0.1 + \\
@@ -129,6 +129,7 @@ Po pierwsze przyznawana jest nagroda za utrzymywanie sie w odległości mniejsze
     \label{fig}
 \end{figure}
 Dodatkowo bot oceniany jest za każdym razem kiedy wejdzie w interakcję z innym obiektem. Na około całego terenu rozmieszczone są bariery, które powodują koniec epizodu po dotknięciu i powrót pojazdu na pozycję początkową, dodatkowo dodając karę $0.1$. Na pierwszym etapie treningu takie same bariery ustawione są wzdłuż drogi, tak że pojazd kończy epizod za każdym razem kiedy zjedzie z drogi. Po wytrenowaniu bota w takich warunkach bariery te zostaną ściągnięte, aby zobaczyć czy mimo to bot będzie trzymał sie drogi.\\
+\vspace{4cm}\\
 Wzdłuż całej trasy rozstawione są punkty kontrolne, które pojazd powinien przebyć w odpowiedniej kolejności. Za każdy punkt kontrolny zaliczony w kolejności nagroda zwiększa się o $1$. Jeżeli pojazd zahaczy o któryś z 4 sąsiednich punktów kontrolnych (2 w tył, 2 w przód) dostaje tylko karę $0.1$, natomiast jeżeli dotknie innego punktu kontrolnego, epizod jest kończony z karą $-1$.
 \begin{figure}[H]
     \centering
@@ -137,7 +138,10 @@ Wzdłuż całej trasy rozstawione są punkty kontrolne, które pojazd powinien p
     \label{fig}
 \end{figure}
 
-\subsection{Dobranie parametrów}
+\phantom{.}\\
+\vspace{1cm}\\
+
+\section{Dobranie parametrów}
 Wybrany algorytm Proximal Policy Optimization pozwala na osiągnięcie nie najgorszych wyników, natomiast dostosowanie hyperparametrów potrafi znacznie poprawić efekty treningu.
 \\\\
 \begin{algorithm}[H]
@@ -151,13 +155,6 @@ $hyperparameters:$\\
     \hskip2em $lambd: 0.95$\\
     \hskip2em $num\_epoch: 3$\\
     \hskip2em $learning\_rate\_schedule: linear$\\
-% $network\_settings:$\\
-%     \hskip2em $normalize: False$\\
-%     \hskip2em $hidden\_units: 128$\\
-%     \hskip2em $num\_layers: 2$\\
-%     \hskip2em $vis\_encode\_type: simple$\\
-%     \hskip2em $memory: None$\\
-%     \hskip2em $goal\_conditioning\_type: hyper$\\
 $reward\_signals:$\\
     \hskip2em $extrinsic:$\\
         \hskip4em $gamma: 0.99$\\
@@ -165,7 +162,6 @@ $reward\_signals:$\\
 \end{algorithm}
 \phantom{.}\\
 Poniżej zostały przedstawione wybory poszczególnych parametrów. Porównane zostały konfiguracje dla pierwszych $500 000$ iteracji, za każdym razem zaczynając od losowych wag. Po wyborze optymalnej wartości parametru, była ona aktualizowana i wykorzystywana w kolejnych testach jako domyślna.\\
-\clearpage
 
 \subsection{gamma}
 Parametr $gamma$ można rozumieć jako jak daleko w przyszłość agent powinien dbać o możliwe nagrody. W sytuacjach gdy agent powinien podejmować decyzje w oczekiwaniu na przewidywane nagrody w przyszłości, wartość $gamma$ powinna być większa ($0.995$), natomiast jeżeli agent powinien bardziej dbać o nagrody natychmiastowe wartość $gamma$ może osiągać niższe wartości ($0.8$). Po porównaniu granic typowego zakresu wartości, na wykresach poniżej widać, że wartość niższa przekłada się na minimalnie lepszy trening.
@@ -232,24 +228,31 @@ Zmienna $epsilon$ informuje w jakim stopniu akceptowane są rozbieżności pomi�
     \label{fig}
 \end{figure}
 
-% \subsection{visual encode type}
-% Ponieważ agent korzysta z danych wizualnych z kamery, są one procesowane przez konwolucyjną sieć neuronową. Poniżej zostały porównane trzy rodzaje sieci konwolucyjnych z prostą siecią łączącą wszystkie wejścia z wszystkimi wyjściami (\textit{fully connected}). Sieć $simple$ składa się tylko z dwóch warstw konwolucyjnych. Sieć $resnet$ wykorzystuje znacznie większą implementację IMPALA Resnet \cite{ImpalaResnet}. Sieć $match3$ \cite{Match3} jest mniejszą siecią konwolucyjną zoptymalizowaną dla gier planszowych i o segmentowym układzie, co dobrze reaguje na wykorzystanie kamery niskiej rozdzielczości, gdzie każdemu pikselowi odpowiada komórka gry.
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=\textwidth]{graphs/hyperparameters_vis_encode_type.png}
-%     \caption{Wybór hiperparametrów: vis encode type}
-%     \label{fig}
-% \end{figure}
-
-% \subsection{network size}
-% \begin{figure}[H]
-    %     \centering
-    %     \includegraphics[width=\textwidth]{graphs/hyperparameters_network_size.png}
-    %     \caption{Wybór hiperparametrów: layers, hidden units}
-    %     \label{fig}
-    % \end{figure}
-
-Finalnie zostały wybrane poniższe hiperparametry, co pozwoliło na zauważalną poprawę treningu.
+\clearpage
+\subsection{Porównanie wyników}
+Finalnie zostały wybrane poniższe hiperparametry, co pozwoliło na zauważalną poprawę treningu.\\\\
+\begin{algorithm}[H]
+    \caption{Hiperparametry finalne treningu}\label{alg}
+    $hyperparameters:$\\
+        \hskip2em $batch\_size: 256$\\
+        \hskip2em $buffer\_size: 10240$\\
+        \hskip2em $learning\_rate: 0.0003$\\
+        \hskip2em $beta: 0.005$\\
+        \hskip2em $epsilon: 0.2$\\
+        \hskip2em $lambd: 0.85$\\
+        \hskip2em $num\_epoch: 8$\\
+        \hskip2em $learning\_rate\_schedule: linear$\\
+    $reward\_signals:$\\
+        \hskip2em $extrinsic:$\\
+            \hskip4em $gamma: 0.8$\\
+            \hskip4em $strength: 1.0$\\
+\end{algorithm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graphs/hyperparameters_tuning_results.png}
+    \caption{Wybór hiperparametrów: porównanie wyników}
+    \label{fig}
+\end{figure}
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -268,38 +271,9 @@ Finalnie zostały wybrane poniższe hiperparametry, co pozwoliło na zauważaln�
     \caption{Wybór hiperparametrów: porównanie wyników}
     \label{table}
 \end{table}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{graphs/hyperparameters_tuning_results.png}
-    \caption{Wybór hiperparametrów: porównanie wyników}
-    \label{fig}
-\end{figure}
 
-\begin{algorithm}[H]
-\caption{Hiperparametry finalne treningu}\label{alg}
-$hyperparameters:$\\
-    \hskip2em $batch\_size: 256$\\
-    \hskip2em $buffer\_size: 10240$\\
-    \hskip2em $learning\_rate: 0.0003$\\
-    \hskip2em $beta: 0.005$\\
-    \hskip2em $epsilon: 0.2$\\
-    \hskip2em $lambd: 0.85$\\
-    \hskip2em $num\_epoch: 8$\\
-    \hskip2em $learning\_rate\_schedule: linear$\\
-% $network\_settings:$\\
-%     \hskip2em $normalize: False$\\
-%     \hskip2em $hidden\_units: 128$\\
-%     \hskip2em $num\_layers: 2$\\
-%     \hskip2em $vis\_encode\_type: match3$\\
-%     \hskip2em $memory: None$\\
-%     \hskip2em $goal\_conditioning\_type: hyper$\\
-$reward\_signals:$\\
-    \hskip2em $extrinsic:$\\
-        \hskip4em $gamma: 0.8$\\
-        \hskip4em $strength: 1.0$\\
-\end{algorithm}
 \clearpage
-\subsection{Dalsze etapy treningu}
+\section{Dalsze etapy treningu}
 Przy trenowaniu ważne jest, aby początkowe zadania były proste, aby agent był w stanie je łatwo wykonać. Następnie należy stopniowo zwiększać poziom trudności, dając agentowi odpowiednio dużo czasu na przystosowanie się do zmian. Dlatego pierwszy etap treningu polega na przejechaniu trasy będącej okręgiem, po płaskim terenie, bez wykorzystania tekstur (droga jest czarna, otoczenie białe) oraz bez przeciwników (w każdym środowisku znajduje się jeden agent).
 \begin{figure}[H]
     \centering
