@@ -34,6 +34,7 @@ namespace RacingGameBot.Play {
             terrainLoader = terrain.GetComponent<Terrains.TerrainLoader>();
             statsRecorder = Academy.Instance.StatsRecorder;
             numberOfAllCheckpoints = terrainLoader.checkpoints.Count;
+            startingNumberOfCars = terrainLoader.cars.Count;
         }
 
         /// <summary>
@@ -118,27 +119,31 @@ namespace RacingGameBot.Play {
         /// <param name="other">Object with which car collided</param>
         public void OnTriggerEnter(Collider other) {
             if (other.name.Contains("Checkpoint ")) {
+                int carNumber = int.Parse(gameObject.name.Split(' ')[1]);
                 if (numberOfAllCheckpoints != 0) {
                     int checkpointNumber = int.Parse(other.name.Split(' ')[1]);
                     if (checkpointNumber == numberOfCheckpointsAlreadyHitInThisEpisode + 1) {
                         numberOfCheckpointsAlreadyHitInThisEpisode++;
                         Debug.Log("Hit next checkpoint");
+                        if (playMode) other.enabled = false;
                         AddReward(1f);
-                    } else if (Mathf.Abs(checkpointNumber - numberOfCheckpointsAlreadyHitInThisEpisode) < 2 ||
+                    } else if (numberOfCheckpointsAlreadyHitInThisEpisode != 0) {
+                        if (playMode && (carNumber == startingNumberOfCars)) GameObject.Find("UiHelper").GetComponent<Menu.GameMenu>().ShowMessage();
+                        if (Mathf.Abs(checkpointNumber - numberOfCheckpointsAlreadyHitInThisEpisode) < 2 ||
                               numberOfAllCheckpoints - Mathf.Abs(checkpointNumber - numberOfCheckpointsAlreadyHitInThisEpisode) < 2) {
-                        Debug.Log("Hit neighbor checkpoint out of order");
-                        AddReward(-0.1f);
-                    } else {
-                        Debug.Log("Hit checkpoint out of order");
-                        AddReward(-1f);
-                        goto endEpisode;
+                            Debug.Log("Hit neighbor checkpoint out of order");
+                            AddReward(-0.1f);
+                        } else {
+                            Debug.Log("Hit checkpoint out of order");
+                            AddReward(-1f);
+                            goto endEpisode;
+                        }
                     }
                     if (numberOfCheckpointsAlreadyHitInThisEpisode == numberOfAllCheckpoints) {
                         Debug.Log("No more checkpoints");
                         AddReward(numberOfAllCheckpoints);
                         try {
-                            int carNumber = int.Parse(gameObject.name.Split(' ')[1]);
-                            GameObject.Find("UiHelper").GetComponent<Menu.EndMenu>().Show(carNumber == 1);
+                            GameObject.Find("UiHelper").GetComponent<Menu.EndMenu>().Show(carNumber == startingNumberOfCars);
                         } catch { }
                         goto endEpisode;
                     }
