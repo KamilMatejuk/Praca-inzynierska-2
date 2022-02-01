@@ -3,6 +3,10 @@ using UnityEngine;
 using System.Linq;
 using System.IO;
 using System;
+using Unity.MLAgents;
+using Unity.MLAgents.Sensors;
+using Unity.MLAgents.Policies;
+using Unity.MLAgents.Actuators;
 
 namespace RacingGameBot.Terrains {
     public class TerrainLoader : MonoBehaviour {
@@ -338,8 +342,8 @@ namespace RacingGameBot.Terrains {
                 OrientedPoint start = equallySpacedPoints[(i + 0) % equallySpacedPoints.Count];
                 OrientedPoint end = equallySpacedPoints[(i + 1) % equallySpacedPoints.Count];
                 foreach (Vector3 offset in new Vector3[] { Vector3.left, Vector3.right }) {
-                    Vector3 s = start.LocalToWorldPosition(offset * terrainGenData.roadWidth * 2f * (0.9f + (UnityEngine.Random.value / 5f)));
-                    Vector3 e = end.LocalToWorldPosition(offset * terrainGenData.roadWidth * 2f * (0.9f + (UnityEngine.Random.value / 5f)));
+                    Vector3 s = start.LocalToWorldPosition(offset * terrainGenData.roadWidth * 2f * (1.1f + (UnityEngine.Random.value / 5f)));
+                    Vector3 e = end.LocalToWorldPosition(offset * terrainGenData.roadWidth * 2f * (1.1f + (UnityEngine.Random.value / 5f)));
                     List<float> displacements = new List<float>();
                     List<int> prototypes = new List<int>();
                     if (UnityEngine.Random.value > roadTreeBigOverSmallRandomMinBound) {
@@ -403,7 +407,7 @@ namespace RacingGameBot.Terrains {
             startFinish.transform.parent = terrainGO.transform;
             Vector3 pos = posrot.position;
             pos.y = controlPoints.GetHeight(
-                pos.x - terrainGO.transform.position.x, 
+                pos.x - terrainGO.transform.position.x,
                 pos.z - terrainGO.transform.position.z
             ) * Utils.Variables.TERRAIN_HEIGHT + (metaSize.y / 4);
             startFinish.transform.position = pos;
@@ -424,7 +428,7 @@ namespace RacingGameBot.Terrains {
             checkpointsParent.transform.parent = terrainGO.transform;
             for (int i = 0; i < int.Parse(numberOfCheckpoints); i++) {
                 posrot = Utils.Parser.OrientedPointParse(checkpointsString[tempIndex]);
-                GameObject checkpoint = Utils.Objects.PutObject("Checkpoint", "checkpoint", "Checkpoint " + (i + 1), posrot, checkpointSize);
+                GameObject checkpoint = Utils.Objects.PutObject("Checkpoint", "checkpoint", "Checkpoint " + (i + 1), posrot, checkpointSize * 1.5f);
                 checkpoint.transform.parent = checkpointsParent.transform;
                 checkpoint.transform.position += terrainGO.transform.position + new Vector3(Utils.Variables.TERRAIN_SIZE / 2, 0, Utils.Variables.TERRAIN_SIZE / 2);
                 checkpoint.GetComponent<MeshRenderer>().enabled = showCheckpoints;
@@ -451,47 +455,43 @@ namespace RacingGameBot.Terrains {
                             cube.transform.localScale = new Vector3(terrainSize.x, terrainSize.y, 1f);
                             cube.transform.position = center + new Vector3(xi, 0, zi) * terrainSize.x / 2;
                             cube.transform.rotation *= Quaternion.Euler(0, 90 * xi, 0);
-
                             cube.transform.localPosition += terrainGO.transform.localPosition;
                             cube.transform.position += terrainGO.transform.position;
-
-                            cube.GetComponent<BoxCollider>().isTrigger = true;
+                            cube.GetComponent<BoxCollider>().isTrigger = !playMode;
                             cube.GetComponent<MeshRenderer>().enabled = showBorders;
                         }
                     }
                 }
             }
             // border alongside road
-            if (!playMode) {
-                int details = 100;
-                List<OrientedPoint> equallySpacedPoints = controlPoints.GetEquallySpacedPoints(details);
-                float blockHeight = terrainSize.y * 0.4f;
-                float blockWidth = 1f;
-                GameObject roadBordersGroup = Utils.Objects.PutParentObject("border", "Borders");
-                roadBordersGroup.transform.parent = bordersGroup.transform;
-                void AddBorderSegment(Vector3 offset, int i) {
-                    Vector3 curr = equallySpacedPoints[(i + 0) % equallySpacedPoints.Count].LocalToWorldPosition(offset * terrainGenData.roadWidth * 2f);
-                    Vector3 next = equallySpacedPoints[(i + 1) % equallySpacedPoints.Count].LocalToWorldPosition(offset * terrainGenData.roadWidth * 2f);
-                    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    cube.name = "BorderRoad";
+            float blockHeight = Utils.Variables.TERRAIN_HEIGHT * 0.4f;
+            float blockWidth = 1f;
+            foreach (Vector3 offset in new Vector3[] { Vector3.left, Vector3.right }) {
+                List<Vector3> outerPoints = controlPoints.GetOffsetLoop(offset * terrainGenData.roadWidth * 2f);
+                for (int i = 0; i < outerPoints.Count; i++) {
+                    Vector3 start = outerPoints[(i + 0) % outerPoints.Count];
+                    Vector3 end = outerPoints[(i + 1) % outerPoints.Count];
+                    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                    cube.name = "Border";
                     cube.tag = "border";
-                    cube.transform.parent = roadBordersGroup.transform;
-                    cube.transform.localScale = new Vector3(blockWidth, blockHeight, (next - curr).magnitude);
-                    cube.transform.position = next + (next - curr) * 0.5f;
+                    cube.transform.parent = bordersGroup.transform;
+                    cube.transform.localScale = new Vector3(blockWidth, blockHeight, (end - start).magnitude);
+                    pos = start + (end - start) * 0.5f;
+                    pos.y = controlPoints.GetHeight(
+                        pos.x - terrainGO.transform.position.x,
+                        pos.z - terrainGO.transform.position.z
+                    ) * Utils.Variables.TERRAIN_HEIGHT;
+                    cube.transform.position = pos;
                     Vector3 forwardXZ = new Vector3(transform.forward.x, 0, transform.forward.z);
                     Vector3 positionXZ = new Vector3(transform.position.x, 0, transform.position.z);
-                    Vector3 directionToPointXZ = next - curr;
+                    Vector3 directionToPointXZ = end - start;
                     float angle = Mathf.Acos(Vector3.Dot(forwardXZ.normalized, directionToPointXZ.normalized));
                     float crossY = Vector3.Cross(forwardXZ, directionToPointXZ).y;
                     float crossYSign = crossY >= 0 ? 1f : -1f;
                     float radianANgle = angle * crossYSign; // angle in radians [-pi, pi]
                     cube.transform.rotation *= Quaternion.Euler(0, radianANgle * 180 / Mathf.PI, 0); // angle normalized to degrees [-180, 180]
-                    cube.GetComponent<BoxCollider>().isTrigger = true;
+                    cube.GetComponent<CapsuleCollider>().isTrigger = !playMode;
                     cube.GetComponent<MeshRenderer>().enabled = showBorders;
-                }
-                for (int i = 0; i < equallySpacedPoints.Count; i++) {
-                    AddBorderSegment(Vector3.left, i);
-                    AddBorderSegment(Vector3.right, i);
                 }
             }
 
@@ -516,17 +516,19 @@ namespace RacingGameBot.Terrains {
                 car.transform.parent = carsParent.transform;
                 pos = posrot.position + terrainGO.transform.position + new Vector3(Utils.Variables.TERRAIN_SIZE / 2, 0, Utils.Variables.TERRAIN_SIZE / 2);
                 pos.y = controlPoints.GetHeight(
-                    pos.x - terrainGO.transform.position.x, 
+                    pos.x - terrainGO.transform.position.x,
                     pos.z - terrainGO.transform.position.z
                 ) * Utils.Variables.TERRAIN_HEIGHT;
                 pos -= posrot.rotation * Vector3.forward * 7f;
                 pos.y += 5f;
                 car.transform.position = pos;
+                car.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.InferenceOnly;
                 car.GetComponent<Play.CarAgent>().showGizmos = showGizmos;
                 car.GetComponent<Play.CarAgent>().playMode = playMode;
                 cars.Add(car);
                 tempIndex++;
             }
+            cars[cars.Count - 1].GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.HeuristicOnly;
         }
     }
 }

@@ -12,7 +12,7 @@
 | czytanie całej pracy                                                                            |   4h   |
 | sprawdzic ładoeanie modelu w skrypcie                                                           | 10 min |
 
-
+dodać do bibliografi - https://pomax.github.io/bezierinfo/
 
 # treningi
 trening-01: 1 płaski teren, 1 pojazd -> l_c1_1
@@ -21,6 +21,8 @@ trening-03: 4 płaskie tereny, 4 pojazdy -> l_c4_1, l_c4_2, l_c4_3, l_c4_4
 trening-04: 1 pofalowany teren, 1 pojazd -> h_c1_1
 trening-05: 3 pofalowane tereny, 1 pojazd -> h_c1_2, h_c1_3, h_c1_4
 trening-06: 4 pofalowane tereny, 4 pojazdy -> h_c4_1, h_c4_2, h_c4_3, h_c4_4
+
+
 
 ## Testy
 **test-01**

@@ -6,8 +6,9 @@ namespace RacingGameBot.Menu {
     public class ButtonActions : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
 
         [SerializeField, HideInInspector] private TMPro.TMP_Text text;
-        [SerializeField, HideInInspector] private Color defaultColor = Color.white;
-        [SerializeField, HideInInspector] private Color hoverColor = Color.yellow;
+        [SerializeField, HideInInspector] private Color defaultColor = new Color(255, 255, 255);
+        [SerializeField, HideInInspector] private Color hoverColor = new Color(255, 215, 0);
+        [SerializeField, HideInInspector] private Color clickColor = new Color(255, 255, 0);
         [SerializeField, HideInInspector] private float defaultFontSize;
         [SerializeField, HideInInspector] private float hoverFontSize;
         [SerializeField, HideInInspector] private float clickFontSize;
@@ -60,7 +61,7 @@ namespace RacingGameBot.Menu {
         /// <param name="eventData">Click event data</param>
         public void OnPointerClick(PointerEventData eventData) {
             if (text != null) {
-                text.color = hoverColor;
+                text.color = clickColor;
                 text.fontSize = clickFontSize;
             }
         }

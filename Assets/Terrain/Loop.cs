@@ -325,6 +325,39 @@ namespace RacingGameBot.Terrains {
         }
 
         /// <summary>
+        /// Get points of loop border offsetted by some distance
+        /// </summary>
+        /// <param name="offset">Offset distance</param>
+        /// <returns>List of points</returns>
+        public List<Vector3> GetOffsetLoop(Vector3 offset) {
+            List<Vector3> points = new List<Vector3>();
+            foreach (OrientedPoint op in GetEquallySpacedPoints(100)) {
+                Vector3 pos = op.LocalToWorldPosition(offset);
+                float distanceToRoad = GetNearestBezierPoint(pos).other;
+                if (distanceToRoad >= offset.magnitude * 0.95f) {
+                    points.Add(pos);
+                }
+            }
+            for (int smoothing_nr = 0; smoothing_nr < 2; smoothing_nr++) {
+                List<Vector3> smoothed = new List<Vector3>();
+                for (int i = 0; i < points.Count; i++) {
+                    Vector3 p1 = points[(i + 0) % points.Count];
+                    Vector3 p2 = points[(i + 1) % points.Count];
+                    Vector3 p3 = points[(i + 2) % points.Count];
+                    Vector3 v1 = p2 - p1;
+                    Vector3 v2 = p2 - p3;
+                    // angle normalized [-1, 1]
+                    float angle = Mathf.Acos(Mathf.Clamp(Vector3.Dot(v1.normalized, v2.normalized), -1, 1)) / Mathf.PI;
+                    if (Mathf.Abs(angle) < 0.2f || Mathf.Abs(angle) > 0.8f) {
+                        smoothed.Add(p2);
+                    }
+                }
+                points = new List<Vector3>(smoothed);
+            }
+            return points;
+        }
+
+        /// <summary>
         /// Move each point of loop by some vector
         /// </summary>
         /// <param name="pos">Move vector</param>
