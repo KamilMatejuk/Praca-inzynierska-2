@@ -35,8 +35,7 @@ def generate_graph(names, data_reward, data_checkpoints, filename, minr=None, ma
     plt.subplot(121)
     plt.title('Cumulative Reward')
     plt.xlabel('Training step')
-    plt.xticks([0, 100000, 200000, 300000, 400000, 500000])
-    # plt.xticks([0, 10000000, 20000000, 30000000, 40000000, 50000000], ['0', '10M', '20M', '30M', '40M', '50M'])
+    plt.xticks([0, 5000000, 10000000, 15000000, 20000000], ['0', '5M', '10M', '15M', '20M'])
     for i, d in enumerate(data_reward):
         steps = [i[0] for i in d]
         values = [3 * i[1] for i in d]
@@ -65,8 +64,7 @@ def generate_graph(names, data_reward, data_checkpoints, filename, minr=None, ma
     plt.subplot(122)
     plt.title('Visited Checkpoints')
     plt.xlabel('Training step')
-    plt.xticks([0, 100000, 200000, 300000, 400000, 500000])
-    # plt.xticks([0, 10000000, 20000000, 30000000, 40000000, 50000000], ['0', '10M', '20M', '30M', '40M', '50M'])
+    plt.xticks([0, 5000000, 10000000, 15000000, 20000000], ['0', '5M', '10M', '15M', '20M'])
     for i, d in enumerate(data_checkpoints):
         steps = [i[0] for i in d]
         values = [3 * i[1] for i in d]
@@ -290,6 +288,48 @@ if __name__ == '__main__':
     # data_reward = [get_data_from_file('run-test-23_in5-out1-f-tag-Environment_Cumulative Reward.csv')]
     # data_checkpoints = [get_data_from_file('run-test-23_in5-out1-f-tag-VisitedCheckpoints.csv')]
     # generate_graph(names, data_reward, data_checkpoints, 'training_progress_1.png', 0, 220, 0, 11)
+    
+    ################### traning lvl 1 ####################
+    # names = ['etap 1']
+    # data_reward = [get_data_from_file('run-level1_in5-out1-f-tag-Environment_Cumulative Reward.csv')]
+    # data_checkpoints = [get_data_from_file('run-level1_in5-out1-f-tag-VisitedCheckpoints.csv')]
+    # generate_graph(names, data_reward, data_checkpoints, 'training_progress_1.png', -13, 13, 3, 4.7)
+    
+    ################### traning lvl 2 ####################
+    # names = ['etap 2']
+    # data_reward = [get_data_from_file('run-level2_in5-out1-f-tag-Environment_Cumulative Reward.csv')]
+    # data_checkpoints = [get_data_from_file('run-level2_in5-out1-f-tag-VisitedCheckpoints.csv')]
+    # generate_graph(names, data_reward, data_checkpoints, 'training_progress_2.png', -19, -13, 1.6, 2.2)
+    
+    ################### traning lvl 3 ####################
+    # names = ['etap 3']
+    # data_reward = [get_data_from_file('run-level3_in5-out1-f-tag-Environment_Cumulative Reward.csv')]
+    # data_checkpoints = [get_data_from_file('run-level3_in5-out1-f-tag-VisitedCheckpoints.csv')]
+    # generate_graph(names, data_reward, data_checkpoints, 'training_progress_3.png', -25, -7, 1.3, 3.3)
+    
+    ################### traning lvl 4 ####################
+    # names = ['etap 4']
+    # data_reward = [get_data_from_file('run-level4_in5-out1-f-tag-Environment_Cumulative Reward.csv')]
+    # data_checkpoints = [get_data_from_file('run-level4_in5-out1-f-tag-VisitedCheckpoints.csv')]
+    # generate_graph(names, data_reward, data_checkpoints, 'training_progress_4.png', -120, 0, 1.6, 6)
+    
+    ################### traning lvl 5 ####################
+    # names = ['etap 5']
+    # data_reward = [get_data_from_file('run-level5_in5-out1-f-tag-Environment_Cumulative Reward.csv')]
+    # data_checkpoints = [get_data_from_file('run-level5_in5-out1-f-tag-VisitedCheckpoints.csv')]
+    # generate_graph(names, data_reward, data_checkpoints, 'training_progress_5.png', -43, -25, 1.2, 1.75)
+    
+    ################### traning lvl 6 ####################
+    # names = ['etap 6']
+    # data_reward = [get_data_from_file('run-level6_in5-out1-f-tag-Environment_Cumulative Reward.csv')]
+    # data_checkpoints = [get_data_from_file('run-level6_in5-out1-f-tag-VisitedCheckpoints.csv')]
+    # generate_graph(names, data_reward, data_checkpoints, 'training_progress_6.png', -26, -13, 0.52, 0.95)
+    
+    ################### traning lvl 7 ####################
+    # names = ['etap 7']
+    # data_reward = [get_data_from_file('run-level7_in5-out1-f-tag-Environment_Cumulative Reward.csv')]
+    # data_checkpoints = [get_data_from_file('run-level7_in5-out1-f-tag-VisitedCheckpoints.csv')]
+    # generate_graph(names, data_reward, data_checkpoints, 'training_progress_7.png', -30, -16, 0.6, 0.86)
     
     # example_graph('example.png')
     pass

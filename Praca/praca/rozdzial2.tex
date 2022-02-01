@@ -274,7 +274,7 @@ Finalnie zostały wybrane poniższe hiperparametry, co pozwoliło na zauważaln�
 
 \clearpage
 \section{Dalsze etapy treningu}
-Przy trenowaniu ważne jest, aby początkowe zadania były proste, aby agent był w stanie je łatwo wykonać. Następnie należy stopniowo zwiększać poziom trudności, dając agentowi odpowiednio dużo czasu na przystosowanie się do zmian. Dlatego pierwszy etap treningu polega na przejechaniu trasy będącej okręgiem, po płaskim terenie, bez wykorzystania tekstur (droga jest czarna, otoczenie białe) oraz bez przeciwników (w każdym środowisku znajduje się jeden agent).
+Przy trenowaniu ważne jest, aby początkowe zadania były proste, aby agent był w stanie je łatwo wykonać. Następnie należy stopniowo zwiększać poziom trudności, dając agentowi odpowiednio dużo czasu na przystosowanie się do zmian. Dlatego pierwszy etap treningu polega na przejechaniu trasy będącej okręgiem, po płaskim terenie, oraz bez przeciwników (w każdym środowisku znajduje się jeden agent).
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graphs/training_progress_1.png}
@@ -282,9 +282,43 @@ Przy trenowaniu ważne jest, aby początkowe zadania były proste, aby agent by�
     \label{fig}
 \end{figure}
 \phantom{.}\\
-Etap 2 zakłada dodanie większej różnorodności torów, zachowując stosunkowo prosty kształt, tylko nieznacznie odbiegający od okręgu, z małą ilością ostrych zakrętów.\\
-% \textbf{TODO wykres postępu}\\
-Etap 3 sprawdza adaptowalność pojazdu na skomplikowanym torze, z dużą ilością ostrych zakrętów.\\
-% \textbf{TODO wykres postępu}\\
-Etap 4 zakłada dodanie nierówności terenu, tworząc góry i pagórki na trasie.\\
-% \textbf{TODO wykres postępu}\\
+Etap 2 zakłada dodanie większej różnorodności torów, zwiększając ilość ostrych zakrętów, natomiast pozostawiając płaski teren.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graphs/training_progress_2.png}
+    \caption{Postep treningu: etap 2}
+    \label{fig}
+\end{figure}
+\phantom{.}\\
+Etap 3 wykorzystuje tereny z poprzedniego etapu, natomiast dodaje przeciwników, z którymi agent musi się mierzyć.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graphs/training_progress_3.png}
+    \caption{Postep treningu: etap 3}
+    \label{fig}
+\end{figure}
+\phantom{.}\\
+Etap 4 powraca do stosunkowo prostych tras oraz jednego pojazdu, natomiast wprowadza nierówności trasy, poprzez wykorzystanie pofalowanyego terenu.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graphs/training_progress_4.png}
+    \caption{Postep treningu: etap 4}
+    \label{fig}
+\end{figure}
+\phantom{.}\\
+Etap 5 wykorzystuje pofalowane tereny, natomiast powraca do bardziej skomplikowanych tras z etapu drugiego.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graphs/training_progress_5.png}
+    \caption{Postep treningu: etap 5}
+    \label{fig}
+\end{figure}
+\phantom{.}\\
+Etap 6 łączy wszytskie elementy gry, wykorzystując pofalowane tereny z trasami z dużą ilością ostrych zakrętów, oraz przeciwnikami.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{graphs/training_progress_6.png}
+    \caption{Postep treningu: etap 6}
+    \label{fig}
+\end{figure}
+\phantom{.}\\
