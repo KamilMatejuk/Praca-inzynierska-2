@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6229678193832010678}
   - component: {fileID: 2073782943272694753}
   - component: {fileID: 8437036485980666355}
-  - component: {fileID: 6760193701958284672}
   m_Layer: 0
   m_Name: Rock3
   m_TagString: Untagged
@@ -82,17 +81,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6760193701958284672
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3467428920372382413}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.40913343
-  m_Height: 1.6386108
-  m_Direction: 1
-  m_Center: {x: 0.010088325, y: 0.28596497, z: 0.02031064}

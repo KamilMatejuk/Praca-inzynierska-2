@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8072032353505159066}
   - component: {fileID: 8098555366649166064}
   - component: {fileID: 8089003576875063084}
-  - component: {fileID: 7438386219172881174}
   m_Layer: 0
   m_Name: SnowRock8
   m_TagString: Untagged
@@ -82,17 +81,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7438386219172881174
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8075492105249615778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.24655256
-  m_Height: 1.1593809
-  m_Direction: 1
-  m_Center: {x: -0.0128381625, y: 0.19758093, z: -0.0073613226}

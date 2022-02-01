@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4633124903165854729}
   - component: {fileID: 4627204685307476365}
   - component: {fileID: 4617219946191244235}
-  - component: {fileID: 1376821078481284145}
   m_Layer: 0
   m_Name: PyramidStepped
   m_TagString: Untagged
@@ -82,17 +81,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1376821078481284145
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4630143458532660931}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 2.6537373
-  m_Height: 7.151829
-  m_Direction: 1
-  m_Center: {x: -0.12100601, y: 0.94388455, z: 0.05889535}

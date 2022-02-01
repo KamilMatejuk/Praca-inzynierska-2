@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 610555134186690600}
   - component: {fileID: 577067684430186660}
   - component: {fileID: 587336255441304238}
-  - component: {fileID: 7260692496191886599}
   m_Layer: 0
   m_Name: Rock8
   m_TagString: Untagged
@@ -82,17 +81,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7260692496191886599
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 609279885987619606}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.7267091
-  m_Height: 11.423401
-  m_Direction: 1
-  m_Center: {x: -0.04103172, y: -0.82754517, z: 0.08643508}

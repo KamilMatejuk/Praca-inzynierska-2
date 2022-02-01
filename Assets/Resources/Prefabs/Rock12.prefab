@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4407334476466283055}
   - component: {fileID: 4796043004073484552}
   - component: {fileID: 7748505102756757}
-  - component: {fileID: 6692749017001896137}
   m_Layer: 0
   m_Name: Rock12
   m_TagString: Untagged
@@ -82,17 +81,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6692749017001896137
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5987186269959548156}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.55964696
-  m_Height: 2.2069397
-  m_Direction: 1
-  m_Center: {x: 0.0147147775, y: 0.051956177, z: -0.015021682}

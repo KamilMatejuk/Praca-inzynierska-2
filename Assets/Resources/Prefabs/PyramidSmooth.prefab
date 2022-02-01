@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 46844845474005657}
   - component: {fileID: 62317608599559691}
   - component: {fileID: 70349765606250881}
-  - component: {fileID: 3559448616384376262}
   m_Layer: 0
   m_Name: PyramidSmooth
   m_TagString: Untagged
@@ -82,17 +81,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3559448616384376262
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48366826949668103}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.8884077
-  m_Height: 8.136814
-  m_Direction: 1
-  m_Center: {x: -0.051133316, y: 1.0982895, z: -0.07030138}

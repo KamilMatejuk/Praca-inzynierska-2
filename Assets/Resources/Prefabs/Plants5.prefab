@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4085006421805483430}
   - component: {fileID: 4095565762233805292}
   - component: {fileID: 4104238787338591426}
-  - component: {fileID: 5434853680959051029}
   m_Layer: 0
   m_Name: Plants5
   m_TagString: Untagged
@@ -82,17 +81,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5434853680959051029
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081460555302327562}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 6.974368
-  m_Height: 58.970203
-  m_Direction: 1
-  m_Center: {x: -0.1849711, y: 29.075117, z: 0.17498732}

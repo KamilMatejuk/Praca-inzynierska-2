@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8455214813451177084}
   - component: {fileID: 8443683858472935484}
   - component: {fileID: 8433402126623404054}
-  - component: {fileID: 1234221362649399510}
   m_Layer: 0
   m_Name: Rock7
   m_TagString: Untagged
@@ -82,17 +81,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1234221362649399510
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8456437867016798338}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.9486771
-  m_Height: 8.740112
-  m_Direction: 1
-  m_Center: {x: 0.040169, y: 0.6723633, z: 0.1868689}
