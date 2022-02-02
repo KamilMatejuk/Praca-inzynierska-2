@@ -86,9 +86,9 @@ namespace RacingGameBot.Play {
         /// <param name="actions">Received actions</param>
         public override void OnActionReceived(ActionBuffers actions) {
             // string a = "";
-            // foreach (var item in actions.ContinuousActions) a += item + " ";
-            // foreach (var item in actions.DiscreteActions) a += item + " ";
-            // Debug.Log("actions " + a);
+            // foreach (var item in actions.ContinuousActions) a += $"{item} ";
+            // foreach (var item in actions.DiscreteActions) a += $"{item} ";
+            // Debug.Log($"{gameObject.name} actions {a}");
             MoveCarBasedOnDiscreteActions(actions.DiscreteActions[0],
                                             actions.DiscreteActions[1]);
             float[] distanceAndTangent = GetDistanceToRoadCenterAndAngleToTangent();
@@ -121,15 +121,17 @@ namespace RacingGameBot.Play {
         public void OnTriggerEnter(Collider other) {
             if (other.name.Contains("Checkpoint ")) {
                 int carNumber = int.Parse(gameObject.name.Split(' ')[1]);
+                int checkpointNumber = int.Parse(other.name.Split(' ')[1]);
                 if (numberOfAllCheckpoints != 0) {
-                    int checkpointNumber = int.Parse(other.name.Split(' ')[1]);
                     if (checkpointNumber == numberOfCheckpointsAlreadyHitInThisEpisode + 1) {
                         numberOfCheckpointsAlreadyHitInThisEpisode++;
                         Debug.Log("Hit next checkpoint");
                         // if (playMode) other.enabled = false;
                         AddReward(1f);
                     } else if (numberOfCheckpointsAlreadyHitInThisEpisode != 0) {
-                        if (playMode && playableCar) GameObject.Find("UiHelper").GetComponent<Menu.GameMenu>().ShowMessage();
+                        if (playMode && playableCar && checkpointNumber > numberOfCheckpointsAlreadyHitInThisEpisode) {
+                            GameObject.Find("UiHelper").GetComponent<Menu.GameMenu>().ShowMessage();
+                        }
                         if (Mathf.Abs(checkpointNumber - numberOfCheckpointsAlreadyHitInThisEpisode) < 2 ||
                               numberOfAllCheckpoints - Mathf.Abs(checkpointNumber - numberOfCheckpointsAlreadyHitInThisEpisode) < 2) {
                             Debug.Log("Hit neighbor checkpoint out of order");
