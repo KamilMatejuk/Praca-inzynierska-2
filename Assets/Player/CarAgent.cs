@@ -23,6 +23,7 @@ namespace RacingGameBot.Play {
         private float prevSidewaysValue;
         private StatsRecorder statsRecorder;
         private Vector3 lastPosition;
+        private float startTime;
 
 
         /// <summary>
@@ -34,6 +35,7 @@ namespace RacingGameBot.Play {
             terrainLoader = terrain.GetComponent<Terrains.TerrainLoader>();
             statsRecorder = Academy.Instance.StatsRecorder;
             numberOfAllCheckpoints = terrainLoader.checkpoints.Count;
+            startTime = Time.realtimeSinceStartup;
         }
 
         /// <summary>
@@ -142,7 +144,8 @@ namespace RacingGameBot.Play {
                         Debug.Log("No more checkpoints");
                         AddReward(numberOfAllCheckpoints);
                         // try {
-                            GameObject.Find("UiHelper").GetComponent<Menu.EndMenu>().Show(playableCar);
+                        float endTime = Time.realtimeSinceStartup;
+                        GameObject.Find("UiHelper").GetComponent<Menu.EndMenu>().Show(playableCar, endTime - startTime);
                         // } catch { }
                         goto endEpisode;
                     }

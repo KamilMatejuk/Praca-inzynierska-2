@@ -6,8 +6,10 @@ namespace RacingGameBot.Menu {
     public class PauseMenu : MonoBehaviour {
 
         public static bool gameIsPaused = false;
-
         public GameObject pauseMenu;
+
+        public float timeInStoppedState = 0;
+        private float stopStateStarted;
 
         /// <summary>
         /// Show / hide menu when user clicked Escape
@@ -29,6 +31,7 @@ namespace RacingGameBot.Menu {
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
             gameIsPaused = false;
+            timeInStoppedState += Time.realtimeSinceStartup - stopStateStarted;
         }
 
         /// <summary>
@@ -38,6 +41,8 @@ namespace RacingGameBot.Menu {
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
             gameIsPaused = true;
+            stopStateStarted = Time.realtimeSinceStartup;
+
         }
 
         /// <summary>

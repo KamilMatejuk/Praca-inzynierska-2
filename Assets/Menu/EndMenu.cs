@@ -6,17 +6,23 @@ namespace RacingGameBot.Menu {
 
         public GameObject endMenu;
         public GameObject winningText;
+        public GameObject timeText;
 
         /// <summary>
         /// Show menu at the end of race
         /// </summary>
         /// <param name="won">Whether user won or lost</param>
-        public void Show(bool won) {
-            if (won) {
-                winningText.GetComponent<TMPro.TMP_Text>().text = "You won";
-            } else {
-                winningText.GetComponent<TMPro.TMP_Text>().text = "You lose";
-            }
+        /// <param name="time">Time since start</param>
+        public void Show(bool won, float time) {
+            string status = won ? "won" : "lost";
+            winningText.GetComponent<TMPro.TMP_Text>().text = $"You {status}";
+            time -= GetComponent<Menu.PauseMenu>().timeInStoppedState;
+            int minutes = Mathf.FloorToInt(time / 60f);
+            time -= minutes * 60f;
+            int seconds = Mathf.FloorToInt(time);
+            time -= seconds;
+            int milliseconds = Mathf.FloorToInt(time * 1000f);
+            timeText.GetComponent<TMPro.TMP_Text>().text = $"Time: {minutes}:{seconds.ToString("00")}.{milliseconds.ToString("00")}";
             endMenu.SetActive(true);
             Time.timeScale = 0f;
         }

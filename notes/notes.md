@@ -27,8 +27,6 @@ f - (almost) finished
 s - stuck
 n - slow, not finished
 
-wolno chodzą ai - sprawdzić jakie dostają polecenia
-
 | teren\brain | level1 | level2 | level3 | level4 | level5 | level6 |
 | :---------: | :----: | :----: | :----: | :----: | :----: | :----: |
 |   l_c4_1    |   3f   |   3f   |   3f   |   3f   |   3f   |   3f   |
