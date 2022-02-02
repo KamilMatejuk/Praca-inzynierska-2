@@ -7,32 +7,29 @@ Kod źródłowy programu, wraz z plikami wykonywalnymi gry, znajduje się na za�
 Struktura plików wygląda następująco:\\
 \begin{algorithm}[H]
     $./$\\
-    $|\textit{| Kod\_Źródłowy/}$\\
-    $|\hskip2em |\textit{| Assets/}$\\
-    $|$\\
     $|\textit{| Gra/}$\\
     $|\hskip2em |\textit{| Windows/}$\\
     $|\hskip2em |\textit{| Linux/}$\\
     $|$\\
+    $|\textit{| Assets/}$\\
     $|\textit{| Praca\_Inżynierska.pdf}$\\
     $|\textit{| ...}$\\
 \end{algorithm}
 
 \section{Uruchomienie gry}
-    Wewnątrz folderu $Gra$ znajdują się pliki wykonywalne, pozwalające na uruchomienie gry.\\
+    Wewnątrz folderu $Gra/$ znajdują się pliki wykonywalne, pozwalające na uruchomienie gry.\\
     \textbf{Windows}\\
     Gra została przetestowana na systemie Windows 10. Aby uruchomić grę należy uruchomić plik\\
     $Gra/Windows/gra.exe$.\\
     \textbf{Linux}\\
     Gra została przetestowana na systemie Ubuntu 20.04. Aby uruchomić grę należy uruchomić plik\\
     $Gra/Linux/gra.x86\_64$.\\
-
+\vspace{3cm}\\
 \section{Kod źródłowy}
     Program został stworzony z wykorzystaniem silnika Unity, który sam dodaje znaczną ilość kodu, 
-    dlatego w katalogu $\textit{Kod\_Źródłowy}$ został załączony jedynie folder zawierający autorską część kodu. \\
+    dlatego został załączony jedynie folder zawierający autorską część kodu źródłowego - $\textit{Assets/}$. \\
     Wewnątrz znajduje się również folder $\textit{Assets/Other\_Assets}$ zawierający zaimportowane modele 3D 
     ze sklepu Unity \cite{UnityAssetStore}.\\
-    \vspace{2cm}\\
     Aby uruchomić grę z kodu źródłowego, należy:
     \begin{itemize}
         \item zainstalować program UnityHub zgodnie z instrukcjami z oficjalnej strony \cite{UnityInstallation}.
@@ -40,15 +37,14 @@ Struktura plików wygląda następująco:\\
         \item uruchomić Unity i stworzyć nowy projekt.
         \item podmienić folder $Assets$ w nowym projekcie na pobrany folder $\textit{Kod\_Źródłowy/Assets/}$.
         \item wybrać opcję $MyTools > \textit{Custom Linux Build}$ lub $MyTools > \textit{Custom Windows Build}$
-        \item załadować scenę $Assets/Scenes/MainMenu$, oraz uruchomić.
     \end{itemize}
-
+\phantom{.} \vspace{4cm}\\
 \section{Poruszanie się w grze}
     Po uruchomieniu gry użytkownikowi prezentowany jest ekran główny, wraz z dwiema opcjami. Pierwsza z nich pozwala na rozpoczęcie gry, 
     natomiast druga - na utworzenie własnego terenu do gry.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=.6\textwidth]{figures/game_instruction_start.png}
+        \includegraphics[width=.8\textwidth]{figures/game_instruction_start.png}
         \caption{Instruckja grania - ekran główny}
         \label{fig}
     \end{figure}
@@ -56,8 +52,8 @@ Struktura plików wygląda następująco:\\
     Tereny utworzone przez użytkownika też pojawią się poniższym menu rozwijanym.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=.6\textwidth]{figures/game_instruction_choose_level.png}
-        \caption{Instruckja grania - wybór poziomu}
+        \includegraphics[width=.8\textwidth]{figures/game_instruction_choose_level.png}
+        \caption{Instruckja grania: wybór poziomu}
         \label{fig}
     \end{figure}
     Po włączeniu gry, wyścig rozpoczyna się od razu po dotknięciu ziemi. Do kontroli pojazdu należy używać strzałek na klawiaturze.
@@ -65,7 +61,7 @@ Struktura plików wygląda następująco:\\
     \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{figures/game_instruction_camera_switch.png}
-        \caption{Instruckja grania - zmiana kamery}
+        \caption{Instruckja grania: zmiana kamery}
         \label{fig}
     \end{figure}
     Aby zatrzymać wyścig w trakcie, należy wcisnąć przycisk $Escape$ na klawiaturze. Czas w grze zostanie zatrzymany aż do wyłączenia widocznego menu.
@@ -73,11 +69,10 @@ Struktura plików wygląda następująco:\\
     do głównego menu.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=.6\textwidth]{figures/game_instruction_pause.png}
-        \caption{Instruckja grania - zatrzymanie gry}
+        \includegraphics[width=.8\textwidth]{figures/game_instruction_pause.png}
+        \caption{Instruckja grania: zatrzymanie gry}
         \label{fig}
     \end{figure}
-    \clearpage
     Oprócz domyślnie zdefiniowanych poziomów i terenów, użytkownik ma możliwość wygenerować własną trasę, za pomocą kilku parametrów:
     \begin{itemize}
         \item Parametry $Complexity$ i $Seed$ definiują jak bardzo kręta będzie droga.
@@ -90,6 +85,6 @@ Struktura plików wygląda następująco:\\
     \begin{figure}[H]
         \centering
         \includegraphics[width=.7\textwidth]{figures/game_instruction_create.png}
-        \caption{Instruckja grania - tworzenie poziomu}
+        \caption{Instruckja grania: tworzenie poziomu}
         \label{fig}
     \end{figure}

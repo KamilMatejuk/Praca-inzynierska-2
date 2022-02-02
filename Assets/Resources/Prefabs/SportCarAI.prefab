@@ -861,7 +861,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 712d63ec7a0f1299699ebe7202920f27, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: c26472316db00c2999ec1ff1d076342c, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: in5-out1-f
@@ -948,6 +948,7 @@ MonoBehaviour:
   - {fileID: 1323653694571541551}
   - {fileID: 794094694270556348}
   activeCameraIndex: 0
+  active: 0
 --- !u!1 &6422467705005147017
 GameObject:
   m_ObjectHideFlags: 0

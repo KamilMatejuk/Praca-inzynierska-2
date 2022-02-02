@@ -5,7 +5,8 @@
 Wytrenowany bot powinien być w stanie poruszać się po wygenerowanym wcześniej terenie, rozpoznając i trzymając się drogi. Trening bota powinien wykorzystywać metody uczenia przez wzmacnianie.
 
 \section{Wykorzystane technologie}
-Silnik Unity udostępnia dodatek open-source ML-Agents \cite{UnityMlAgentsRepository} \cite{UnityMlAgents}, który pozwala na wykorzystanie środowisk utworzonych w grze do treningu modeli. Stanowi on warstwę łączącą Unity z biblioteką Tensorflow, oraz zapewnia wiele nowoczesnych algorytmów głębokiego uczenia przez wzmacnianie (m.in. Proximal Policy Optimization (PPO), Soft Actor-Critic (SAC), self-play). W powyższej pracy wykorzystano algorytm PPO, ze względu na większą stabilność treningu \cite{CompareDrlAlgorithms}. Śledzenie wielu metryk postępu uczenia było dostępnych z wykorzystaniem programu tensorboard.
+Silnik Unity udostępnia dodatek open-source ML-Agents \cite{UnityMlAgentsRepository} \cite{UnityMlAgents}, który pozwala na wykorzystanie środowisk utworzonych w grze do treningu modeli. Stanowi on warstwę łączącą Unity z biblioteką Tensorflow, oraz zapewnia wiele nowoczesnych algorytmów głębokiego uczenia przez wzmacnianie (\textit{deep reinforcement learning}) m.in. Proximal Policy Optimization (PPO), Soft Actor-Critic (SAC), self-play. W powyższej pracy wykorzystano algorytm PPO, ze względu na większą stabilność treningu \cite{CompareDrlAlgorithms}. \\
+Śledzenie wielu metryk postępu uczenia było dostępne z wykorzystaniem programu tensorboard.
 
 \section{Uczenie przez wzmacnianie}
 Uczenie przez wzmacnianie jestem jednym z trzech głównych nurtów uczenia maszynowego, gdzie agent uczy się polityki optymalnej w danym środowisku metodą prób i błędów, otrzymując wyłącznie wartość nagrody jako informację zwrotną. W przeciwieństwie do uczenia nadzorowanego, metoda ta nie wymaga wcześniejszego przygotowania dużej ilości opisanych danych. Pozwala to na wprowadzenie bota do nieznanego środowiska i natychmiastowe podjęcie interakcji.\\
@@ -274,7 +275,15 @@ Finalnie zostały wybrane poniższe hiperparametry, co pozwoliło na zauważaln�
 
 \clearpage
 \section{Dalsze etapy treningu}
-Przy trenowaniu ważne jest, aby początkowe zadania były proste, aby agent był w stanie je łatwo wykonać. Następnie należy stopniowo zwiększać poziom trudności, dając agentowi odpowiednio dużo czasu na przystosowanie się do zmian. Dlatego pierwszy etap treningu polega na przejechaniu trasy będącej okręgiem, po płaskim terenie, oraz bez przeciwników (w każdym środowisku znajduje się jeden agent).
+Trudność zadań powinna rosnąć wraz z dlugością treningu. W ten sposób agent jest w stanie zrozumieć swój cel, początkowo bez przeszkód, a następnie stopniowo się rozwijać. Zastosowanie prostszej konfiguracji na początku zminimalizuje ryzyko utknięcia bota w optimum lokalnym. Poniżej zostały przestawione trasy wykorzystane do treningu i walidacji wyników.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\textwidth]{figures/trening_environs.png}
+    \caption{Zestawienie środowisk treningowych}
+    \label{fig}
+\end{figure}
+\phantom{.}\\
+Pierwszy etap treningu wykorzystuje tylko najprostszą trasę \textbf{1}. Agent porusza się po płaskim terenie, po trasie prawie idealnego okręgu. W każdej instancji środowiska znajduje się tylko jeden agent, więc nie musi się martwić interakcjami z przeciwnikami.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graphs/training_progress_1.png}
@@ -282,7 +291,7 @@ Przy trenowaniu ważne jest, aby początkowe zadania były proste, aby agent by�
     \label{fig}
 \end{figure}
 \phantom{.}\\
-Etap 2 zakłada dodanie większej różnorodności torów, zwiększając ilość ostrych zakrętów, natomiast pozostawiając płaski teren.
+Etap 2 wykorzystuje trasy \textbf{2}-\textbf{4}, które zwiększają trudność poprzez większą ilość ostrych zakrętów.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graphs/training_progress_2.png}
@@ -298,7 +307,7 @@ Etap 3 wykorzystuje tereny z poprzedniego etapu, natomiast dodaje przeciwników,
     \label{fig}
 \end{figure}
 \phantom{.}\\
-Etap 4 powraca do stosunkowo prostych tras oraz jednego pojazdu, natomiast wprowadza nierówności trasy, poprzez wykorzystanie pofalowanyego terenu.
+Etap 4 zakłada powrót do treningu jednego agenta na jednym środowisku, natomiast dodaje trudności poprzez wykorzystanie pofałdowanej trasy \textbf{5}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graphs/training_progress_4.png}
@@ -306,7 +315,7 @@ Etap 4 powraca do stosunkowo prostych tras oraz jednego pojazdu, natomiast wprow
     \label{fig}
 \end{figure}
 \phantom{.}\\
-Etap 5 wykorzystuje pofalowane tereny, natomiast powraca do bardziej skomplikowanych tras z etapu drugiego.
+Etap 5 pozostaje przy założeniach poprzedniego etapu, zwiększając trudność poprzez wykorzystanie bardziej skomplikowanych tras (\textbf{6}-\textbf{8}).
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graphs/training_progress_5.png}
@@ -314,7 +323,7 @@ Etap 5 wykorzystuje pofalowane tereny, natomiast powraca do bardziej skomplikowa
     \label{fig}
 \end{figure}
 \phantom{.}\\
-Etap 6 łączy wszytskie elementy gry, wykorzystując pofalowane tereny z trasami z dużą ilością ostrych zakrętów, oraz przeciwnikami.
+Etap 6 łączy wszytskie elementy gry, wykorzystując najtrudniejsze trasy (\textbf{6}-\textbf{8}) oraz dodająć po 4 agentów w każdym środowisku, grających przeciwko sobie.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graphs/training_progress_6.png}
@@ -322,3 +331,26 @@ Etap 6 łączy wszytskie elementy gry, wykorzystując pofalowane tereny z trasam
     \label{fig}
 \end{figure}
 \phantom{.}\\
+\clearpage
+Trening został przeprowadzony na 20 milionach iteracji na każdy etap. Następnie nastapiła walidacja kolejnych etapów na wszystkich terenach testowych. Za każdym razem zostały uruchomione 3 boty. Poniższa tabela opisuje jaki procent uruchomionych botów dotarł bez problemów do mety. Ponieważ walidacja została przeprowadzona tylko na 3 instancjach bota, wyniki mogą znacznie odbiegać od realnej średniej. Aby otrzymać wyniki zbliżone do prawdziwej sytuacji należałoby przeprowadzić większą ilość testów, zgodnie z Prawem Wielkch Liczb.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        & \multicolumn{6}{c|}{Wynik bota po N-tym etapie treningu}\\
+        Numer toru & po 1 etapie & po 2 etapie & po 3 etapie & po 4 etapie & po 5 etapie & po 6 etapie \\
+        \hline
+        \hline
+        1 & 100\% & 100\% & 100\% & 100\% & 100\% & 100\% \\
+        2 & 0\% & 33\% & 0\% & 33\% & 33\% & 100\% \\
+        3 & 100\% & 100\% & 33\% & 100\% & 33\% & 100\% \\
+        4 & 100\% & 100\% & 0\% & 100\% & 33\% & 100\% \\
+        5 & 0\% & 33\% & 100\% & 100\% & 33\% & 33\% \\
+        6 & 0\% & 0\% & 0\% & 33\% & 33\% & 33\% \\
+        7 & 0\% & 0\% & 0\% & 0\% & 0\% & 33\% \\
+        8 & 33\% & 0\% & 0\% & 0\% & 0\% & 0\% \\
+        \hline
+    \end{tabular}
+    \caption{Porównanie wyników treningu bota}
+    \label{table}
+\end{table}

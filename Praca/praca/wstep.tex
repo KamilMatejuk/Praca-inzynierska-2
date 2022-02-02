@@ -2,10 +2,14 @@
 %\chapter{Wstęp}
 \addcontentsline{toc}{chapter}{Wstęp}
 \chapter*{Wstęp}
-W obecnych czasach obserwujemy coraz bardziej dynamiczny rozwój branży pojazdów wyposażonych w sterowanie autonomiczne. Autonomia pojazdu określana jest w skali pięciostopniowej, gdzie stopień 0 oznacza brak autonomii, a stopień 5 - pełną automatyzację kierowania pojazdem \cite{SAE}. Aktualnie, jako ludzkość, jesteśmy w stanie osiągnąć autonomię poziomu 2, co oznacza, że kierowca musi nieustannie czuwać nad decyzjami samochodu, a software ma prawo nie rozumieć skrzyżowań bez sygnalizacji świetlnej czy pojazdów uprzywilejowanych.
+W obecnych czasach obserwujemy coraz bardziej dynamiczny rozwój branży pojazdów autonomicznych. Autonomia pojazdu określana jest w skali pięciostopniowej, gdzie stopień 0 oznacza brak autonomii, a stopień 5 - pełną automatyzację kierowania pojazdem \cite{SAE}. Aktualnie, jako ludzkość, jesteśmy w stanie osiągnąć autonomię poziomu 2, co oznacza, że kierowca musi nieustannie czuwać nad decyzjami samochodu, a software ma prawo nie rozumieć skrzyżowań bez sygnalizacji świetlnej czy pojazdów uprzywilejowanych.
 
-Oprogramowanie takich pojazdów często testowane jest w symulowanym i bezpiecznym środowisku, które jednak twórcy samochodów starają się jak najbardziej upodabniać do świata realnego. Pojazdy te wykorzystują m.in. sensory lidar\cite{Lidar} oraz kamery jako główne źródło informacji. Następnie na podstawie tych danych i z wykorzystaniem algorytmów uczenia maszynowego poddawane są treningowi.
+Oprogramowanie takich pojazdów, zanim zostanie wypuszczone na ulice, często testowane jest w symulowanym i bezpiecznym środowisku, które jednak twórcy samochodów starają się jak najbardziej upodabniać do świata realnego. Pojazdy te wykorzystują m.in. sensory odległości lidar\cite{Lidar} oraz kamery jako główne źródło informacji. Następnie na podstawie tych danych i z wykorzystaniem algorytmów uczenia maszynowego poddawane są treningowi.
 
 W poniższej pracy zostało zasymulowane środowisko naturalne oraz pojazd, wraz z zachowanymi w znacznym stopniu prawami fizyki oraz sposobem sterowania. Metody obserwacji otoczenia inspirowane były metodami wykorzystywanymi w rzeczywistości. Pojazd został wytrenowany do poruszania się po torze w różnych środowiskach.
 
-W pierwszym rozdziale przedstawiony został proces tworzenia gry jako proceduralnego środowiska do testów. Kolejny rozdział zawiera informacje o wyborze optymalnych parametrów ze względu na rozmiar sieci, czas uczenia oraz inferencji. Finalnie przedstawiony został proces trenowania bota.
+Pierwszy rozdział pracy przedstawia proces tworzenia gry jako proceduralnie generowanego środowiska do testów. Opisuje kolejne etapy potrzebne do powstania terenu, od wyznaczenia dwu-wymiarowej trasy, poprzez generację pofałdowania terenu, do wypełnienia teksturami i obiektami.
+
+Kolejny rozdział skupia sie na wytrenowaniu bota do stworzonej gry. Zawiera informacje o wyborze optymalnych parametrów ze względu na rozmiar sieci, czas uczenia oraz inferencji. Nastepnie przedstawiony został proces trenowania bota oraz osiągniete wyniki.
+
+Do dokumentu załączone zostały dwa dodatki. Dodatek A opisuje sposób pobrania, uruchomienia i korzystania z gry. Dodatek B zawiera dokumentacje techniczną wygenerowaną przez program doxygen \cite{Doxygen}.

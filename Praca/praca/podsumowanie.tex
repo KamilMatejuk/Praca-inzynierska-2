@@ -1,6 +1,17 @@
 \chapter*{Podsumowanie}
 \addcontentsline{toc}{chapter}{Podsumowanie}
 \thispagestyle{chapterBeginStyle}
-W powyższej pracy została stworzona gra wyścigowa, wraz z botem. Bot został wytrenowany z wykorzystaniem uczenia przez wzmacnianie przy pomocy Unity ML-Agents. Jako interakcję ze środowiskiem bot posiada do dystpozycji dwie akcje w przestrzeni dyskretnej o wartościach {-1, 0, 1} definiujące poruszanie się do przodu/tyłu oraz kąt skrętu kierownicy. Pojazd porusza się zgodnie z uproszczonymi zasadami fizyki symulowanymi przez silnik Unity. Jako obserwacje przyjmuje odległości pojazdu od ewentualnych przeszkód oraz krawędzi drogi i aktualną prędkość. Taki zbiór danych wejściowych ma na celu symulować podejście wykorzystywane aktualnie w samochodach autonomicznych.
+\section{Perspektywy rozwoju}
 
-Proces implementacji bota, wraz z wyborem obserwacji, podejmowanych akcji, funkcji nagrody i wyboru hiperparametrów przedstawiony został na wykresach ilustrujących efekty podjętej decyzji. W pracy zostały również opisane kolejne etapy treningu bota.
+\subsection{Dłuższy i optymalny trening}
+Ograniczona moc obliczeniowa i zasoby czasowe znacznie zredukowały ilość iteracji terningowych, które można było wykonać. Dokładniejsze dobranie hiperparametrów oraz przetestowanie większej ilości ich kombinacji mogłoby znacznie przełożyć się na otrzymywane wyniki. Tak samo bot nie osiągnął 100 procentowej sprawności w każdym z etapów treningu, ze względu na ww. ograniczenia. Dlatego też wydłużenie każdego z etapów treningu oraz płynniejsze zmiany trudności pomiędzy etapami należą do perspektyw rozwoju projektu.
+
+\subsection{Rozbudowa środowiska}
+W kolejnych iteracjach projektu należałoby dążyć do coraz większego podobieństwa wygenerowanych terenów do rzeczywistego świata. Dodanie takich elementów jak skrzyżowania, światła, przeszkody na drogach, etc. pozwoliłoby na większy rozwój sieci neuronowej.
+
+\subsection{Uczenie w trakcie gry}
+W danej chwili bot został wytrenowany z wykorzystaniem uczenia przez wzmacnianie, gdzie nie wymagał żadnych danych na temat gry aby się uczyć. Natomiast gdyby stworzona gra została rozpromowana, dodanie funkcji która pozwoliłaby botowi uczyć się na bieżąco na podstawie ruchów wykonywanych przez gracza pozwoliłoby na szybszy rozwój bota, biorąc pod uwagę znaczne rozmiary danych z których mógłby sie uczyć.
+
+\section{Ocena efektów}
+Pierwszy etap, jakim jest gra z proceduralnym generowaniem terenów został zaprojektowany i zaimplementowany bez problemów. Technologie wykorzystane zostały wybrane w taki sposób, aby zminimalizować czas i nakład pracy, zachowując wysoką jakość. Algorytmy generacji terenów zostały zoptymalizowane dla największej możliwej wydajności.\\
+Drugi etap pracy, polegający na treningu bota, został starannie zaprojektowany i podzielony na etapy. Natomiast przez złe oszacowanie czasu treningu na dostępnych komputerach, trening nie mógł trwać tak długo jakbym sobie życzył. Pomimo to bot został wytrenowany aby poruszać się w dostępnym środowisku, oraz wchodzić w interakcję z przeciwnikami.
