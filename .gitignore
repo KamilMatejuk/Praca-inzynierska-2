@@ -1,6 +1,5 @@
 .vscode/
 Logs/
-Packages/
 UserSettings/
 Assembly-CSharp*
 TestProject.sln
@@ -11,3 +10,4 @@ Temp/
 obj/
 ProjectSettings/
 Library/
+Gra/**/ML-Agents/
