@@ -1,19 +1,3 @@
-# TODO
-| task                                                                        |  time  |
-| --------------------------------------------------------------------------- | :----: |
-| testy - kilka pojazdów                                                      |        |
-| testy - pofalowany teren                                                    |        |
-| testy - pofalowany teren z kilkoma pojazdami                                |        |
-| brak kontaktu z myszką i klawiaturą na win                                  |   4h   |
-| pogenerować poziomy i je ładnie nazwać                                      |   1h   |
-| sprawdzić czy działa zczytywanie odpowiedniej wysokości - ułożenie mety itd |        |
-| poprawić wykresy - wybór akcji                                              | 20 min |
-| poprawić wykresy - hiperparametry x 3                                       | 20 min |
-| czytanie całej pracy                                                        |   4h   |
-| sprawdzic ładoeanie modelu w skrypcie                                       | 10 min |
-
-dodać do bibliografi - https://pomax.github.io/bezierinfo/
-
 # treningi
 trening-01: 1 płaski teren, 1 pojazd -> l_c1_1
 trening-02: 3 płaskie tereny, 1 pojazd -> l_c1_2, l_c1_3, l_c1_4
@@ -37,6 +21,7 @@ n - slow, not finished
 |   h_c4_2    |   3s   |   3s   |   3s   |   3s   |   3s   |   3s   |
 |   h_c4_3    |   3s   |   3s   |   3s   |   3s   |   3s   |   3s   |
 |   h_c4_4    | 1f 2s  |   3s   |   3s   |   3s   |   3s   |   3s   |
+
 
 ## Testy
 **test-01**
