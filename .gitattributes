@@ -10,3 +10,5 @@ Assets/OtherAssets/DreamForestTree/_URP[[:space:]]patch/DreamTreesURP.unitypacka
 Assets/OtherAssets/WoodLog/Materials/Wood_Log_normal.png filter=lfs diff=lfs merge=lfs -text
 games/Linux/Gra/Gra_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
 games/Windows/Gra/Gra_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
+Gra/Linux/Gra/Gra_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
+Gra/Windows/Gra/Gra_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
