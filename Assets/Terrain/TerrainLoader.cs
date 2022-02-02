@@ -422,15 +422,18 @@ namespace RacingGameBot.Terrains {
             int tempIndex = 0;
             Utils.Objects.RemoveObjectsByTagInParent("checkpoint", terrainGO);
             GameObject checkpointsParent = Utils.Objects.PutParentObject("checkpoint", "Checkpoints");
+            // GameObject checkpointsParent = Utils.Objects.PutParentObject("other", "Checkpoints"); // opcja 2 - bez checkpointów dla bota
             checkpointsParent.transform.parent = terrainGO.transform;
             for (int i = 0; i < int.Parse(numberOfCheckpoints); i++) {
                 posrot = Utils.Parser.OrientedPointParse(checkpointsString[tempIndex]);
                 GameObject checkpoint = Utils.Objects.PutObject("Checkpoint", "checkpoint", "Checkpoint " + (i + 1), posrot, checkpointSize * 1.5f);
+                // GameObject checkpoint = Utils.Objects.PutObject("Checkpoint", "other", "Checkpoint " + (i + 1), posrot, checkpointSize * 1.5f); // opcja 2 - bez checkpointów dla bota
                 checkpoint.transform.parent = checkpointsParent.transform;
                 checkpoint.transform.position += terrainGO.transform.position + new Vector3(Utils.Variables.TERRAIN_SIZE / 2, 0, Utils.Variables.TERRAIN_SIZE / 2);
                 checkpoint.GetComponent<MeshRenderer>().enabled = showCheckpoints;
                 checkpoint.GetComponent<BoxCollider>().enabled = true;
                 checkpoint.GetComponent<BoxCollider>().isTrigger = true;
+                // checkpoint.layer = 2; // Ignore Raycast Layer (opcja 2 - bez checkpointów dla bota)
                 checkpoints.Add(checkpoint);
                 tempIndex++;
             }
@@ -532,6 +535,7 @@ namespace RacingGameBot.Terrains {
             cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarUserControl>().playableCar = true;
             cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_Topspeed *= 0.6f;
             cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_FullTorqueOverAllWheels *= 0.5f;
+            cars[cars.Count - 1].GetComponent<Play.CameraManager>().Activate();
         }
     }
 }

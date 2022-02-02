@@ -78,7 +78,7 @@ namespace RacingGameBot.Terrains {
             UnityEngine.Random.InitState(seed);
             PutStartFinish();
             PutCheckpoints();
-            PutCars(1);
+            PutCars(4);
             PutBorders();
             TerrainLoader.SaveTerrain(GetComponent<Terrain>().terrainData,
                                       terrainGenData,
