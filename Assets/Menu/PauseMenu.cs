@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 
 namespace RacingGameBot.Menu {
@@ -21,6 +22,12 @@ namespace RacingGameBot.Menu {
                 } else {
                     PauseGame();
                 }
+            } else if (Input.GetKeyDown(KeyCode.C) && !gameIsPaused) {
+                try {
+                    List<GameObject> cars = GameObject.Find("Terrain").GetComponent<Terrains.TerrainLoader>().cars;
+                    GameObject car = cars[cars.Count - 1];
+                    car.GetComponent<Play.CameraManager>().SwitchCamera();
+                } catch { }
             }
         }
 

@@ -331,14 +331,21 @@ namespace RacingGameBot.Terrains {
         /// <returns>List of points</returns>
         public List<Vector3> GetOffsetLoop(Vector3 offset) {
             List<Vector3> points = new List<Vector3>();
-            foreach (OrientedPoint op in GetEquallySpacedPoints(100)) {
-                Vector3 pos = op.LocalToWorldPosition(offset);
-                float distanceToRoad = GetNearestBezierPoint(pos).other;
-                if (distanceToRoad >= offset.magnitude * 0.95f) {
-                    points.Add(pos);
+            for (int i = 0; i < NumberOfSegments; i++) {
+                List<OrientedPoint> bezierPoints = GetSegmentBezierPoints(i);
+                for (float t = 0f; t < 1f; t += 0.05f) {
+                    OrientedPoint op = Utils.Bezier.GetBezierOrientedPoint(bezierPoints[0].position,
+                                                                           bezierPoints[1].position,
+                                                                           bezierPoints[2].position,
+                                                                           bezierPoints[3].position, t);
+                    Vector3 pos = op.LocalToWorldPosition(offset);
+                    float distanceToRoad = GetNearestBezierPoint(pos).other;
+                    if (distanceToRoad >= offset.magnitude * 0.95f) {
+                        points.Add(pos);
+                    }
                 }
             }
-            for (int smoothing_nr = 0; smoothing_nr < 2; smoothing_nr++) {
+            for (int smoothing_nr = 0; smoothing_nr < 1; smoothing_nr++) {
                 List<Vector3> smoothed = new List<Vector3>();
                 for (int i = 0; i < points.Count; i++) {
                     Vector3 p1 = points[(i + 0) % points.Count];
@@ -348,7 +355,7 @@ namespace RacingGameBot.Terrains {
                     Vector3 v2 = p2 - p3;
                     // angle normalized [-1, 1]
                     float angle = Mathf.Acos(Mathf.Clamp(Vector3.Dot(v1.normalized, v2.normalized), -1, 1)) / Mathf.PI;
-                    if (Mathf.Abs(angle) < 0.2f || Mathf.Abs(angle) > 0.8f) {
+                    if (Mathf.Abs(angle) < 0.15f || Mathf.Abs(angle) > 0.85f) {
                         smoothed.Add(p2);
                     }
                 }

@@ -3,10 +3,7 @@ using UnityEngine;
 using System.Linq;
 using System.IO;
 using System;
-using Unity.MLAgents;
-using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Policies;
-using Unity.MLAgents.Actuators;
 
 namespace RacingGameBot.Terrains {
     public class TerrainLoader : MonoBehaviour {

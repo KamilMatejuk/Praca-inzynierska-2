@@ -78,7 +78,7 @@ namespace RacingGameBot.Terrains {
             UnityEngine.Random.InitState(seed);
             PutStartFinish();
             PutCheckpoints();
-            PutCars(4);
+            PutCars(1);
             PutBorders();
             TerrainLoader.SaveTerrain(GetComponent<Terrain>().terrainData,
                                       terrainGenData,
@@ -402,7 +402,7 @@ namespace RacingGameBot.Terrains {
         /// Add cars Utils.Objects to the map
         /// </summary>
         void PutCars(int n) {
-            GameObject carPrefab = (GameObject)Resources.Load("Prefabs/SportCar");
+            GameObject carPrefab = (GameObject)Resources.Load("Prefabs/SportCarAI");
             Utils.Objects.RemoveObjectsByTagInParent("car", gameObject);
             cars = new List<GameObject>();
             GameObject carsGroup = Utils.Objects.PutParentObject("car", "Cars");
@@ -410,7 +410,7 @@ namespace RacingGameBot.Terrains {
             List<OrientedPoint> equallySpaced = controlPoints.GetEquallySpacedPoints(40);
             for (int i = 0; i < n; i++) {
                 OrientedPoint op = equallySpaced[equallySpaced.Count - i - 2];
-                GameObject car = Utils.Objects.PutObject("SportCar", "car", "Car " + i, op);
+                GameObject car = Utils.Objects.PutObject("SportCarAI", "car", "Car " + i, op);
                 car.transform.parent = carsGroup.transform;
                 cars.Add(car);
             }
