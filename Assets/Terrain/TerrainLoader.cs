@@ -514,19 +514,16 @@ namespace RacingGameBot.Terrains {
                 posrot = Utils.Parser.OrientedPointParse(carsString[tempIndex]);
                 GameObject car = Utils.Objects.PutObject("SportCarAI", "car", "Car " + (i + 1), posrot, carSize);
                 car.transform.parent = carsParent.transform;
-                pos = posrot.position + terrainGO.transform.position + new Vector3(Utils.Variables.TERRAIN_SIZE / 2, 0, Utils.Variables.TERRAIN_SIZE / 2);
+                pos = posrot.position + terrainGO.transform.position;
                 pos.y = controlPoints.GetHeight(
                     pos.x - terrainGO.transform.position.x,
                     pos.z - terrainGO.transform.position.z
                 ) * Utils.Variables.TERRAIN_HEIGHT;
-                pos -= posrot.rotation * Vector3.forward * 5f * (1 + i);
                 pos -= posrot.rotation * Vector3.left * terrainGenData.roadWidth * (UnityEngine.Random.value - 0.5f);
                 pos.y += 5f;
                 car.transform.position = pos;
                 car.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.InferenceOnly;
                 car.GetComponent<BehaviorParameters>().BehaviorName = "in5-out1-f";
-                // car.GetComponent<BehaviorParameters>().BehaviorName = $"Test-{Mathf.FloorToInt(UnityEngine.Random.value * 100)}";
-                // car.GetComponent<BehaviorParameters>().TeamId = i;
                 car.GetComponent<Play.CarAgent>().showGizmos = showGizmos;
                 car.GetComponent<Play.CarAgent>().playMode = playMode;
                 cars.Add(car);
