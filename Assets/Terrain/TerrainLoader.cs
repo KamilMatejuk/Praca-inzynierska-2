@@ -471,11 +471,11 @@ namespace RacingGameBot.Terrains {
                 for (int i = 0; i < outerPoints.Count; i++) {
                     Vector3 start = outerPoints[(i + 0) % outerPoints.Count];
                     Vector3 end = outerPoints[(i + 1) % outerPoints.Count];
-                    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+                    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     cube.name = "Border";
                     cube.tag = "border";
                     cube.transform.parent = bordersGroup.transform;
-                    cube.transform.localScale = new Vector3(blockWidth, blockHeight, (end - start).magnitude);
+                    cube.transform.localScale = new Vector3(blockWidth, blockHeight, (end - start).magnitude * 1.1f);
                     pos = start + (end - start) * 0.5f;
                     pos.y = controlPoints.GetHeight(
                         pos.x - terrainGO.transform.position.x,
@@ -490,7 +490,7 @@ namespace RacingGameBot.Terrains {
                     float crossYSign = crossY >= 0 ? 1f : -1f;
                     float radianANgle = angle * crossYSign; // angle in radians [-pi, pi]
                     cube.transform.rotation *= Quaternion.Euler(0, radianANgle * 180 / Mathf.PI, 0); // angle normalized to degrees [-180, 180]
-                    cube.GetComponent<CapsuleCollider>().isTrigger = !playMode;
+                    cube.GetComponent<BoxCollider>().isTrigger = !playMode;
                     cube.GetComponent<MeshRenderer>().enabled = showBorders;
                 }
             }
@@ -519,16 +519,23 @@ namespace RacingGameBot.Terrains {
                     pos.x - terrainGO.transform.position.x,
                     pos.z - terrainGO.transform.position.z
                 ) * Utils.Variables.TERRAIN_HEIGHT;
-                pos -= posrot.rotation * Vector3.forward * 7f;
+                pos -= posrot.rotation * Vector3.forward * 5f * (1 + i);
+                pos -= posrot.rotation * Vector3.left * terrainGenData.roadWidth * 2f * (UnityEngine.Random.value - 0.5f);
                 pos.y += 5f;
                 car.transform.position = pos;
                 car.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.InferenceOnly;
+                car.GetComponent<BehaviorParameters>().BehaviorName = $"Test-{Mathf.FloorToInt(UnityEngine.Random.value * 100)}";
+                car.GetComponent<BehaviorParameters>().TeamId = i;
                 car.GetComponent<Play.CarAgent>().showGizmos = showGizmos;
                 car.GetComponent<Play.CarAgent>().playMode = playMode;
                 cars.Add(car);
                 tempIndex++;
             }
             cars[cars.Count - 1].GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.HeuristicOnly;
+            cars[cars.Count - 1].GetComponent<BehaviorParameters>().Model = null;
+            cars[cars.Count - 1].GetComponent<Play.CarAgent>().playableCar = true;
+            cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarUserControl>().playableCar = true;
+            cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_Topspeed *= 0.6f;
         }
     }
 }
