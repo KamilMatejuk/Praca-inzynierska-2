@@ -16,17 +16,16 @@ namespace UnityStandardAssets.Vehicles.Car {
 
 
         private void FixedUpdate() {
+            return;
             // pass the input to the car!
-            if (playableCar) {
-                float h = Input.GetAxis("Horizontal");
-                float v = Input.GetAxis("Vertical");
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
 #if !MOBILE_INPUT
-                float handbrake = Input.GetAxis("Jump");
-                m_Car.Move(h, v, v, handbrake);
+            float handbrake = Input.GetAxis("Jump");
+            m_Car.Move(h, v, v, handbrake);
 #else
-                m_Car.Move(h, v, v, 0f);
+            m_Car.Move(h, v, v, 0f);
 #endif
-            }
         }
     }
 }

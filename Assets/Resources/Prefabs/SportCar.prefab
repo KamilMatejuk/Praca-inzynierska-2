@@ -515,10 +515,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 25
+  m_MaximumSteerAngle: 40
   m_SteerHelper: 0.67
   m_TractionControl: 1
-  m_FullTorqueOverAllWheels: 2500
+  m_FullTorqueOverAllWheels: 25000
   m_ReverseTorque: 500
   m_MaxHandbrakeTorque: 3.402823e+38
   m_Downforce: 100
@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playableCar: 0
 --- !u!1 &1031402939063210292
 GameObject:
   m_ObjectHideFlags: 0

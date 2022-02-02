@@ -141,9 +141,9 @@ namespace RacingGameBot.Play {
                     if (numberOfCheckpointsAlreadyHitInThisEpisode == numberOfAllCheckpoints) {
                         Debug.Log("No more checkpoints");
                         AddReward(numberOfAllCheckpoints);
-                        try {
+                        // try {
                             GameObject.Find("UiHelper").GetComponent<Menu.EndMenu>().Show(playableCar);
-                        } catch { }
+                        // } catch { }
                         goto endEpisode;
                     }
                 }
@@ -229,14 +229,7 @@ namespace RacingGameBot.Play {
             if (nextForwardMovement < 0) {
                 nextForwardMovement /= 3;
             }
-
-            if (playableCar) {
-                CrossPlatformInputManager.SetAxis("Vertical", nextForwardMovement);
-                CrossPlatformInputManager.SetAxis("Horizontal", nextSidewaysMovement);
-            } else {
-                GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().Move(nextSidewaysMovement, nextForwardMovement, nextForwardMovement, 0f);
-            }
-            // Debug.Log("axis " + nextForwardMovement + " " + nextSidewaysMovement + " " + GetComponent<Rigidbody>().velocity.magnitude);
+            GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().Move(nextSidewaysMovement, nextForwardMovement, nextForwardMovement, 0f);
         }
 
         /// <summary>

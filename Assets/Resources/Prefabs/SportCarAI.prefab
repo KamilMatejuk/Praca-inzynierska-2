@@ -739,10 +739,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 25
+  m_MaximumSteerAngle: 40
   m_SteerHelper: 0.67
   m_TractionControl: 1
-  m_FullTorqueOverAllWheels: 2500
+  m_FullTorqueOverAllWheels: 25000
   m_ReverseTorque: 500
   m_MaxHandbrakeTorque: 3.402823e+38
   m_Downforce: 100
@@ -786,7 +786,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 62943177d31b9c5bcb89bfab29db1a4f, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 712d63ec7a0f1299699ebe7202920f27, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: in5-out1-f
@@ -841,6 +841,7 @@ MonoBehaviour:
   MaxStep: 0
   showGizmos: 0
   playMode: 0
+  playableCar: 0
 --- !u!114 &1929754093886825962
 MonoBehaviour:
   m_ObjectHideFlags: 0

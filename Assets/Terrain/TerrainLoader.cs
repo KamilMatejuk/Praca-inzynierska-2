@@ -467,7 +467,7 @@ namespace RacingGameBot.Terrains {
             float blockHeight = Utils.Variables.TERRAIN_HEIGHT * 0.4f;
             float blockWidth = 1f;
             foreach (Vector3 offset in new Vector3[] { Vector3.left, Vector3.right }) {
-                List<Vector3> outerPoints = controlPoints.GetOffsetLoop(offset * terrainGenData.roadWidth * 2f);
+                List<Vector3> outerPoints = controlPoints.GetOffsetLoop(offset * terrainGenData.roadWidth * 1.5f);
                 for (int i = 0; i < outerPoints.Count; i++) {
                     Vector3 start = outerPoints[(i + 0) % outerPoints.Count];
                     Vector3 end = outerPoints[(i + 1) % outerPoints.Count];
@@ -520,12 +520,13 @@ namespace RacingGameBot.Terrains {
                     pos.z - terrainGO.transform.position.z
                 ) * Utils.Variables.TERRAIN_HEIGHT;
                 pos -= posrot.rotation * Vector3.forward * 5f * (1 + i);
-                pos -= posrot.rotation * Vector3.left * terrainGenData.roadWidth * 2f * (UnityEngine.Random.value - 0.5f);
+                pos -= posrot.rotation * Vector3.left * terrainGenData.roadWidth * (UnityEngine.Random.value - 0.5f);
                 pos.y += 5f;
                 car.transform.position = pos;
                 car.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.InferenceOnly;
-                car.GetComponent<BehaviorParameters>().BehaviorName = $"Test-{Mathf.FloorToInt(UnityEngine.Random.value * 100)}";
-                car.GetComponent<BehaviorParameters>().TeamId = i;
+                car.GetComponent<BehaviorParameters>().BehaviorName = "in5-out1-f";
+                // car.GetComponent<BehaviorParameters>().BehaviorName = $"Test-{Mathf.FloorToInt(UnityEngine.Random.value * 100)}";
+                // car.GetComponent<BehaviorParameters>().TeamId = i;
                 car.GetComponent<Play.CarAgent>().showGizmos = showGizmos;
                 car.GetComponent<Play.CarAgent>().playMode = playMode;
                 cars.Add(car);
@@ -536,6 +537,7 @@ namespace RacingGameBot.Terrains {
             cars[cars.Count - 1].GetComponent<Play.CarAgent>().playableCar = true;
             cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarUserControl>().playableCar = true;
             cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_Topspeed *= 0.6f;
+            cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_FullTorqueOverAllWheels *= 0.5f;
         }
     }
 }

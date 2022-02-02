@@ -23,14 +23,22 @@ trening-05: 3 pofalowane tereny, 1 pojazd -> h_c1_2, h_c1_3, h_c1_4
 trening-06: 4 pofalowane tereny, 4 pojazdy -> h_c4_1, h_c4_2, h_c4_3, h_c4_4
 
 
+f - (almost) finished
+s - stuck
+n - slow, not finished
+
+wolno chodzą ai - sprawdzić jakie dostają polecenia
+
 | teren\brain | level1 | level2 | level3 | level4 | level5 | level6 |
-| :---------- | :----: | :----: | :----: | :----: | :----: | :----: |
-| l_c1_1      |        |        |        |        |        |        |
-| l_c1_2      |        |        |        |        |        |        |
-| l_c4_1      |        |        |        |        |        |        |
-| h_c1_1      |        |        |        |        |        |        |
-| h_c1_2      |        |        |        |        |        |        |
-| h_c4_1      |        |        |        |        |        |        |
+| :---------: | :----: | :----: | :----: | :----: | :----: | :----: |
+|   l_c4_1    |   3f   |   3f   |   3f   |   3f   |   3f   |   3f   |
+|   l_c4_2    |   3s   | 1f 2s  |   3s   | 1f 2s  | 1f 2s  |   3f   |
+|   l_c4_3    |   3f   |   3f   | 1f 2s  | 2f 1n  | 1f 2s  |   3f   |
+|   l_c4_4    |   3f   |   3f   |   3s   |   3f   | 1f 2s  |   3f   |
+|   h_c4_1    |   3s   | 1f 2s  |   3f   | 2f 1n  | 1f 2n  | 1f 2n  |
+|   h_c4_2    |   3s   |   3s   |   3s   |   3s   |   3s   |   3s   |
+|   h_c4_3    |   3s   |   3s   |   3s   |   3s   |   3s   |   3s   |
+|   h_c4_4    | 1f 2s  |   3s   |   3s   |   3s   |   3s   |   3s   |
 
 ## Testy
 **test-01**
