@@ -12,3 +12,5 @@ games/Linux/Gra/Gra_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -te
 games/Windows/Gra/Gra_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
 Gra/Linux/Gra/Gra_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
 Gra/Windows/Gra/Gra_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
+Gra/Linux/Gra_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
+Gra/Windows/Gra_Data/resources.assets.resS filter=lfs diff=lfs merge=lfs -text
