@@ -233,6 +233,14 @@ namespace RacingGameBot.Play {
                 nextForwardMovement /= 3;
             }
             GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().Move(nextSidewaysMovement, nextForwardMovement, nextForwardMovement, 0f);
+
+            // check if flipped
+            Vector3 environTop = Vector3.up;
+            Vector3 carTop = transform.up;
+            float angle = Mathf.Acos(Mathf.Clamp(Vector3.Dot(environTop.normalized, carTop.normalized), -1, 1)) / Mathf.PI;
+            if (angle > 0.4f) {
+                transform.rotation = startingRotation;
+            }
         }
 
         /// <summary>
