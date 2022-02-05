@@ -407,7 +407,7 @@ namespace RacingGameBot.Terrains {
             cars = new List<GameObject>();
             GameObject carsGroup = Utils.Objects.PutParentObject("car", "Cars");
             carsGroup.transform.parent = transform;
-            List<OrientedPoint> equallySpaced = controlPoints.GetEquallySpacedPoints(40);
+            List<OrientedPoint> equallySpaced = controlPoints.GetEquallySpacedPoints(60);
             for (int i = 0; i < n; i++) {
                 OrientedPoint op = equallySpaced[equallySpaced.Count - i - 2];
                 GameObject car = Utils.Objects.PutObject("SportCarAI", "car", "Car " + i, op);

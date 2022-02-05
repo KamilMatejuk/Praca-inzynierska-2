@@ -519,23 +519,30 @@ namespace RacingGameBot.Terrains {
                     pos.x - terrainGO.transform.position.x,
                     pos.z - terrainGO.transform.position.z
                 ) * Utils.Variables.TERRAIN_HEIGHT;
-                pos -= posrot.rotation * Vector3.left * terrainGenData.roadWidth * (UnityEngine.Random.value - 0.5f);
+                pos -= posrot.rotation * Vector3.left * terrainGenData.roadWidth * (UnityEngine.Random.value - 0.5f) * 0.5f;
                 pos.y += 5f;
                 car.transform.position = pos;
-                car.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.InferenceOnly;
+                if (playMode) {
+                    car.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.InferenceOnly;
+                } else {
+                    car.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.Default;
+                    car.GetComponent<BehaviorParameters>().Model = null;
+                }
                 car.GetComponent<BehaviorParameters>().BehaviorName = "in5-out1-f";
                 car.GetComponent<Play.CarAgent>().showGizmos = showGizmos;
                 car.GetComponent<Play.CarAgent>().playMode = playMode;
                 cars.Add(car);
                 tempIndex++;
             }
-            cars[cars.Count - 1].GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.HeuristicOnly;
-            cars[cars.Count - 1].GetComponent<BehaviorParameters>().Model = null;
-            cars[cars.Count - 1].GetComponent<Play.CarAgent>().playableCar = true;
-            cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarUserControl>().playableCar = true;
-            cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_Topspeed *= 0.6f;
-            cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_FullTorqueOverAllWheels *= 0.5f;
-            cars[cars.Count - 1].GetComponent<Play.CameraManager>().Activate();
+            if (playMode) {
+                cars[cars.Count - 1].GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.HeuristicOnly;
+                cars[cars.Count - 1].GetComponent<BehaviorParameters>().Model = null;
+                cars[cars.Count - 1].GetComponent<Play.CarAgent>().playableCar = true;
+                cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarUserControl>().playableCar = true;
+                cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_Topspeed *= 0.6f;
+                cars[cars.Count - 1].GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_FullTorqueOverAllWheels *= 0.5f;
+                cars[cars.Count - 1].GetComponent<Play.CameraManager>().Activate();
+            }
         }
     }
 }

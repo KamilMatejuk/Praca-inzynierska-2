@@ -15,6 +15,7 @@ namespace RacingGameBot.Play {
             foreach (Camera camera in cameras) {
                 camera.enabled = false;
             }
+            cameras[0].enabled = true;
         }
 
         /// <summary>

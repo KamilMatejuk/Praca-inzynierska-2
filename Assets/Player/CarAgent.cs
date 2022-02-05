@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
@@ -23,7 +25,9 @@ namespace RacingGameBot.Play {
         private float prevSidewaysValue;
         private StatsRecorder statsRecorder;
         private Vector3 lastPosition;
+        private Vector3 lastFixedPosition;
         private float startTime;
+        private List<float> lastDistances;
 
 
         /// <summary>
@@ -36,6 +40,33 @@ namespace RacingGameBot.Play {
             statsRecorder = Academy.Instance.StatsRecorder;
             numberOfAllCheckpoints = terrainLoader.checkpoints.Count;
             startTime = Time.realtimeSinceStartup;
+            lastDistances = new List<float>();
+        }
+
+        /// <summary>
+        /// Each frame check if car is stuck
+        /// </summary>
+        void FixedUpdate() {
+            if (!playableCar) {
+                float fixedFrameDistance = Vector3.Distance(lastFixedPosition, transform.position);
+                lastFixedPosition = transform.position;
+                lastDistances.Add(fixedFrameDistance);
+                if (lastDistances.Count > 60) {
+                    lastDistances.RemoveAt(0);
+                    if (lastDistances.Sum() < 0.3f && terrainLoader != null && terrainLoader.controlPoints != null) {
+                        Terrains.OrientedPoint nearestPosRot = terrainLoader.controlPoints.GetNearestBezierPoint(transform.position);
+                        Vector3 pos = nearestPosRot.position;
+                        pos.y = terrainLoader.controlPoints.GetHeight(
+                            pos.x - terrainGO.transform.position.x,
+                            pos.z - terrainGO.transform.position.z
+                        ) * Utils.Variables.TERRAIN_HEIGHT;
+                        pos.y += 1f;
+                        transform.position = pos;
+                        transform.rotation = nearestPosRot.rotation;
+                        lastDistances = new List<float>();
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -106,7 +137,6 @@ namespace RacingGameBot.Play {
 
             AddReward((0.5f - distanceToRoadCenter) * 0.1f); // positive for distanceToRoadCenter < 0.5
             AddReward((0.05f - Mathf.Abs(angleToTangent)) * 1f); // positive for angleToTangent < 0.05
-
             float frameDistance = Vector3.Distance(lastPosition, transform.position);
             AddReward((frameDistance - 0.1f) * 1f); // positive for distance bigger then 0.1 ~ 0.05
             AddReward(0.01f); // the longer the better
@@ -241,7 +271,10 @@ namespace RacingGameBot.Play {
             Vector3 carTop = transform.up;
             float angle = Mathf.Acos(Mathf.Clamp(Vector3.Dot(environTop.normalized, carTop.normalized), -1, 1)) / Mathf.PI;
             if (angle > 0.4f) {
-                transform.rotation = startingRotation;
+                if (terrainLoader != null && terrainLoader.controlPoints != null) {
+                    Terrains.OrientedPoint nearestBezierPosDst = terrainLoader.controlPoints.GetNearestBezierPoint(transform.position);
+                    transform.rotation = nearestBezierPosDst.rotation;
+                }
             }
         }
 

@@ -5,19 +5,28 @@ namespace RacingGameBot.Editors {
     public class BuildScript {
 
         [SerializeField, HideInInspector] private static string gameName = "Gra";
-        [SerializeField, HideInInspector] private static string[] levels = new string[] { "Assets/Scenes/Main Menu.unity", "Assets/Scenes/Create Level.unity", "Assets/Scenes/Game.unity" };
+        [SerializeField, HideInInspector] private static string[] levelsGame = new string[] { "Assets/Scenes/Main Menu.unity", "Assets/Scenes/Create Level.unity", "Assets/Scenes/Game.unity" };
+        [SerializeField, HideInInspector] private static string[] levelsTraining = new string[] { "Assets/Scenes/Multi Training.unity" };
+        [SerializeField, HideInInspector] private static string[] filesLinux = new string[] { "unity_builtin_extra", "unity default resources", "UnityPlayer.png" };
+        [SerializeField, HideInInspector] private static string[] filesWindows = new string[] { "unity_builtin_extra", "unity default resources" };
 
         /// <summary>
         /// Build game executable for Windows
         /// </summary>
         [MenuItem("MyTools/Custom Windows Build")]
-        public static void BuildGameWin() => BuildGame(BuildTarget.StandaloneWindows64, "exe", new string[] { "unity_builtin_extra", "unity default resources" });
+        public static void BuildGameWin() => BuildGame(BuildTarget.StandaloneWindows64, "exe", filesWindows, levelsGame);
 
         /// <summary>
         /// Build game executable for Linux
         /// </summary>
         [MenuItem("MyTools/Custom Linux Build")]
-        public static void BuildGameLinux() => BuildGame(BuildTarget.StandaloneLinux64, "x86_64", new string[] { "unity_builtin_extra", "unity default resources", "UnityPlayer.png" });
+        public static void BuildGameLinux() => BuildGame(BuildTarget.StandaloneLinux64, "x86_64", filesLinux, levelsGame);
+
+        /// <summary>
+        /// Build training executable
+        /// </summary>
+        [MenuItem("MyTools/Custom Linux Training Build")]
+        public static void BuildTraining() => BuildGame(BuildTarget.StandaloneLinux64, "x86_64", filesLinux, levelsTraining);
 
         /// <summary>
         /// Builder for game executables based on system
@@ -25,7 +34,7 @@ namespace RacingGameBot.Editors {
         /// <param name="system">target system</param>
         /// <param name="extension">game file extension</param>
         /// <param name="files">list of </param>
-        private static void BuildGame(BuildTarget system, string extension, string[] files) {
+        private static void BuildGame(BuildTarget system, string extension, string[] files, string[] levels) {
             string path = EditorUtility.SaveFolderPanel("Choose Location of Built Game", "", "");
             if (path.Length > 0) {
                 BuildPipeline.BuildPlayer(levels, $"{path}/{gameName}.{extension}", system, BuildOptions.None);

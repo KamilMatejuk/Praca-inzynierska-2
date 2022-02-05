@@ -154,10 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playMode: 0
   showGizmos: 0
-  eachInput: 0
-  eachOutput: 0
-  eachOutsideRoad: 0
-  filenames: l_c1_1
+  filenames: multi_desert_1,multi_forest_1,multi_mountains_1
   numberOfInstances: 1
 --- !u!4 &2095569000
 Transform:
