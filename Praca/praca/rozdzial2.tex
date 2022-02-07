@@ -262,11 +262,11 @@ Finalnie zostały wybrane poniższe hiperparametry, co pozwoliło na zauważaln�
         & przed & po & zmiana & przed & po & zmiana \\
         \hline
         \hline
-        średnia z wszystkich iteracji &  7.38 &  9.79 & +32.5\% & 3.91 & 4.49 & +14.8\% \\
-        średnia z najlepszych 99\%    &  7.81 & 10.15 & +29.9\% & 3.93 & 4.52 & +15.0\% \\
-        średnia z najlepszych 90\%    &  9.63 & 11.49 & +19.3\% & 4.15 & 4.73 & +13.9\% \\
-        średnia z najlepszych 50\%    & 12.38 & 13.99 & +13.0\% & 4.75 & 5.13 &  +8.0\% \\
-        maksimum                      & 19.04 & 19.64 &  +3.1\% & 6.18 & 6.35 &  +2.7\% \\
+        średnia z wszystkich iteracji       &  7.38 &  9.79 & +32.5\% & 3.91 & 4.49 & +14.8\% \\
+        średnia z najlepszych 99\% iteracji &  7.81 & 10.15 & +29.9\% & 3.93 & 4.52 & +15.0\% \\
+        średnia z najlepszych 90\% iteracji &  9.63 & 11.49 & +19.3\% & 4.15 & 4.73 & +13.9\% \\
+        średnia z najlepszych 50\% iteracji & 12.38 & 13.99 & +13.0\% & 4.75 & 5.13 &  +8.0\% \\
+        maksimum                            & 19.04 & 19.64 &  +3.1\% & 6.18 & 6.35 &  +2.7\% \\
         \hline
     \end{tabular}
     \caption{Wybór hiperparametrów: porównanie wyników}
@@ -345,10 +345,29 @@ Trening został przeprowadzony na 20 milionach iteracji na każdy etap. Następn
         2 & 0\% & 33\% & 0\% & 33\% & 33\% & 100\% \\
         3 & 100\% & 100\% & 33\% & 100\% & 33\% & 100\% \\
         4 & 100\% & 100\% & 0\% & 100\% & 33\% & 100\% \\
-        5 & 0\% & 33\% & 100\% & 100\% & 33\% & 33\% \\
-        6 & 0\% & 0\% & 0\% & 33\% & 33\% & 33\% \\
-        7 & 0\% & 0\% & 0\% & 0\% & 0\% & 33\% \\
-        8 & 33\% & 0\% & 0\% & 0\% & 0\% & 0\% \\
+        5 & 0\% & 33\% & 100\% & 100\% & 33\% & 100\% \\
+        6 & 0\% & 0\% & 0\% & 33\% & 33\% & 66\% \\
+        7 & 0\% & 0\% & 0\% & 0\% & 0\% & 66\% \\
+        8 & 33\% & 0\% & 0\% & 0\% & 0\% & 33\% \\
+        \hline
+    \end{tabular}
+    \caption{Walidacja kolejnych etapów treningu bota}
+    \label{table}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        & \multicolumn{3}{c|}{Funkcja nagrody} & \multicolumn{3}{c|}{Postęp trasy}\\
+        & przed & po & zmiana & przed & po & zmiana \\
+        \hline
+        \hline
+        średnia z wszystkich iteracji         &  9.79 &  24.98 & +114\% & 4.49 & 10.76 & +139\% \\
+        średnia z najlepszych 99\% iteracji   & 10.15 &  25.97 & +156\% & 4.52 & 10.82 & +139\% \\
+        średnia z najlepszych 90\% iteracji   & 11.49 &  32.89 & +186\% & 4.73 & 11.23 & +137\% \\
+        średnia z najlepszych 50\% iteracji   & 13.99 &  59.30 & +324\% & 5.13 & 12.86 & +151\% \\
+        maksimum                              & 19.64 & 157.19 & +701\% & 6.35 & 20.01 & +215\% \\
         \hline
     \end{tabular}
     \caption{Porównanie wyników treningu bota}

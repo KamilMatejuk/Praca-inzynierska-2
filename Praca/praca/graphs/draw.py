@@ -38,7 +38,7 @@ def generate_graph(names, data_reward, data_checkpoints, filename, minr=None, ma
     plt.xticks([0, 5000000, 10000000, 15000000, 20000000], ['0', '5M', '10M', '15M', '20M'])
     for i, d in enumerate(data_reward):
         steps = [i[0] for i in d]
-        values = [3 * i[1] for i in d]
+        values = [i[1]/2-150 for i in d]
         import copy
         v = copy.copy(values)
         v.sort()
@@ -57,7 +57,7 @@ def generate_graph(names, data_reward, data_checkpoints, filename, minr=None, ma
         plt.plot(steps, values, color=f"{c}55")
         plt.plot(steps, values_smoothend, color=f"{c}ff", label=n)
     if (minr is not None and maxr is not None):
-        plt.ylim(3 * minr, 3 * maxr)
+        plt.ylim(minr, maxr)
     
     # Cut your window in 1 row and 2 columns, and start a plot in the second part
     lines = []
@@ -67,7 +67,7 @@ def generate_graph(names, data_reward, data_checkpoints, filename, minr=None, ma
     plt.xticks([0, 5000000, 10000000, 15000000, 20000000], ['0', '5M', '10M', '15M', '20M'])
     for i, d in enumerate(data_checkpoints):
         steps = [i[0] for i in d]
-        values = [3 * i[1] for i in d]
+        values = [i[1]/2 for i in d]
         import copy
         v = copy.copy(values)
         v.sort()
@@ -84,7 +84,7 @@ def generate_graph(names, data_reward, data_checkpoints, filename, minr=None, ma
         l, = plt.plot(steps, values_smoothend, color=f"{c}ff", label=n)
         lines.append(l)
     if (minc is not None and maxc is not None):
-        plt.ylim(3 * minc, 3 * maxc)
+        plt.ylim(minc, maxc)
     
     plt.figlegend(lines, names, bbox_to_anchor=[0.5, 0], loc='lower center', ncol=2)
     fig = plt.gcf()
@@ -324,6 +324,12 @@ if __name__ == '__main__':
     # data_reward = [get_data_from_file('run-level6_in5-out1-f-tag-Environment_Cumulative Reward.csv')]
     # data_checkpoints = [get_data_from_file('run-level6_in5-out1-f-tag-VisitedCheckpoints.csv')]
     # generate_graph(names, data_reward, data_checkpoints, 'training_progress_6.png', -26, -13, 0.52, 0.95)
+    
+    ################### traning lvl 6_3 ####################
+    names = ['etap 6']
+    data_reward = [get_data_from_file('run-level6_3_in5-out1-f-tag-Environment_Cumulative Reward.csv')]
+    data_checkpoints = [get_data_from_file('run-level6_3_in5-out1-f-tag-VisitedCheckpoints.csv')]
+    generate_graph(names, data_reward, data_checkpoints, 'training_progress_6.png', -50, 120, 5, 17)
     
     ################### traning lvl 7 ####################
     # names = ['etap 7']
