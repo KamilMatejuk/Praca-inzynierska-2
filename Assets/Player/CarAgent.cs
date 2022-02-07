@@ -97,18 +97,19 @@ namespace RacingGameBot.Play {
         /// </summary>
         /// <param name="sensor">Car sensor</param>
         public override void CollectObservations(VectorSensor sensor) {
-            float[] distanceAndTangent = GetDistanceToRoadCenterAndAngleToTangent();
-            sensor.AddObservation(distanceAndTangent[0]); // distance to center of road
-            sensor.AddObservation(CrossPlatformInputManager.GetAxis("Vertical")); // axes forward
-            sensor.AddObservation(CrossPlatformInputManager.GetAxis("Horizontal")); // axes sideways
-                                                                                    // slope
-            float slopeForwardRadians = Mathf.Atan2(transform.forward.y, Mathf.Sqrt(Mathf.Pow(transform.forward.x, 2) + Mathf.Pow(transform.forward.z, 2)));
-            float slopeForward = slopeForwardRadians / Mathf.PI;
-            sensor.AddObservation(slopeForward);
-            // velocity
-            float velocityAngle = GetAngleXZBetweenForwardAndPoint(transform.position + GetComponent<Rigidbody>().velocity);
-            float velocity = GetComponent<Rigidbody>().velocity.magnitude * (Mathf.Abs(velocityAngle) > 0.5 ? -1 : 1);
-            sensor.AddObservation(velocity);
+            if (!playMode) {
+                float[] distanceAndTangent = GetDistanceToRoadCenterAndAngleToTangent();
+                sensor.AddObservation(distanceAndTangent[0]); // distance to center of road
+                sensor.AddObservation(CrossPlatformInputManager.GetAxis("Vertical")); // axes forward
+                sensor.AddObservation(CrossPlatformInputManager.GetAxis("Horizontal")); // axes sideways
+                float slopeForwardRadians = Mathf.Atan2(transform.forward.y, Mathf.Sqrt(Mathf.Pow(transform.forward.x, 2) + Mathf.Pow(transform.forward.z, 2)));
+                float slopeForward = slopeForwardRadians / Mathf.PI;
+                sensor.AddObservation(slopeForward);
+                // velocity
+                float velocityAngle = GetAngleXZBetweenForwardAndPoint(transform.position + GetComponent<Rigidbody>().velocity);
+                float velocity = GetComponent<Rigidbody>().velocity.magnitude * (Mathf.Abs(velocityAngle) > 0.5 ? -1 : 1);
+                sensor.AddObservation(velocity);
+            }
         }
 
         /// <summary>
@@ -126,21 +127,23 @@ namespace RacingGameBot.Play {
             float distanceToRoadCenter = distanceAndTangent[0]; // distance to center of road
             float angleToTangent = distanceAndTangent[1]; // angle between forward and tangent
 
-            if (!playMode && distanceToRoadCenter > 2) {
-                if (statsRecorder == null) {
-                    statsRecorder = Academy.Instance.StatsRecorder;
+            if (!playMode) {
+                if (distanceToRoadCenter > 2) {
+                    if (statsRecorder == null) {
+                        statsRecorder = Academy.Instance.StatsRecorder;
+                    }
+                    statsRecorder.Add("VisitedCheckpoints", numberOfCheckpointsAlreadyHitInThisEpisode);
+                    EndEpisode();
+                    ReloadCar();
                 }
-                statsRecorder.Add("VisitedCheckpoints", numberOfCheckpointsAlreadyHitInThisEpisode);
-                EndEpisode();
-                ReloadCar();
-            }
 
-            AddReward((0.5f - distanceToRoadCenter) * 0.1f); // positive for distanceToRoadCenter < 0.5
-            AddReward((0.05f - Mathf.Abs(angleToTangent)) * 1f); // positive for angleToTangent < 0.05
-            float frameDistance = Vector3.Distance(lastPosition, transform.position);
-            AddReward((frameDistance - 0.1f) * 1f); // positive for distance bigger then 0.1 ~ 0.05
-            AddReward(0.01f); // the longer the better
-            lastPosition = transform.position;
+                AddReward((0.5f - distanceToRoadCenter) * 0.1f); // positive for distanceToRoadCenter < 0.5
+                AddReward((0.05f - Mathf.Abs(angleToTangent)) * 1f); // positive for angleToTangent < 0.05
+                float frameDistance = Vector3.Distance(lastPosition, transform.position);
+                AddReward((frameDistance - 0.1f) * 1f); // positive for distance bigger then 0.1 ~ 0.05
+                AddReward(0.01f); // the longer the better
+                lastPosition = transform.position;
+            }
         }
 
         /// <summary>
