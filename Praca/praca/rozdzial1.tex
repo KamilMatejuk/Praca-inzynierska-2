@@ -5,10 +5,10 @@
 \SetKwComment{Comment}{/* }{ */}
 
 \section{Cel i funkcjonalności}
-Gra została stworzona przede wszystkim jako środowisko treningowe oraz testowe bota, dopiero w drugiej kolejności jako rozrywka dla użytkownika. Dostarczona w dodatku $A$ gra pozwala graczowi na załadowanie jednego z domyślnych terenów, bądź stworzenie własnego terenu i przetestowanie go w grze. Celem rozgrywki jest przetransportowanie pojazdu od miejsca startowego do mety, nie zjeżdżając ze ścieżki. Gra kończy się po wykonaniu jednego pełnego okrążenia. Gracz konkuruje z 3 innymi pojazdami, sterowanymi przez wytrenowanego bota. Dodatkowo gracz posiada możliwość stworzenia własnego terenu i trasy, sterując kilkoma parametrami. W ten sam sposób zostały przygotowane tereny, na których został wytrenowany bot.
+Gra została stworzona przede wszystkim jako środowisko treningowe oraz testowe bota, dopiero w drugiej kolejności jako rozrywka dla użytkownika. Dostarczona w dodatku $A$ gra pozwala graczowi na załadowanie jednego z domyślnych terenów, bądź stworzenie własnego terenu i przetestowanie go w grze. Celem rozgrywki jest przetransportowanie pojazdu od miejsca startowego do mety, nie zjeżdżając ze ścieżki. Gra kończy się po wykonaniu jednego pełnego okrążenia. Gracz konkuruje z 3 innymi pojazdami, sterowanymi przez wytrenowanego bota. Dodatkowo gracz posiada możliwość stworzenia własnego terenu i trasy, sterując kilkoma parametrami. W ten sam sposób zostały przygotowane tereny, na których odbędzie sie trening bota.
 
 \section{Wykorzystane technologie}
-Gra została stworzona z wykorzystaniem silnika do gier Unity Engine 3D. Jest to jeden z dwóch najpopularniejszych silników do tworzenia gier, poza Unreal Engine, natomiast posiada on niższą barierę wejścia. Wykorzystanie Unity pozwoliło na zasymulowanie praw fizyki występujących przy prowadzeniu pojazdu.
+Gra została stworzona z wykorzystaniem silnika do gier Unity Engine 3D. Jest to jeden z dwóch najpopularniejszych silników do tworzenia gier (drugim jest Unreal Engine) natomiast posiada on niższą barierę wejścia. Wykorzystanie Unity pozwoliło na zasymulowanie głównych sił oddziałujących na pojad podczas jazdy.
 
 \section{Stworzenie trasy 2D}
 Pierwszym etapem generowania terenu jest wybór krzywej opisującej trasę. Każda wygenerowana trasa jest krzywą zamkniętą. Składa się ona z segmentów, których ilość jest bezpośrednio powiązana z zawiłością trasy. 
@@ -54,11 +54,11 @@ Po wyborze odpowiedniej ilości punktów, sortowane są one zgodnie z ruchem wsk
     }
 \end{algorithm}
 \phantom{.}\\
-Następnie trasa w każdym segmencie wyznaczana jest za pomocą krzywej Bezier 3 stopnia, ponieważ pozwala ona w stosunkowo prosty sposób zapisać stosunkowo komplikowane krzywe, utrzymując płynny kształt. Każda krzywa Bezier składa się z punktu startowego $P_0$, końcowego $P_3$, oraz dwóch punktów kontrolnych $P_1$, $P_2$, oraz wyraża sie wzorem:
-\[ b(t) = (1 - t)^3 * P_0 + 3t(1-t)^2 * P_1 + 3t^2 (1-t) * P_2 + t^3 * P_3 \hspace{1cm}\textit{dla } t \in [0, 1] \]
+Następnie trasa w każdym segmencie wyznaczana jest za pomocą krzywej Bezier 3 stopnia, ponieważ pozwala ona w stosunkowo prosty sposób zapisać stosunkowo skomplikowane krzywe, utrzymując płynny kształt. Każda krzywa Bezier składa się z punktu startowego $P_0$, końcowego $P_3$, oraz dwóch punktów kontrolnych $P_1$, $P_2$, oraz wyraża sie wzorem:
+\[ b(t) = (1 - t)^3 * P_0 + 3t(1-t)^2 * P_1 + 3t^2 (1-t) * P_2 + t^3 * P_3, \hspace{1cm}\textit{dla } t \in [0, 1]. \]
 Aby zapewnić płynne połączenia pomiędzy segmentami, sąsiednie punkty kontrolne powinny znajdować sie na tej samej prostej. Dla każdego punktu startowego wyznaczane są punkty kontrolne segmentu poprzednioego i następnego, na podstawie sąsiadujących punktów startowych.
 
-Poniższy rysunek przedstawia trzy wylosowane punkty $A,B,C$, oraz proces generacji punktów kontrolnych dla środkowego punktu $B$. Na początku wyznaczana jest prosta prostopadła do dwusiecznej kąta pomiędzy wektorami $BA$ i $BC$, poprzez normalizację ww. wektorów odpowiednio do $BA'$ i $BC'$, a następnie odjęcie powstałych wektorów. Punkt kontrolny $D$ znajduje się na ww. prostej, w odległości równej połowie długości wektora $BA$. Analogicznie położony jest punkt kontrolny $E$. Po wykonaniu powyższych operacji dla każdego punktu startowego na wyznaczonej trasie, w każdym segmencie znajdują się oba punkty kontrolne. Po podstawieniu punktów startowych i kontrolnych (np. $A,F,D,B$) dla każdego segmentu wyznaczona zostanie cała trasa.
+Poniższy rysunek przedstawia trzy wylosowane punkty $A,B,C$, oraz proces generacji punktów kontrolnych dla środkowego punktu $B$. Na początku wyznaczana jest prosta prostopadła do dwusiecznej kąta pomiędzy wektorami $BA$ i $BC$, poprzez normalizację wymienionych wektorów odpowiednio do $BA'$ i $BC'$, a następnie odjęcie powstałych wektorów. Punkt kontrolny $D$ znajduje się na wspomnianej prostej, w odległości równej połowie długości wektora $BA$. Analogicznie położony jest punkt kontrolny $E$. Po wykonaniu powyższych operacji dla każdego punktu startowego na wyznaczonej trasie, w każdym segmencie znajdują się oba punkty kontrolne. Po podstawieniu punktów startowych i kontrolnych (np. $A,F,D,B$) dla każdego segmentu wyznaczona zostanie cała trasa.
 
 \begin{figure}[h]
     \includegraphics[width=\textwidth]{figures/loop_creation}
@@ -67,7 +67,7 @@ Poniższy rysunek przedstawia trzy wylosowane punkty $A,B,C$, oraz proces genera
 \end{figure}
 
 \section{Stworzenie terenu 3D}
-Każdy stworzony teren gry jest rozmiaru $512 x 512$, z czego $10\%$ przeznaczone jest na marginesy z każdej strony, co pozostawia wewnętrzną przestrzeń $409 x 409$ na wygenerowany tor. Każdy punkt wygenerowanej pętli jest skalowany odpowiednio, aby trasa wypełniła całość dostępnej przestrzeni. Następnie dla każdego punktu terenu generowana jest wysokość, zdefiniowana jako procent maksymalnej wysokości $128$. Wysokość składa się z trzech warstw, wykorzystujących Szum Perlina, każda coraz bardziej szczegółowa. Implementacja Szumu Perlina została dostarczona jako fragment biblioteki $Mathf$ przez Unity \cite{PerlinNoise}.
+Każdy stworzony teren gry jest rozmiaru $512 x 512$, z czego $10\%$ przeznaczone jest na marginesy z każdej strony, co pozostawia wewnętrzną przestrzeń $409 x 409$ na wygenerowany tor. Każdy punkt wygenerowanej pętli jest skalowany odpowiednio, aby trasa wypełniła całość dostępnej przestrzeni. Następnie dla każdego punktu terenu generowana jest wysokość, zdefiniowana jako procent maksymalnej wysokości $128$. Wysokość składa się z trzech warstw, wykorzystujących Szum Perlina, każda coraz bardziej szczegółowa. Implementacja Szumu Perlina została dostarczona jako fragment biblioteki \textit{Mathf} przez Unity \cite{PerlinNoise}.
 \\\\
 \begin{algorithm}[H]
     \caption{Wyznaczenie wysokości terenu}\label{alg}
@@ -82,7 +82,7 @@ Każdy stworzony teren gry jest rozmiaru $512 x 512$, z czego $10\%$ przeznaczon
     \Return{h1 + h2 + h3}
 \end{algorithm}
 \phantom{.}\\
-Powyższa funkcja pozwala na sterowanie krztałtem terenu poprzez parametry $details$ i $scale$ dla każdej z trzech warstw $main$, $minor$, $tiny$. Warstwa $main$ definiuje ogólny krztałt terenu, warstwa $minor$ dodaje mniejsze pagórki, natomiast warstwa $tiny$ dodaje drobne detale. Dodatkowo poprzez sterowanie $offsetX$ i $offsetY$ możliwe jest przesunięcie wszystkich wartości w płaszczyźnie poziomej.
+Powyższa funkcja pozwala na sterowanie krztałtem terenu poprzez parametry \textit{details} i \textit{scale} dla każdej z trzech warstw \textit{main}, \textit{minor}, \textit{tiny}. Warstwa \textit{main} definiuje ogólny krztałt terenu, warstwa \textit{minor} dodaje mniejsze pagórki, natomiast warstwa \textit{tiny} dodaje drobne detale. Dodatkowo poprzez sterowanie \textit{offsetX} i \textit{offsetY} możliwe jest przesunięcie wszystkich wartości w płaszczyźnie poziomej.
 
 \section{Przypisanie tekstur}
 Zależnie od rodzaju terenu, wybierany jest odpowiedni zestaw tekstur. Dla każdego punktu wygenerowanego terenu przypisane są odpowiednie wartości przezroczystości tekstur, tworząc jak najbardziej realistyczne krajobrazy. Decyzja o wybraniu przezroczystości tekstur została podjęta na podstawie rodzaju terenu wybranego przez użytkownika, wysokości danego punktu, kierunku płaszczyzny zbocza, kąta nachylenia zbocza oraz odległości punktu od centrum wygenerowanej trasy. Odczytanie wartości takich jak wysokość, kierunek płaszczyzny i kąt nachylenia można wykonać w stałym czasie $O(1)$. Natomiast znalezienie najbliższego punktu trasu jest bardziej złożonym procesem. Poniżej przedstawiono proces wyboru metody jego wyznaczania.
@@ -109,15 +109,15 @@ Poniższa metoda dzieli każdy segment trasy na $m$ odcinków, a następnie iter
 \phantom{.}\\
 
 \section{Udoskonalone znalezienie najbliższego punktu krzywej Bezier}
-Poniższa metoda wywodzi się z artykułu \cite{ImprovedPointProjectionBezier}, oraz została przystosowana dla krzywej Bezier 3 stopnia.\\
+Poniższa metoda wywodzi się z artykułu \cite{ImprovedPointProjectionBezier}, natomiast została przystosowana dla krzywej Bezier 3 stopnia.\\
 Funkcja opisująca krzywą Bezier:
-\[ b(t) = (1 - t)^3 P_0 + 3t(1-t)^2 P_1 + 3t^2 (1-t) P_2 + t^3 P_3 \]
+\[ b(t) = (1 - t)^3 P_0 + 3t(1-t)^2 P_1 + 3t^2 (1-t) P_2 + t^3 P_3. \]
 Pierwsza pochodna po t:
-\[ \frac{b}{dt}(t) = -3 (1 - t)^2 P_0 + 3 (1-t)^2 P_1 - 6 t (1-t) P_1 - 3t^2 P_2 + 6 t (1-t) P_2 + 3t^2 P_3 \]
+\[ \frac{b}{dt}(t) = -3 (1 - t)^2 P_0 + 3 (1-t)^2 P_1 - 6 t (1-t) P_1 - 3t^2 P_2 + 6 t (1-t) P_2 + 3t^2 P_3. \]
 Aby znaleźć rzut celu na krzywą, zależy znaleźć taki punkt na krzywej, aby styczna w tym punkcie była prostopadła do odcinka łączącego go z celem. Zatem dla zadanego punktu celu $C$ i szukanej wartości $t$, określającej w którym miejscu krzywej znajduje się szukany rzut, zdefiniowana została funkcja $f$:
-\[ f(t) = (C - b(t)) \cdot \frac{b}{dt}(t) \]
+\[ f(t) = (C - b(t)) \cdot \frac{b}{dt}(t). \]
 Funkcja $f$ wykorzystuje iloczyn skalarny, zatem szukane $t$ zwraca wartość $f(t) = 0$. Ze względu na kształt krzywej, może na niej znajdować się kilka punktów będących rzutami prostopadłymi celu $C$, natomiast poszukiwany jest punkt najbliżej celu, zatem funkcję $f$ należy przemnożyć przez odległość od celu do znalezionego punktu.
-\[ f(t) = \big[ (C - b(t)) \cdot \frac{b}{dt}(t) \big] distance(C, b(t)) \]
+\[ f(t) = \big[ (C - b(t)) \cdot \frac{b}{dt}(t) \big] \cdot distance(C, b(t)). \]
 Aby znaleźć najbliższy punkt na krzywej, należy znaleźć miejsce zerowe funkcji $f(t)$. W tym celu wykorzystano zmodyfikowaną metodę bisekcji. Tradycyjnie metoda bisekcji zakłada, że wartości funkcji na obu krańcach przedziału są przeciwnego znaku, następnie wybiera środkowy punkt i kontynuuje przeszukiwanie już w połowie przedziału. Natomiast w tym wypadku nie jest zagwarantowane, że funkcja będzie miała przeciwne znaki na końcach przedziału, dlatego gdy są tego samego znaku, liczona jest bisekcja dla obu podprzedziałów.
 \\\\
 \begin{algorithm}[H]

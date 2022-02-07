@@ -2,10 +2,10 @@
 \thispagestyle{chapterBeginStyle}
 
 \section{Cel i funkcjonalności}
-Wytrenowany bot powinien być w stanie poruszać się po wygenerowanym wcześniej terenie, rozpoznając i trzymając się drogi. Trening bota powinien wykorzystywać metody uczenia przez wzmacnianie.
+Wytrenowany bot powinien być w stanie rozpoznać swoje otoczenie i poruszać się po wygenerowanym wcześniej terenie. Trening bota powinien wykorzystywać metody uczenia przez wzmacnianie.
 
 \section{Wykorzystane technologie}
-Silnik Unity udostępnia dodatek open-source ML-Agents \cite{UnityMlAgentsRepository} \cite{UnityMlAgents}, który pozwala na wykorzystanie środowisk utworzonych w grze do treningu modeli. Stanowi on warstwę łączącą Unity z biblioteką Tensorflow, oraz zapewnia wiele nowoczesnych algorytmów głębokiego uczenia przez wzmacnianie (\textit{deep reinforcement learning}) m.in. Proximal Policy Optimization (PPO), Soft Actor-Critic (SAC), self-play. W powyższej pracy wykorzystano algorytm PPO, ze względu na większą stabilność treningu \cite{CompareDrlAlgorithms}. \\
+Silnik Unity udostępnia dodatek open-source ML-Agents \cite{UnityMlAgentsRepository}, \cite{UnityMlAgents}, który pozwala na wykorzystanie środowisk utworzonych w grze do treningu modeli. Stanowi on warstwę łączącą Unity z biblioteką Tensorflow, oraz zapewnia wiele nowoczesnych algorytmów głębokiego uczenia przez wzmacnianie (\textit{deep reinforcement learning}) m.in. Proximal Policy Optimization (PPO), Soft Actor-Critic (SAC), self-play. W powyższej pracy wykorzystano algorytm PPO, ze względu na większą stabilność treningu \cite{CompareDrlAlgorithms}. \\
 Śledzenie wielu metryk postępu uczenia było dostępne z wykorzystaniem programu tensorboard.
 
 \section{Uczenie przez wzmacnianie}
@@ -22,7 +22,7 @@ Wstępne uczenie odbywa się na terenach płaskich (wysokość każdego punktu j
 \end{figure}
 
 \section{Analiza wyników}
-Wyniki uczenia przedstawione zostały na wykresie za pomocą dwóch metryk. Wartość \textit{Cumulative Reward} oznacza średnią wartość nagrody z jednego epizodu dla jednego agenta. Wartosć \textit{Visited punkt kontrolnys} informuje jak dużą część trasy przeszedł agent, uśrednioną z jednego epizodu dla jednego agenta. Pełne okrążenie zaweira w sobie 40 punktów kontrolnych. Wartości zaznaczone na wykresach bledszym kolorem są wartościami rzeczywistymi, natomiast wartości pogrubione wyliczone zostały z wykorzystaniem średniej kroczącej eksponencjalnej, aby lepiej uwidocznić tendencje zmian.
+Wyniki uczenia przedstawione zostały na wykresie za pomocą dwóch metryk. Wartość \textit{Cumulative Reward} oznacza średnią wartość nagrody z jednego epizodu dla jednego agenta. Wartość \textit{Visited Checkpoints} informuje jak dużą część trasy przeszedł agent, uśrednioną z jednego epizodu dla jednego agenta. Pełne okrążenie zawiera w sobie 40 punktów kontrolnych. Wartości zaznaczone na wykresach bledszym kolorem są wartościami rzeczywistymi, natomiast wartości pogrubione wyliczone zostały z wykorzystaniem średniej kroczącej eksponencjalnej, aby lepiej uwidocznić tendencje zmian.
 
 \begin{figure}[H]
     \centering
@@ -48,14 +48,14 @@ Pierwszy sposób obserwacji opiera się na wartościach, do których zwykły gra
 \end{itemize}
 
 \subsection{Dane odległości od krawędzi}
-Podobnie jak większość samochodów autonomicznych, poniższa metoda wykorzystuje wizualizację przestrzeni na podstawie odległości, nazywaną lidar \cite{Lidar}. Technologia ta w realnym świecie buduje model otoczenia wysyłając wiązki laserowe i mierząc trasę przebytą przez nie do przeszkody. Analogicznie, symulowany pojazd testuje odległości od krawędzi trasy oraz ewentualnych przeszkód, takich jak inne pojazdy.
+Podobnie jak większość samochodów autonomicznych, poniższa metoda wykorzystuje wizualizację przestrzeni na podstawie odległości, nazywaną LIDAR \cite{Lidar}. Technologia ta w realnym świecie buduje model otoczenia wysyłając wiązki laserowe i mierząc trasę przebytą przez nie do przeszkody. Analogicznie, symulowany pojazd testuje odległości od krawędzi trasy oraz ewentualnych przeszkód, takich jak inne pojazdy.
 \begin{figure}[H]
     \centering
     \includegraphics[width=.5\textwidth]{figures/observations_0}
     \caption{Obserwacje bota dystansów na około pojazdu}
     \label{fig}
 \end{figure}
-Dodatkowo przekazywana jest aktualna prędkość pojazdu jako obserwacja, zważywszy że nie da się jej w żaden sposób odczytać z jednej klatki pomiarów.
+Dodatkowo przekazywana jest aktualna prędkość pojazdu jako obserwacja, zważywszy że nie da się jej odczytać z jednej klatki pomiarów.
 
 \subsection{Dane wizualne jednowymiarowe}
 Poniższe podejście testuje metodę obserwacji wykorzystującą bodźce wizualne. W tym przypadku tworzona jest lista wartości kolorów dla każdego punktu w stałej odległości od pojazdu. Generuje to okrąg kolorów na około pojazdu, który powinien być w stanie przekazać takie informacje jak zakręty na trasie, będąc znacznie mniejszego rozmiaru niż obraz z kamery. Na rysunku zaznaczono kilka promieni pobierających kolory otoczenia.
@@ -65,7 +65,7 @@ Poniższe podejście testuje metodę obserwacji wykorzystującą bodźce wizualn
     \caption{Obserwacje bota kolorów na około pojazdu}
     \label{fig}
 \end{figure}
-Dodatkowo przekazywana jest aktualna prędkość pojazdu jako obserwacja, zważywszy że nie da się jej w żaden sposób odczytać z danych wizualnych.
+Dodatkowo przekazywana jest aktualna prędkość pojazdu jako obserwacja, zważywszy że nie da się jej odczytać z jednej klatki pomiarów.
 
 \subsection{Dane wizualne z kamery przedniej}
 Wykorzystująć imformacje w postaci w jakiej są one widoczne dla każdego gracza, kolejna metoda pobiera obraz z kamery jako obserwacje. Kamera umiejscowiona jest na przedzie pojazdu, zapewniając perspektywę podobną do zwykłego prowadzenia auta. Aby ograniczyć ilość informacji dostarczanych do sieci, obraz z kamery skalowany jest do rozdzielczości $40x20$ oraz konwertowany na skalę szarości. Dodatkowo, jak powyżej, przekazywana jest aktualna prędkość pojazdu.
@@ -86,7 +86,7 @@ Wykorzystująć imformacje widoczne przez kamerę z lotu ptaka model powinien by
 \end{figure}
 
 \subsection{Porównanie}
-Poniżej znajdują się wykresy porównujące szybkość uczenia się w pierwszych 400 000 iteracjach. Wykres pierwszy pokazuje otrzymaną nagrodę za akcję, uśrednioną dla każdego agenta, dla każdej akcji. Drugi wykres przedstawia jak daleko udało się dojechać. Na przestrzeni całego toru rozłożone jest 40 punktów kontrolnych. Celem jest maksymalizacja obu wartości.
+Poniżej znajdują się wykresy porównujące szybkość uczenia się w pierwszych 400 000 iteracjach. Porównano jedynie treningi wykorzystujące jedną metodę na raz.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{graphs/input_observations}
@@ -120,7 +120,7 @@ Ocena powinna odzwierciedlać w jakim stopniu wykonana akcja przybliżyła bota 
     Q &= (0.5 - distanceToRoadCenter) \cdot 0.1 + \\
     & (0.05 - abs(angleToTangent)) + \\
     & (distanceTraveledInFrame - 0.1) + \\
-    & 0.01
+    & 0.01.
 \end{align*}
 Po pierwsze przyznawana jest nagroda za utrzymywanie sie w odległości mniejszej niż 50\% szerokości drogi od środka drogi (linia czerwona na poniższym rysunku), w przeciwnym przypadku kara, wprost proporcjonalna do ww. odległości. Po drugie przyznawana jest nagroda za utrzymywanie kierunku jazdy (linia zielona na poniższym rysunku) w zakresie $\pm10$ stopni od kierunku trasy (linia niebieska na poniższym rysunku), w przeciwnym przypadku kara, wprost proporcjonalna do w.w kąta. Po trzecie przyznawana jest nagroda za dystans pokonany od ostatniej akcji, jeżeli wynosi co najmniej $0.1$. Dodatkowo przyznawana jest nagroda za każdą klatkę, aby promować jak najdłuższe treningi.
 \begin{figure}[H]

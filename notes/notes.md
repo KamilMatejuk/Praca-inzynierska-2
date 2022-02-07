@@ -82,7 +82,7 @@ num epoch ~ 8 https://www.youtube.com/watch?v=ZKzXAVp8bC8
 
 potem zmiana rozmiaru sieci, wybór sieci cnn i dodanie pamięci
 
-test 23 -> tylko lidar, traning 1
+test 23 -> tylko LIDAR, traning 1
 
 * test na tej samej trasie i różnych tłach
 * test na czarnobiałym pofalowanym
