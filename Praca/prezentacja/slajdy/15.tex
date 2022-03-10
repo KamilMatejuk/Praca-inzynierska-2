@@ -1,8 +1,59 @@
-\begin{frame}{Dalszy rozwój}
+\begin{frame}{Dobranie hiperparametrów}
 
-	\begin{itemize}
-		\myitem Wytrenowanie bota na większej ilości terenów
-		\myitem Wytworzenie gry na różne platformy (np mobilne) 
-	\end{itemize}
+	% \begin{columns}
+	% 	\begin{column}{.25\hsize}
+	% 		\begin{itemize}
+	% 			\myitem batch size
+	% 			\myitem buffer size
+	% 		\end{itemize}
+	% 	\end{column}
+
+	% 	\begin{column}{.3\hsize}
+	% 		\begin{itemize}
+	% 			\myitem learning rate
+	% 			\myitem num epoch
+	% 		\end{itemize}
+	% 	\end{column}
+		
+	% 	\begin{column}{.25\hsize}
+	% 		\begin{itemize}
+	% 			\myitem beta
+	% 			\myitem epsilon
+	% 		\end{itemize}
+	% 	\end{column}
+		
+	% 	\begin{column}{.25\hsize}
+	% 		\begin{itemize}
+	% 			\myitem lambd
+	% 			\myitem gamma
+	% 		\end{itemize}
+	% 	\end{column}
+	% \end{columns}
+
+	\begin{columns}
+		\begin{column}{\hsize}
+			% \hspace*{3.9cm}
+			\includegraphics[width=\linewidth]{figures/hyperparameters_tuning_results.png}
+		\end{column}
+	\end{columns}
+
+	\begin{table}[H]
+		\centering
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			& \multicolumn{3}{c|}{Funkcja nagrody} & \multicolumn{3}{c|}{Postęp trasy}\\
+			& przed & po & zmiana & przed & po & zmiana \\
+			\hline
+			\hline
+			średnia z wszystkich iteracji       &  7.38 &  9.79 & +32.5\% & 3.91 & 4.49 & +14.8\% \\
+			średnia z najlepszych 99\% iteracji &  7.81 & 10.15 & +29.9\% & 3.93 & 4.52 & +15.0\% \\
+			średnia z najlepszych 90\% iteracji &  9.63 & 11.49 & +19.3\% & 4.15 & 4.73 & +13.9\% \\
+			średnia z najlepszych 50\% iteracji & 12.38 & 13.99 & +13.0\% & 4.75 & 5.13 &  +8.0\% \\
+			maksimum                            & 19.04 & 19.64 &  +3.1\% & 6.18 & 6.35 &  +2.7\% \\
+			\hline
+		\end{tabular}
+	}
+	\end{table}
 
 \end{frame}

@@ -1,16 +1,24 @@
 \frametitle{Tekstury}
 
-	\algrenewcommand\algorithmicrequire{\underline{\textsc{}}}
-	\texttt{
-	\begin{algorithmic}[1]
-		\Require
-		\Statex texture (
-			\Statex \hskip2em float height,
-			\Statex \hskip2em Vector3 normal,
-			\Statex \hskip2em float steepness,
-			\Statex \hskip2em float distanceToRoad
-		\Statex ) \{ ... \}
-	\end{algorithmic}}
+	\begin{columns}
+		\begin{column}{.6\hsize}
+			\algrenewcommand\algorithmicrequire{\underline{\textsc{}}}
+			\texttt{
+			\begin{algorithmic}[1]
+				\Require
+				\Statex texture (
+					\Statex \hskip2em float height,
+					\Statex \hskip2em Vector3 normal,
+					\Statex \hskip2em float steepness,
+					\Statex \hskip2em float distanceToRoad
+				\Statex ) \{ ... \}
+			\end{algorithmic}}
+		\end{column}
+
+		\begin{column}{.4\hsize}
+			\includegraphics[width=\linewidth]{figures/terrain_subdivision_for_road.png}
+		\end{column}
+	\end{columns}
 
 	\vspace{1cm}
 	\includegraphics[width=\linewidth]{figures/terrain_creation_3_2.png}

@@ -1,10 +1,10 @@
-PWD /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja
+PWD /home/kamil/UnityProjects/TestProject/Praca/prezentacja
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.tex
-OUTPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.log
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.tex
+OUTPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
@@ -160,6 +160,12 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
@@ -226,7 +232,7 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemedefault.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonbook.pdf
-OUTPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.pdf
+OUTPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.pdf
 INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonbook.pdf
 INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonbook.20.pdf
 INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamericonbook.20.pdf
@@ -344,9 +350,9 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemecircles.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemecircles.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.aux
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.aux
-OUTPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.aux
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.aux
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.aux
+OUTPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.aux
 INPUT /usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmr.fd
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -361,13 +367,13 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.out
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.out
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.out
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.out
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.out
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.out
-OUTPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.out
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.out
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.out
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.out
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.out
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.out
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.out
+OUTPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.out
 INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -381,14 +387,14 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator-numbers-dict
 INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 INPUT /usr/share/texlive/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/plss8.tfm
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.nav
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.nav
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.nav
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.nav
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/plss12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/plssbx10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/plss8.tfm
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/1.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/1.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/1.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/1.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/polski/omlplm.fd
@@ -414,124 +420,132 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/plssi10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/plssi8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/plssi8.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/plss8.tfm
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/2.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/2.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/2.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/2.tex
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/Unity_logo.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/Unity_logo.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/Unity_logo.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/3.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/3.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrains_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrains_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrains_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrains_1.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrains_1.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrains_1.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/4.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/4.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/loop_creation.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/loop_creation.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/loop_creation.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_1_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_1_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_1_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/5.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/5.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/Unity_logo.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/Unity_logo.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/Unity_logo.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/3.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/3.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/game_instruction_start.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/game_instruction_start.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/game_instruction_start.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/game_instruction_create.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/game_instruction_create.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/game_instruction_create.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/game_instruction_camera_switch.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/game_instruction_camera_switch.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/game_instruction_camera_switch.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/4.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/4.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/loop_creation.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/loop_creation.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/loop_creation.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_1_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_1_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_1_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/5.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/5.tex
 INPUT /usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmtt.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmtt.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/pltt10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/pltcsc10.tfm
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_2_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_2_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_2_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/6.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/6.tex
-OUTPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.vrb
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.vrb
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.vrb
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_2_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_2_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_2_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/6.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/6.tex
+OUTPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.vrb
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.vrb
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.vrb
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_3_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_3_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_3_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/7.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/7.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_gen_params.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_gen_params.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_gen_params.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_4_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_4_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_4_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/8.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/8.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/9.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/9.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/tensorboard.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/tensorboard.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/tensorboard.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/10.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/10.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/output_values_compare.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/output_values_compare.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/output_values_compare.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_3.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_3.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_3.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/11.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/11.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_4.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_4.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_4.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/rewards.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/rewards.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/rewards.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/12.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/12.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_4.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_4.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/checkpoints.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/checkpoints.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/checkpoints.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/13.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/13.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_1.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_1.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_1.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/observations_1.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/observations_1.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/observations_1.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/observations_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/observations_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/observations_2.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/observations_3.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/observations_3.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/observations_3.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/14.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/14.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/compare_res_1_checkpoints.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/compare_res_1_checkpoints.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/compare_res_1_checkpoints.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/compare_res_1_rewards.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/compare_res_1_rewards.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/compare_res_1_rewards.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/compare_res_1_length.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/compare_res_1_length.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/compare_res_1_length.png
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/15.tex
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/15.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_subdivision_for_road.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_subdivision_for_road.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_subdivision_for_road.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_3_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_3_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_3_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/7.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/7.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_gen_params.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_gen_params.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_gen_params.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_4_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_4_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_4_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/8.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/8.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/10.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/10.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/output_actions.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/output_actions.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/output_actions.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_3.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_3.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_3.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/11.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/11.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_4.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_4.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_4.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/rewards.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/rewards.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/rewards.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/12.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/12.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_4.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_4.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/checkpoints.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/checkpoints.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/checkpoints.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/13.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/13.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_1.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_1.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_1.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_2.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_0.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_0.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_0.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_1.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_1.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_1.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_3.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_3.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_3.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/14.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/14.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/input_observations.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/input_observations.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/input_observations.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/15.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/15.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/hyperparameters_tuning_results.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/hyperparameters_tuning_results.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/hyperparameters_tuning_results.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/16.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/16.tex
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/trening_environs.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/trening_environs.png
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/trening_environs.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/pl/plss12.tfm
-OUTPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.nav
-OUTPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.toc
-OUTPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.snm
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.aux
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.out
-INPUT /home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.out
+OUTPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.nav
+OUTPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.toc
+OUTPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.snm
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.aux
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.out
+INPUT /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.out
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/pltt.enc

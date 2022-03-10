@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.11.4)  9 DEC 2021 18:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.11.4)  10 MAR 2022 04:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.tex"
-(/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.tex
+**/home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.tex
+(/home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2019/09/29 v3.57 A class for typesetting presentations
@@ -362,6 +362,10 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+Package: sansmathaccent 2020/01/31
+ (/usr/share/texlive/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2020/01/24 v3.29 KOMA-Script package (loading files)
 ))) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty (/usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
 Package: translator 2019-05-31 v1.12a Easy translation of strings in LaTeX
 )) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemisc.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
@@ -722,7 +726,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count332
 \l__pdf_internal_box=\box104
-) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.aux)
+) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
@@ -815,7 +819,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 65.
 LaTeX Info: Redefining \pageref on input line 65.
 LaTeX Info: Redefining \nameref on input line 65.
- (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.out) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.out)
+ (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.out) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -865,6 +869,17 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT4/cmss/m/it --> OT4/cmss/b/it on input line 65.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT4/cmtt/m/n --> OT4/cmtt/b/n on input line 65.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 65.
+LaTeX Font Info:    Encoding `OT4' has changed to `OT1' for symbol font
+(Font)              `pureletters' in the math version `normal' on input line 65.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
+(Font)                  OT4/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 65.
+LaTeX Font Info:    Encoding `OT4' has changed to `OT1' for symbol font
+(Font)              `pureletters' in the math version `bold' on input line 65.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT4/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 65.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 65.
  (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -877,9 +892,9 @@ Dictionary: translator-months-dictionary, Language: English
 Dictionary: translator-numbers-dictionary, Language: English 
 ) (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.nav) [1
+) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.nav) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/1.tex
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/1.tex
 LaTeX Font Info:    Trying to load font information for OML+plm on input line 9.
  (/usr/share/texlive/texmf-dist/tex/latex/polski/omlplm.fd
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
@@ -906,15 +921,12 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 9.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Font shape `OT4/cmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT4/cmss/m/sl' tried instead on input line 9.
-LaTeX Font Info:    Font shape `OT4/cmss/m/it' in size <8> not available
-(Font)              Font shape `OT4/cmss/m/sl' tried instead on input line 9.
-LaTeX Font Info:    Font shape `OT4/cmss/m/it' in size <6> not available
-(Font)              Font shape `OT4/cmss/m/sl' tried instead on input line 9.
- [2
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 9.
+ (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
+) [2
 
-]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/2.tex
+]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/2.tex
 LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 13.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
@@ -926,33 +938,43 @@ Package pdftex.def Info: figures/Unity_logo.png  used on input line 13.
 (pdftex.def)             Requested size: 142.26378pt x 51.73227pt.
  [3
 
- </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/Unity_logo.png>]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/3.tex
-<figures/terrains_2.png, id=140, 771.88374pt x 481.8pt>
-File: figures/terrains_2.png Graphic file (type png)
-<use figures/terrains_2.png>
-Package pdftex.def Info: figures/terrains_2.png  used on input line 20.
-(pdftex.def)             Requested size: 136.74237pt x 85.35826pt.
-<figures/terrains_1.png, id=141, 630.355pt x 430.60875pt>
-File: figures/terrains_1.png Graphic file (type png)
-<use figures/terrains_1.png>
-Package pdftex.def Info: figures/terrains_1.png  used on input line 20.
-(pdftex.def)             Requested size: 124.95302pt x 85.35826pt.
- [4
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/Unity_logo.png>]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/3.tex
+<figures/game_instruction_start.png, id=140, 803.0pt x 477.785pt>
+File: figures/game_instruction_start.png Graphic file (type png)
+<use figures/game_instruction_start.png>
+Package pdftex.def Info: figures/game_instruction_start.png  used on input line 25.
+(pdftex.def)             Requested size: 104.47769pt x 62.15796pt.
+<figures/game_instruction_create.png, id=141, 803.0pt x 477.785pt>
+File: figures/game_instruction_create.png Graphic file (type png)
+<use figures/game_instruction_create.png>
+Package pdftex.def Info: figures/game_instruction_create.png  used on input line 25.
+(pdftex.def)             Requested size: 104.47769pt x 62.15796pt.
+<figures/game_instruction_camera_switch.png, id=142, 3372.6pt x 674.52pt>
+File: figures/game_instruction_camera_switch.png Graphic file (type png)
+<use figures/game_instruction_camera_switch.png>
+Package pdftex.def Info: figures/game_instruction_camera_switch.png  used on input line 25.
+(pdftex.def)             Requested size: 322.65529pt x 64.52263pt.
 
- </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrains_2.png> </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrains_1.png>]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/4.tex
-<figures/loop_creation.png, id=168, 1547.7825pt x 782.925pt>
+Overfull \hbox (1.13905pt too wide) in paragraph at lines 25--25
+ []| [] 
+ []
+
+[4
+
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/game_instruction_start.png> </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/game_instruction_create.png> </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/game_instruction_camera_switch.png>]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/4.tex
+<figures/loop_creation.png, id=170, 1547.7825pt x 782.925pt>
 File: figures/loop_creation.png Graphic file (type png)
 <use figures/loop_creation.png>
 Package pdftex.def Info: figures/loop_creation.png  used on input line 15.
 (pdftex.def)             Requested size: 307.28987pt x 155.43536pt.
-<figures/terrain_creation_1_2.png, id=169, 2569.6pt x 431.6125pt>
+<figures/terrain_creation_1_2.png, id=171, 2569.6pt x 431.6125pt>
 File: figures/terrain_creation_1_2.png Graphic file (type png)
 <use figures/terrain_creation_1_2.png>
 Package pdftex.def Info: figures/terrain_creation_1_2.png  used on input line 15.
 (pdftex.def)             Requested size: 307.28987pt x 51.61343pt.
  [5
 
- </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/loop_creation.png> </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_1_2.png>]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/5.tex
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/loop_creation.png> </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_1_2.png>]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/5.tex
 LaTeX Font Info:    Trying to load font information for OT4+cmtt on input line 18.
  (/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmtt.fd
 File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
@@ -961,80 +983,77 @@ File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 LaTeX Font Warning: Font shape `OT4/cmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `OT4/cmtt/m/n' tried instead on input line 18.
 
-<figures/terrain_creation_2_2.png, id=197, 2569.6pt x 431.6125pt>
+<figures/terrain_creation_2_2.png, id=199, 2569.6pt x 431.6125pt>
 File: figures/terrain_creation_2_2.png Graphic file (type png)
 <use figures/terrain_creation_2_2.png>
 Package pdftex.def Info: figures/terrain_creation_2_2.png  used on input line 18.
 (pdftex.def)             Requested size: 307.28987pt x 51.61343pt.
 [6
 
- </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_2_2.png>]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/6.tex
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_2_2.png>]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/6.tex
 \openout4 = `main.vrb'.
 
- (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.vrb
-LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 13.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 13.
+ (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.vrb
+LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 15.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 15.
 
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 13.
+(Font)              for symbol `textbraceleft' on input line 15.
 
-<figures/terrain_creation_3_2.png, id=226, 2569.6pt x 431.6125pt>
+<figures/terrain_subdivision_for_road.png, id=228, 470.75874pt x 469.755pt>
+File: figures/terrain_subdivision_for_road.png Graphic file (type png)
+<use figures/terrain_subdivision_for_road.png>
+Package pdftex.def Info: figures/terrain_subdivision_for_road.png  used on input line 19.
+(pdftex.def)             Requested size: 122.91406pt x 122.6495pt.
+<figures/terrain_creation_3_2.png, id=229, 2569.6pt x 431.6125pt>
 File: figures/terrain_creation_3_2.png Graphic file (type png)
 <use figures/terrain_creation_3_2.png>
-Package pdftex.def Info: figures/terrain_creation_3_2.png  used on input line 16.
+Package pdftex.def Info: figures/terrain_creation_3_2.png  used on input line 24.
 (pdftex.def)             Requested size: 307.28987pt x 51.61343pt.
 ) [7
 
- </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_3_2.png>]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/7.tex
-<figures/terrain_gen_params.png, id=254, 315.1775pt x 226.8475pt>
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_subdivision_for_road.png> </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_3_2.png>]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/7.tex
+<figures/terrain_gen_params.png, id=258, 315.1775pt x 226.8475pt>
 File: figures/terrain_gen_params.png Graphic file (type png)
 <use figures/terrain_gen_params.png>
 Package pdftex.def Info: figures/terrain_gen_params.png  used on input line 22.
 (pdftex.def)             Requested size: 138.2795pt x 99.52591pt.
-<figures/terrain_creation_4_2.png, id=255, 2569.6pt x 431.6125pt>
+<figures/terrain_creation_4_2.png, id=259, 2569.6pt x 431.6125pt>
 File: figures/terrain_creation_4_2.png Graphic file (type png)
 <use figures/terrain_creation_4_2.png>
 Package pdftex.def Info: figures/terrain_creation_4_2.png  used on input line 22.
 (pdftex.def)             Requested size: 307.28987pt x 51.61343pt.
  [8
 
- </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_gen_params.png> </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/terrain_creation_4_2.png>]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/8.tex [9
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_gen_params.png> </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/terrain_creation_4_2.png>]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/8.tex [9
 
-]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/9.tex
-<figures/tensorboard.png, id=307, 669.50125pt x 634.37pt>
-File: figures/tensorboard.png Graphic file (type png)
-<use figures/tensorboard.png>
-Package pdftex.def Info: figures/tensorboard.png  used on input line 19.
-(pdftex.def)             Requested size: 184.3758pt x 174.69911pt.
- [10
+]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/10.tex
+<figures/output_actions.png, id=311, 722.7pt x 289.08pt>
+File: figures/output_actions.png Graphic file (type png)
+<use figures/output_actions.png>
+Package pdftex.def Info: figures/output_actions.png  used on input line 21.
+(pdftex.def)             Requested size: 294.99863pt x 117.99864pt.
 
- </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/tensorboard.png>]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/10.tex
-<figures/output_values_compare.png, id=333, 987.69pt x 461.725pt>
-File: figures/output_values_compare.png Graphic file (type png)
-<use figures/output_values_compare.png>
-Package pdftex.def Info: figures/output_values_compare.png  used on input line 21.
-(pdftex.def)             Requested size: 196.667pt x 91.93472pt.
-
-Overfull \hbox (7.73969pt too wide) in paragraph at lines 21--21
+Overfull \hbox (69.08272pt too wide) in paragraph at lines 21--21
 []| []  
  []
 
-<figures/learning_loop_3.png, id=334, 419.5675pt x 367.3725pt>
+<figures/learning_loop_3.png, id=312, 419.5675pt x 367.3725pt>
 File: figures/learning_loop_3.png Graphic file (type png)
 <use figures/learning_loop_3.png>
 Package pdftex.def Info: figures/learning_loop_3.png  used on input line 21.
 (pdftex.def)             Requested size: 61.45703pt x 53.80858pt.
-[11
+[10
 
- </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/output_values_compare.png> </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_3.png>]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/11.tex
-<figures/learning_loop_4.png, id=363, 419.5675pt x 367.3725pt>
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/output_actions.png> </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_3.png>]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/11.tex
+<figures/learning_loop_4.png, id=341, 419.5675pt x 367.3725pt>
 File: figures/learning_loop_4.png Graphic file (type png)
 <use figures/learning_loop_4.png>
 Package pdftex.def Info: figures/learning_loop_4.png  used on input line 21.
 (pdftex.def)             Requested size: 61.45703pt x 53.80858pt.
-<figures/rewards.png, id=364, 355.3275pt x 343.2825pt>
+<figures/rewards.png, id=342, 355.3275pt x 343.2825pt>
 File: figures/rewards.png Graphic file (type png)
 <use figures/rewards.png>
 Package pdftex.def Info: figures/rewards.png  used on input line 21.
@@ -1043,14 +1062,14 @@ Package pdftex.def Info: figures/rewards.png  used on input line 21.
 Overfull \vbox (184.34341pt too high) detected at line 21
  []
 
-[12
+[11
 
- </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_4.png> </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/rewards.png>]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/12.tex
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_4.png> </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/rewards.png>]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/12.tex
 File: figures/learning_loop_4.png Graphic file (type png)
 <use figures/learning_loop_4.png>
 Package pdftex.def Info: figures/learning_loop_4.png  used on input line 23.
 (pdftex.def)             Requested size: 61.45703pt x 53.80858pt.
-<figures/checkpoints.png, id=391, 673.51625pt x 489.83pt>
+<figures/checkpoints.png, id=369, 673.51625pt x 489.83pt>
 File: figures/checkpoints.png Graphic file (type png)
 <use figures/checkpoints.png>
 Package pdftex.def Info: figures/checkpoints.png  used on input line 23.
@@ -1059,56 +1078,70 @@ Package pdftex.def Info: figures/checkpoints.png  used on input line 23.
 Overfull \vbox (147.64117pt too high) detected at line 23
  []
 
-[13
+[12
 
- </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/checkpoints.png>]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/13.tex
-<figures/learning_loop_1.png, id=419, 419.5675pt x 367.3725pt>
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/checkpoints.png>]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/13.tex
+<figures/learning_loop_1.png, id=395, 419.5675pt x 367.3725pt>
 File: figures/learning_loop_1.png Graphic file (type png)
 <use figures/learning_loop_1.png>
-Package pdftex.def Info: figures/learning_loop_1.png  used on input line 39.
+Package pdftex.def Info: figures/learning_loop_1.png  used on input line 44.
 (pdftex.def)             Requested size: 61.45703pt x 53.80858pt.
-<figures/observations_1.png, id=420, 534.99875pt x 347.2975pt>
-File: figures/observations_1.png Graphic file (type png)
-<use figures/observations_1.png>
-Package pdftex.def Info: figures/observations_1.png  used on input line 39.
-(pdftex.def)             Requested size: 92.1879pt x 59.83998pt.
-<figures/observations_2.png, id=421, 806.01125pt x 406.51875pt>
+<figures/observations_2.png, id=396, 806.01125pt x 406.51875pt>
 File: figures/observations_2.png Graphic file (type png)
 <use figures/observations_2.png>
-Package pdftex.def Info: figures/observations_2.png  used on input line 39.
+Package pdftex.def Info: figures/observations_2.png  used on input line 44.
 (pdftex.def)             Requested size: 92.1879pt x 46.49124pt.
-<figures/observations_3.png, id=422, 781.92125pt x 522.95375pt>
-File: figures/observations_3.png Graphic file (type png)
-<use figures/observations_3.png>
-Package pdftex.def Info: figures/observations_3.png  used on input line 39.
-(pdftex.def)             Requested size: 92.1879pt x 61.65054pt.
- [14
 
- </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/learning_loop_1.png> </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/observations_1.png> </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/observations_2.png> </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/observations_3.png>]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/14.tex
-<figures/compare_res_1_checkpoints.png, id=451, 277.035pt x 204.765pt>
-File: figures/compare_res_1_checkpoints.png Graphic file (type png)
-<use figures/compare_res_1_checkpoints.png>
-Package pdftex.def Info: figures/compare_res_1_checkpoints.png  used on input line 27.
-(pdftex.def)             Requested size: 153.64493pt x 113.56467pt.
-<figures/compare_res_1_rewards.png, id=452, 274.02374pt x 200.75pt>
-File: figures/compare_res_1_rewards.png Graphic file (type png)
-<use figures/compare_res_1_rewards.png>
-Package pdftex.def Info: figures/compare_res_1_rewards.png  used on input line 27.
-(pdftex.def)             Requested size: 153.64493pt x 112.56319pt.
-<figures/compare_res_1_length.png, id=453, 273.02pt x 198.7425pt>
-File: figures/compare_res_1_length.png Graphic file (type png)
-<use figures/compare_res_1_length.png>
-Package pdftex.def Info: figures/compare_res_1_length.png  used on input line 27.
-(pdftex.def)             Requested size: 153.64493pt x 111.84392pt.
-
-Overfull \vbox (9.05197pt too high) detected at line 27
+Overfull \hbox (113.3989pt too wide) in paragraph at lines 44--44
+[]|  []  
  []
 
-[15
+<figures/observations_0.png, id=397, 534.99875pt x 347.2975pt>
+File: figures/observations_0.png Graphic file (type png)
+<use figures/observations_0.png>
+Package pdftex.def Info: figures/observations_0.png  used on input line 44.
+(pdftex.def)             Requested size: 92.1879pt x 59.83998pt.
+<figures/observations_1.png, id=398, 534.99875pt x 347.2975pt>
+File: figures/observations_1.png Graphic file (type png)
+<use figures/observations_1.png>
+Package pdftex.def Info: figures/observations_1.png  used on input line 44.
+(pdftex.def)             Requested size: 92.1879pt x 59.83998pt.
+<figures/observations_3.png, id=399, 781.92125pt x 522.95375pt>
+File: figures/observations_3.png Graphic file (type png)
+<use figures/observations_3.png>
+Package pdftex.def Info: figures/observations_3.png  used on input line 44.
+(pdftex.def)             Requested size: 92.1879pt x 61.65054pt.
 
- </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/compare_res_1_checkpoints.png> </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/compare_res_1_rewards.png> </home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/figures/compare_res_1_length.png>]) (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/slajdy/15.tex [16
+Overfull \vbox (2.15361pt too high) detected at line 44
+ []
 
-]) [17
+[13
+
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/learning_loop_1.png> </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_2.png> </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_0.png> </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_1.png> </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/observations_3.png>]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/14.tex
+<figures/input_observations.png, id=431, 722.7pt x 289.08pt>
+File: figures/input_observations.png Graphic file (type png)
+<use figures/input_observations.png>
+Package pdftex.def Info: figures/input_observations.png  used on input line 6.
+(pdftex.def)             Requested size: 307.28987pt x 122.91692pt.
+ [14
+
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/input_observations.png>]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/15.tex
+<figures/hyperparameters_tuning_results.png, id=457, 722.7pt x 289.08pt>
+File: figures/hyperparameters_tuning_results.png Graphic file (type png)
+<use figures/hyperparameters_tuning_results.png>
+Package pdftex.def Info: figures/hyperparameters_tuning_results.png  used on input line 59.
+(pdftex.def)             Requested size: 307.28987pt x 122.91692pt.
+ [15
+
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/hyperparameters_tuning_results.png>]) (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/slajdy/16.tex
+<figures/trening_environs.png, id=483, 1606.0pt x 2609.75pt>
+File: figures/trening_environs.png Graphic file (type png)
+<use figures/trening_environs.png>
+Package pdftex.def Info: figures/trening_environs.png  used on input line 33.
+(pdftex.def)             Requested size: 122.91406pt x 199.70496pt.
+ [16
+
+ </home/kamil/UnityProjects/TestProject/Praca/prezentacja/figures/trening_environs.png>]) [17
 
 ]
 \tf@nav=\write6
@@ -1120,11 +1153,11 @@ Overfull \vbox (9.05197pt too high) detected at line 27
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 101.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 101.
- (/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 101.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 101.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 102.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 102.
+ (/home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 102.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 3493E15AD266E91F0D4199BAAD00150F;193.
 
@@ -1133,18 +1166,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 23909 strings out of 483075
- 492586 string characters out of 5963834
- 728516 words of memory out of 5000000
- 38207 multiletter control sequences out of 15000+600000
- 543176 words of font info for 55 fonts, out of 8000000 for 9000
+ 24291 strings out of 483075
+ 502584 string characters out of 5963834
+ 739582 words of memory out of 5000000
+ 38577 multiletter control sequences out of 15000+600000
+ 542759 words of font info for 55 fonts, out of 8000000 for 9000
  79 hyphenation exceptions out of 8191
- 54i,20n,80p,850b,772s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,20n,80p,846b,772s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/pltt.enc} </home/kamil/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/pltcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/pltt10.pfb>
-Output written on "/home/kamil/Desktop/Studia/Praca Inżynierska/prezentacja/main.pdf" (17 pages, 3762429 bytes).
+Output written on /home/kamil/UnityProjects/TestProject/Praca/prezentacja/main.pdf (17 pages, 8018486 bytes).
 PDF statistics:
- 586 PDF objects out of 1000 (max. 8388607)
+ 590 PDF objects out of 1000 (max. 8388607)
  474 compressed objects within 5 object streams
  39 named destinations out of 1000 (max. 500000)
- 221 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 231 words of extra memory for PDF output out of 10000 (max. 10000000)
 
